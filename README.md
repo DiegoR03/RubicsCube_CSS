@@ -18,3 +18,21 @@ Vandaag heb ik veel bereikt maar ook weinig. Ik ben de dag begonnen met de prese
 - 11:15 BT code verbetered en ReadME aangepast op datum.
 
 Dit was een korte maar interessante dag. De dag begon met Sanne en een voortgangs gesprek, tijdens dit gesprek bespraken wij onze plannen voor het CSS vak. Hier kreeg ik goede tips die ervoor kunnen zorgen dat mijn CSS eindopdracht een stukje makkelijker kan verlopen. Ik kreeg tips over de wiskunde die erachter gaat zitten en hoe ik dit het beste aan kan pakken. Daarna heb ik met Vasilis gepraat over de Browser Tech website 9De Erfbelasting website met NS thema. Hier hebben we kort gekeken naar de code en heb ik wat tips gekregen hoe ik de code kan opschonen en welke elementen overbodig waren.
+
+## Checkout 04/03/2026
+- 09:30 intro van Nils over CSS
+- 10:30 verder werken aan rubiks cube
+- 11:35 Workshop van Nils, layout basics
+- 12:25 Workshop van Sanne, 3d transform
+- 13:15 Zelfstandig verder werken
+- 13:30 Pauze
+- 14:15 Weer zelfstandig verder werken
+- 16:00 Checkout
+
+Gesprek met:
+Vandaag was een hele productieve dag. Ik begon de dag met een Weekly Geek uitleg van Nils Binder, dit was een korte introductie over wie hij was, wat zijn functie is bij zijn baan en hoe hij CSS effectief gebruikt. Daarna heb ik zijn workshop gevolgd over layout basic. Tijdens deze workshop hebben we voornamelijk geleerd over display:flex. Ik heb hier hele handige truucjes geleerd zoals flex-grow: 1;, flex-basis: 0; en flex-wrap: wrap;. Deze functies zorgen ervoor dat je makkelijker elementen kan wrappen binnen een flex-box zonder dat je zelf de elementen een bepaalde breedte of hoogte hoeft te geven, de website doet dit allemaal voor je. Na deze workshop van Nils heb ik een workshop gevolgd va Sanne. Hier heb ik wat handige truucjes geleerd om 3d objecten een betere styling te geven en ik deze zelfs kan animeren (op een 3D manier). Na al deze workshops heb ik zelfstandig doorgewerkt aan mijn Rubiks Cube tot 16:00. Ik heb een volledige 3D cube kunnen maken die je zelfs al gedeeltelijk kan draaien, maar op dit moment alleen Horizontaal:
+<img width="937" height="761" alt="image" src="https://github.com/user-attachments/assets/4e2baa6b-0118-4f36-9b51-1b5af5a04b50" />
+<img width="834" height="745" alt="image" src="https://github.com/user-attachments/assets/ffa8f15f-d99a-42a8-9888-14cb7aef5f53" />
+
+
+
