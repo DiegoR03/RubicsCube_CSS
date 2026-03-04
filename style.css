@@ -1,0 +1,303 @@
+:root {
+    --dimensions: 66.66px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #a4a4a4;
+    perspective: 40em;
+}
+
+/* MARK: Cube zelf */
+.rubiks-cube {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg) rotateY(30deg);
+}
+
+
+.face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: 2px solid #333;
+    transform-style: preserve-3d;
+}
+
+/* MARK: Kleuren cubes zelf */
+div div {
+    box-sizing: border-box;
+}
+
+/* Met hulp van CHatGPT om de opbouw te bepalen van de cubes */
+/* Hoe kan ik de mini-cubes zelf 3D krijgen zonder een moeilijk systeem te bouwen die zichzelf herhaalt? */
+/* Antwoord: Leuk idee wat je wilt maken! Helaas kan het niet zonder herhaling, maar ik ga je helpen om de kubussen van jouw Rubiks kubus 3D te krijgen. Elke mini-kubus moet dezelfde obouw krijgen als de grote kubus, elk met verschillende kanten. */
+.cubie {
+    position: absolute;
+    width: var(--dimensions);
+    height: var(--dimensions);
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+
+    /* Zowel --base-pos als de transition heb ik met behulp van ChatGPT gedaan en Internet */
+    --base-pos: translate3d(calc(var(--x) * var(--dimensions)),
+            calc(var(--y) * var(--dimensions)),
+            calc((var(--z) - 1) * var(--dimensions)));
+    /* Link naar bron: https://www.w3schools.com/cssref/func_cubic-bezier.php */
+    transition: transform 0.6s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+
+    transform: var(--base-pos);
+}
+
+.cubie div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid black;
+}
+
+.cubie div div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #333;
+}
+
+.layer {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+    transform-origin: 100px 100px 0;
+}
+
+#rotate-top,
+#rotate-middle,
+#rotate-bottom {
+    top: 0;
+    margin-bottom: 30em;
+
+}
+
+#rotate-top:checked~.rubiks-cube .layer-top,
+#rotate-middle:checked~.rubiks-cube .layer-middle,
+#rotate-bottom:checked~.rubiks-cube .layer-bottom {
+    transform: rotateY(90deg);
+}
+
+.hidden-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.controls-top {
+    position: absolute;
+    top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.controls-middle {
+    position: absolute;
+    top: 50px;
+    display: flex;
+    gap: 10px;
+}
+
+.controls-bottom {
+    position: absolute;
+    top: 80px;
+    display: flex;
+    gap: 10px;
+}
+
+
+.cube-button {
+    padding: 10px 20px;
+    background: #333;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: sans-serif;
+    user-select: none;
+    transition: all 0.2s;
+    border-bottom: 4px solid #000;
+}
+
+.cube-button:active {
+    transform: translateY(2px);
+    border-bottom: 2px solid #000;
+}
+
+#rotate-top:checked~.controls label[for="rotate-top"],
+#rotate-middle:checked~.controls label[for="rotate-middle"],
+#rotate-bottom:checked~.controls label[for="rotate-bottom"] {
+    background: #e74c3c;
+}
+
+#rotate-top:checked~.rubiks-cube .layer-top,
+#rotate-middle:checked~.rubiks-cube .layer-middle,
+#rotate-bottom:checked~.rubiks-cube .layer-bottom {
+    transform: rotateY(90deg);
+}
+
+
+input[type="checkbox"],
+.btn {
+    display: none;
+}
+
+.btn.b1 {
+    display: block;
+}
+
+/* MARK: Aantal graden die de laag moet draaien wanneer er een checkbox is aangevinkt */
+#top-90:checked~.rubiks-cube .layer-top,
+#middle-90:checked~.rubiks-cube .layer-middle,
+#bottom-90:checked~.rubiks-cube .layer-bottom {
+    transform: rotateY(90deg);
+}
+
+#top-180:checked~.rubiks-cube .layer-top,
+#middle-180:checked~.rubiks-cube .layer-middle,
+#bottom-180:checked~.rubiks-cube .layer-bottom {
+    transform: rotateY(180deg);
+}
+
+#top-270:checked~.rubiks-cube .layer-top,
+#middle-270:checked~.rubiks-cube .layer-middle,
+#bottom-270:checked~.rubiks-cube .layer-bottom {
+    transform: rotateY(270deg);
+}
+
+#top-0:checked~.rubiks-cube .layer-top,
+#middle-0:checked~.rubiks-cube .layer-middle,
+#bottom-0:checked~.rubiks-cube .layer-bottom {
+    transform: rotateY(0deg);
+}
+
+/* MARK: Als 90 is aangevinkt: verberg knop 1, toon knop 2 */
+#top-90:checked~.controls-top .b1,
+#middle-90:checked~.controls-middle .b1,
+#bottom-90:checked~.controls-bottom .b1 {
+    display: none;
+}
+
+#top-90:checked~.controls-top .b2,
+#middle-90:checked~.controls-middle .b2,
+#bottom-90:checked~.controls-bottom .b2 {
+    display: block;
+}
+
+/* MARK: Als 180 is aangevinkt: verberg knop 2, toon knop 3 */
+#top-180:checked~.controls-top .b2,
+#middle-180:checked~.controls-middle .b2,
+#bottom-180:checked~.controls-bottom .b2 {
+    display: none;
+}
+
+#top-180:checked~.controls-top .b3,
+#middle-180:checked~.controls-middle .b3,
+#bottom-180:checked~.controls-bottom .b3 {
+    display: block;
+}
+
+/* MARK: Als 270 is aangevinkt: verberg knop 3, toon knop 4 */
+#top-270:checked~.controls-top .b3,
+#middle-270:checked~.controls-middle .b3,
+#bottom-270:checked~.controls-bottom .b3 {
+    display: none;
+}
+
+#top-270:checked~.controls-top .b4,
+#middle-270:checked~.controls-middle .b4,
+#bottom-270:checked~.controls-bottom .b4 {
+    display: block;
+}
+
+/* MARK: Als de 0-graden (reset) checkbox is aangevinkt: */
+#top-0:checked~.controls-top .b4,
+#middle-0:checked~.controls-middle .b4,
+#bottom-0:checked~.controls-bottom .b4 {
+    display: none;
+}
+
+#top-0:checked~.controls-top .b1,
+#middle-0:checked~.controls-middle .b1,
+#bottom-0:checked~.controls-bottom .b1 {
+    display: block;
+}
+
+.cubie div {
+    border-radius: 0.5em;
+}
+
+.cubie div:nth-child(1) {
+    transform: translateZ(33px);
+    background-color: red;
+}
+
+.cubie div:nth-child(2) {
+    transform: rotateY(180deg) translateZ(33px);
+    background-color: orange;
+}
+
+.cubie div:nth-child(3) {
+    transform: rotateY(-90deg) translateZ(33px);
+    background-color: green;
+}
+
+.cubie div:nth-child(4) {
+    transform: rotateY(90deg) translateZ(33px);
+    background-color: blue;
+}
+
+.layer-top .cubie:nth-of-type(-n+9) div:nth-child(5) {
+    transform: rotateX(90deg) translateZ(33px);
+    background-color: white;
+}
+
+.cubie div:nth-child(5) {
+    transform: rotateX(90deg) translateZ(33px);
+    background-color: rgb(23, 23, 23);
+}
+
+.cubie div:nth-child(6) {
+    transform: rotateX(-90deg) translateZ(33px);
+    background-color: yellow
+}
+
+.front {
+    transform: translateZ(100px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+    transform: translateZ(100px);
+}

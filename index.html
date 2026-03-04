@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Radio Buttons -->
+    <input type="radio" name="top-rotate" id="top-90" class="hidden-input">
+    <input type="radio" name="top-rotate" id="top-180" class="hidden-input">
+    <input type="radio" name="top-rotate" id="top-270" class="hidden-input">
+    <input type="radio" name="top-rotate" id="top-0" class="hidden-input" checked> 
+
+    <input type="radio" name="middle-rotate" id="middle-90" class="hidden-input">
+    <input type="radio" name="middle-rotate" id="middle-180" class="hidden-input">
+    <input type="radio" name="middle-rotate" id="middle-270" class="hidden-input">
+    <input type="radio" name="middle-rotate" id="middle-0" class="hidden-input" checked> 
+
+    <input type="radio" name="bottom-rotate" id="bottom-90" class="hidden-input">
+    <input type="radio" name="bottom-rotate" id="bottom-180" class="hidden-input">
+    <input type="radio" name="bottom-rotate" id="bottom-270" class="hidden-input">
+    <input type="radio" name="bottom-rotate" id="bottom-0" class="hidden-input" checked> 
+   
+    <!-- Controls -->
+    <div class="controls-top">
+        <label for="top-90" class="btn b1">Draai Top (90°)</label>
+        <label for="top-180" class="btn b2">Draai Top (180°)</label>
+        <label for="top-270" class="btn b3">Draai Top (270°)</label>
+        <label for="top-0" class="btn b4">Draai Top (360°/Reset)</label>
+    </div>
+
+    <div class="controls-middle">
+        <label for="middle-90" class="btn b1">Draai Midden (90°)</label>
+        <label for="middle-180" class="btn b2">Draai Midden (180°)</label>
+        <label for="middle-270" class="btn b3">Draai Midden (270°)</label>
+        <label for="middle-0" class="btn b4">Draai Midden (360°/Reset)</label>
+    </div>
+
+    <div class="controls-bottom">
+        <label for="bottom-90" class="btn b1">Draai Bodem (90°)</label>
+        <label for="bottom-180" class="btn b2">Draai Bodem (180°)</label>
+        <label for="bottom-270" class="btn b3">Draai Bodem (270°)</label>
+        <label for="bottom-0" class="btn b4">Draai Bodem (360°/Reset)</label>
+    </div>
+
+
+    <section class="rubiks-cube">
+        <!-- MARK: Rij 1 -->
+        <div class="layer layer-top">
+            <div class="cubie" style="--x:0; --y:0; --z:0;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:1; --y:0; --z:0;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:2; --y:0; --z:0;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:0; --y:0; --z:1;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:1; --y:0; --z:1;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:2; --y:0; --z:1;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:0; --y:0; --z:2;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:1; --y:0; --z:2;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:2; --y:0; --z:2;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>    
+            
+        <!-- MARK: Rij 2 -->
+        <div class="layer layer-middle"> 
+            <div class="cubie" style="--x:0; --y:1; --z:0;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:1; --y:1; --z:0;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:2; --y:1; --z:0;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:0; --y:1; --z:1;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:2; --y:1; --z:1;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:0; --y:1; --z:2;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:1; --y:1; --z:2;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:2; --y:1; --z:2;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div> 
+        
+        <!-- MARK: Rij 2 -->
+        <div class="layer layer-bottom"> 
+            <div class="cubie" style="--x:0; --y:2; --z:0;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:1; --y:2; --z:0;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:2; --y:2; --z:0;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:0; --y:2; --z:1;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:1; --y:2; --z:1;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:2; --y:2; --z:1;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:0; --y:2; --z:2;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:1; --y:2; --z:2;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="cubie" style="--x:2; --y:2; --z:2;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
