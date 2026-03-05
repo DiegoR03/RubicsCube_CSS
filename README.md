@@ -29,10 +29,39 @@ Dit was een korte maar interessante dag. De dag begon met Sanne en een voortgang
 - 14:15 Weer zelfstandig verder werken
 - 16:00 Checkout
 
-Gesprek met:
+Gesprek met Matthew:
 Vandaag was een hele productieve dag. Ik begon de dag met een Weekly Geek uitleg van Nils Binder, dit was een korte introductie over wie hij was, wat zijn functie is bij zijn baan en hoe hij CSS effectief gebruikt. Daarna heb ik zijn workshop gevolgd over layout basic. Tijdens deze workshop hebben we voornamelijk geleerd over display:flex. Ik heb hier hele handige truucjes geleerd zoals flex-grow: 1;, flex-basis: 0; en flex-wrap: wrap;. Deze functies zorgen ervoor dat je makkelijker elementen kan wrappen binnen een flex-box zonder dat je zelf de elementen een bepaalde breedte of hoogte hoeft te geven, de website doet dit allemaal voor je. Na deze workshop van Nils heb ik een workshop gevolgd va Sanne. Hier heb ik wat handige truucjes geleerd om 3d objecten een betere styling te geven en ik deze zelfs kan animeren (op een 3D manier). Na al deze workshops heb ik zelfstandig doorgewerkt aan mijn Rubiks Cube tot 16:00. Ik heb een volledige 3D cube kunnen maken die je zelfs al gedeeltelijk kan draaien, maar op dit moment alleen Horizontaal:
 <img width="937" height="761" alt="image" src="https://github.com/user-attachments/assets/4e2baa6b-0118-4f36-9b51-1b5af5a04b50" />
 <img width="834" height="745" alt="image" src="https://github.com/user-attachments/assets/ffa8f15f-d99a-42a8-9888-14cb7aef5f53" />
+
+## Checkout 05/03/2026
+- 09:30 Short talk met Sanne
+- 10:20 zelfstandig werken
+- 10:45 Een workshop gevolgd over animeren
+- 11:40 Kort zelfstandig vergewerkt
+- 12:25 Workshop over anchor positioning
+- 13:00 Zelfstandig verder werken
+- 13:40 pauze gehouden
+- 14:10 zelfstandig verder werken
+- 16:00 checkout
+
+Gesprek met :
+Vandaag was een soort van productieve dag... Ik heb veel bereikt, maar aan de andere kant zit ik nog steeds met hetzelfde probleem. Ik begon de dag met een short talk met Sanne, Sanne gaf hier wat korte uitleg over over welke pnderdelen in html belangrijker zijn dan de andere: ID > Classes > Elementen. Daarna heb ik kort zelfstandig gewerkt todat de eerste workshop begon. Hier gingen wij leren over keyframes en animaties. Hier heb ik iets heel handigs geleert namelijk LAlternate. Dit laat de animatie niet alleen afspelen maar loopt het terug naar 0%. Na deze workshop heb ik kort doorgewerkt en ben ik daarna aangesloten bij de anchor positioning workshop. Hier hebben wij geleerd hoe je twee objecten kan anchoren aan elkaar en hoe dit invloed heeft op deze elementen. Je kan hiermee mooie opmaak creeëren, of zelf twee elementen stretchen of een bepaalde indeling geven. Na deze workshops heb ik zelfstandig gewerkt tot de checkout. Vandaag heb ik verassend veel bereikt maar heb ik, zoals eerder gezegd, nog steeds hetzelfde probleem. Ik heb de cube aangepast waardoor hij nu deels verticaal kan draaien en horizontaal gecombineerd. Maar als ik eerst horizontaal draai en daarna verticaal, dan krijg ik een raar resultaat:
+<img width="275" height="214" alt="image" src="https://github.com/user-attachments/assets/b4fde56e-21ce-4984-8c03-a59ae2790e45" />
+Naast dit rare resultaat heb ik wel de indeling van de pagina weten te verbeteren en wil ik volgende week deze indeling nog meer verbeteren en hopelijk het de verticale draaiing afmaken.
+Het belangrijkste vandaag is dat ik de code zo heb verbeterd dat er geen ID's en classes meer worden gebruikt. Ik had er in de vorige versie een paar, maar nu zijn die compleet weg gewerkt en werkt alles beter dan het eerst werkte.
+<img width="1879" height="897" alt="image" src="https://github.com/user-attachments/assets/76b64985-02c6-4e33-ad7b-5930dddcd4ab" />
+
+
+Doelen:
+- Verticale draaiing fixen
+- Draai buttons mooi maken.
+- Achtergrond opmaak
+- Eventuele animations inplaats van radial kleuren
+- Hopelijk een alternatief vinden voor mijn rommelige code:
+<img width="1144" height="846" alt="image" src="https://github.com/user-attachments/assets/9fa97744-80a5-46dd-8e8c-bf7f1926b130" />
+
+
 
 
 
