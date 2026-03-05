@@ -2,302 +2,314 @@
     --dimensions: 66.66px;
 }
 
+/* MARK: algemeen */
 body {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    align-content: center;
+    min-height: 100vh;
     background-color: #a4a4a4;
-    perspective: 40em;
+    perspective: 50em;
+    margin: 0;
+    font-family: sans-serif;
+    gap: 20px
 }
 
-/* MARK: Cube zelf */
-.rubiks-cube {
+nav {
+    display: flex;
+    flex-wrap: wrap;       
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    z-index: 10;
+    top: 0;
+}
+
+/* MARK: Typografie */
+section h2 {
+    font-size: 1em;
+}
+
+/* MARK: Rubics Cube */
+section:has(div) {
+    width: 100%;
+    height: 60dvh;
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
     position: relative;
-    width: 200px;
     height: 200px;
     transform-style: preserve-3d;
     transform: rotateX(-30deg) rotateY(30deg);
 }
 
 
-.face {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    border: 2px solid #333;
-    transform-style: preserve-3d;
-}
-
-/* MARK: Kleuren cubes zelf */
-div div {
-    box-sizing: border-box;
-}
-
 /* Met hulp van CHatGPT om de opbouw te bepalen van de cubes */
 /* Hoe kan ik de mini-cubes zelf 3D krijgen zonder een moeilijk systeem te bouwen die zichzelf herhaalt? */
 /* Antwoord: Leuk idee wat je wilt maken! Helaas kan het niet zonder herhaling, maar ik ga je helpen om de kubussen van jouw Rubiks kubus 3D te krijgen. Elke mini-kubus moet dezelfde obouw krijgen als de grote kubus, elk met verschillende kanten. */
-.cubie {
+section div[style*="--x"] {
     position: absolute;
     width: var(--dimensions);
     height: var(--dimensions);
-    top: 0;
-    left: 0;
     transform-style: preserve-3d;
 
     /* Zowel --base-pos als de transition heb ik met behulp van ChatGPT gedaan en Internet */
-    --base-pos: translate3d(calc(var(--x) * var(--dimensions)),
-            calc(var(--y) * var(--dimensions)),
+    --base-pos: translate3d(calc(var(--x) * var(--dimensions) - 66.66px),
+            calc(var(--y) * var(--dimensions) - 66.66px),
             calc((var(--z) - 1) * var(--dimensions)));
-    /* Link naar bron: https://www.w3schools.com/cssref/func_cubic-bezier.php */
-    transition: transform 0.6s cubic-bezier(0.45, 0.05, 0.55, 0.95);
 
-    transform: var(--base-pos);
+    /* Link naar bron: https://www.w3schools.com/cssref/func_cubic-bezier.php */
+    transform: rotateX(var(--xAxis, 0deg)) rotateY(var(--yAxis, 0deg)) var(--base-pos);
+    transition: transform 0.6s cubic-bezier(0.45, 0.05, 0.55, 0.95);
 }
 
-.cubie div {
+/* De vlakken van de blokjes */
+section div div {
     position: absolute;
     width: 100%;
     height: 100%;
     border: 3px solid black;
+    border-radius: 0.5em;
+    box-sizing: border-box;
 }
 
-.cubie div div {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 1px solid #333;
+/* MARK: Bolkjes kleuren */
+section div div:nth-child(1) {
+    transform: translateZ(33px);
+    background-size: 60px 60px;
+    background: radial-gradient(circle 4em, red, rgba(0, 0, 0, 0.774));
 }
 
-.layer {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease;
-    transform-origin: 100px 100px 0;
+section div div:nth-child(2) {
+    transform: rotateY(180deg) translateZ(33px);
+    background: radial-gradient(circle 4em, orange, rgba(0, 0, 0, 0.774));
 }
 
-#rotate-top,
-#rotate-middle,
-#rotate-bottom {
+section div div:nth-child(3) {
+    transform: rotateY(-90deg) translateZ(33px);
+   background: radial-gradient(circle 4em, green, rgba(0, 0, 0, 0.774));
+}
+
+section div div:nth-child(4) {
+    transform: rotateY(90deg) translateZ(33px);
+    background: radial-gradient(circle 4em, blue, rgba(0, 0, 0, 0.774));
+}
+
+section div div:nth-child(5) {
+    transform: rotateX(90deg) translateZ(33px);
+    background: radial-gradient(circle 4em, white, rgba(0, 0, 0, 0.774));
+}
+
+section div div:nth-child(6) {
+    transform: rotateX(-90deg) translateZ(33px);
+    background: radial-gradient(circle 4em, yellow, rgba(0, 0, 0, 0.774));
+}
+
+/* MARK: Control buttons */
+section:nth-of-type(1),
+section:nth-of-type(2),
+section:nth-of-type(3),
+section:nth-of-type(4),
+section:nth-of-type(5),
+section:nth-of-type(6) {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 1;
     top: 0;
-    margin-bottom: 30em;
-
 }
 
-#rotate-top:checked~.rubiks-cube .layer-top,
-#rotate-middle:checked~.rubiks-cube .layer-middle,
-#rotate-bottom:checked~.rubiks-cube .layer-bottom {
-    transform: rotateY(90deg);
+/* MARK: Control buttons */
+section:not(:has(div)) {
+    margin-bottom: 0;
+    /* Verwijder de oude bottom margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    min-width: 130px;
+    z-index: 10;
 }
 
-.hidden-input {
+/* De buttons zelf onzichtbaar maken */
+input[type="radio"] {
     position: absolute;
     opacity: 0;
     pointer-events: none;
 }
 
-.controls-top {
-    position: absolute;
-    top: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.controls-middle {
-    position: absolute;
-    top: 50px;
-    display: flex;
-    gap: 10px;
-}
-
-.controls-bottom {
-    position: absolute;
-    top: 80px;
-    display: flex;
-    gap: 10px;
-}
-
-
-.cube-button {
-    padding: 10px 20px;
-    background: #333;
-    color: white;
-    border-radius: 8px;
+/* De labels stylen als knoppen */
+label {
+    padding: 2px 12px;
+    background: #eee;
+    border: 1px solid #333;
+    border-radius: 4px;
     cursor: pointer;
-    font-family: sans-serif;
     user-select: none;
-    transition: all 0.2s;
-    border-bottom: 4px solid #000;
+
 }
 
-.cube-button:active {
-    transform: translateY(2px);
-    border-bottom: 2px solid #000;
+label:hover {
+    background: #ddd;
 }
 
-#rotate-top:checked~.controls label[for="rotate-top"],
-#rotate-middle:checked~.controls label[for="rotate-middle"],
-#rotate-bottom:checked~.controls label[for="rotate-bottom"] {
-    background: #e74c3c;
-}
-
-#rotate-top:checked~.rubiks-cube .layer-top,
-#rotate-middle:checked~.rubiks-cube .layer-middle,
-#rotate-bottom:checked~.rubiks-cube .layer-bottom {
+/* MARK: Aantal graden die de laag moet draaien wanneer er een checkbox is aangevinkt (Oude logica) */
+/* body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked) section:has(span) span:nth-of-type(1),
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked) section:has(span) span:nth-of-type(2),
+body:has(section:nth-of-type(3) label:nth-of-type(1) input:checked) section:has(span) span:nth-of-type(3) {
     transform: rotateY(90deg);
 }
 
-
-input[type="checkbox"],
-.btn {
-    display: none;
-}
-
-.btn.b1 {
-    display: block;
-}
-
-/* MARK: Aantal graden die de laag moet draaien wanneer er een checkbox is aangevinkt */
-#top-90:checked~.rubiks-cube .layer-top,
-#middle-90:checked~.rubiks-cube .layer-middle,
-#bottom-90:checked~.rubiks-cube .layer-bottom {
-    transform: rotateY(90deg);
-}
-
-#top-180:checked~.rubiks-cube .layer-top,
-#middle-180:checked~.rubiks-cube .layer-middle,
-#bottom-180:checked~.rubiks-cube .layer-bottom {
+body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) section:has(span) span:nth-of-type(1),
+body:has(section:nth-of-type(2) label:nth-of-type(2) input:checked) section:has(span) span:nth-of-type(2),
+body:has(section:nth-of-type(3) label:nth-of-type(2) input:checked) section:has(span) span:nth-of-type(3) {
     transform: rotateY(180deg);
 }
 
-#top-270:checked~.rubiks-cube .layer-top,
-#middle-270:checked~.rubiks-cube .layer-middle,
-#bottom-270:checked~.rubiks-cube .layer-bottom {
+body:has(section:nth-of-type(1) label:nth-of-type(3) input:checked) section:has(span) span:nth-of-type(1),
+body:has(section:nth-of-type(2) label:nth-of-type(3) input:checked) section:has(span) span:nth-of-type(2),
+body:has(section:nth-of-type(3) label:nth-of-type(3) input:checked) section:has(span) span:nth-of-type(3) {
     transform: rotateY(270deg);
 }
 
-#top-0:checked~.rubiks-cube .layer-top,
-#middle-0:checked~.rubiks-cube .layer-middle,
-#bottom-0:checked~.rubiks-cube .layer-bottom {
+body:has(section:nth-of-type(1) label:nth-of-type(4) input:checked) section:has(span) span:nth-of-type(1),
+body:has(section:nth-of-type(2) label:nth-of-type(4) input:checked) section:has(span) span:nth-of-type(2),
+body:has(section:nth-of-type(3) label:nth-of-type(4) input:checked) section:has(span) span:nth-of-type(3) {
     transform: rotateY(0deg);
+} */
+
+/* MARK: Horizontaal draaien */
+/* y = 0 */
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--y:0"] {
+    --yAxis: 90deg;
 }
 
-/* MARK: Als 90 is aangevinkt: verberg knop 1, toon knop 2 */
-#top-90:checked~.controls-top .b1,
-#middle-90:checked~.controls-middle .b1,
-#bottom-90:checked~.controls-bottom .b1 {
+body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) section:last-of-type div[style*="--y:0"] {
+    --yAxis: 180deg;
+}
+
+body:has(section:nth-of-type(1) label:nth-of-type(3) input:checked) section:last-of-type div[style*="--y:0"] {
+    --yAxis: 270deg;
+}
+
+/* y = 1 */
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--y:1"] {
+    --yAxis: 90deg;
+}
+
+body:has(section:nth-of-type(2) label:nth-of-type(2) input:checked) section:last-of-type div[style*="--y:1"] {
+    --yAxis: 180deg;
+}
+
+body:has(section:nth-of-type(2) label:nth-of-type(3) input:checked) section:last-of-type div[style*="--y:1"] {
+    --yAxis: 270deg;
+}
+
+/* y = 2 */
+body:has(section:nth-of-type(3) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--y:2"] {
+    --yAxis: 90deg;
+}
+
+body:has(section:nth-of-type(3) label:nth-of-type(2) input:checked) section:last-of-type div[style*="--y:2"] {
+    --yAxis: 180deg;
+}
+
+body:has(section:nth-of-type(3) label:nth-of-type(3) input:checked) section:last-of-type div[style*="--y:2"] {
+    --yAxis: 270deg;
+}
+
+/* MARK: Verticaal draaien (X-as) */
+/* x = 0 */
+body:has(section:nth-of-type(4) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:0"] {
+    --xAxis: 90deg;
+}
+
+body:has(section:nth-of-type(4) label:nth-of-type(2) input:checked) section:last-of-type div[style*="--x:0"] {
+    --xAxis: 180deg;
+}
+
+body:has(section:nth-of-type(4) label:nth-of-type(3) input:checked) section:last-of-type div[style*="--x:0"] {
+    --xAxis: 270deg;
+}
+
+/* x = 1 */
+body:has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:1"] {
+    --xAxis: 90deg;
+}
+
+body:has(section:nth-of-type(5) label:nth-of-type(2) input:checked) section:last-of-type div[style*="--x:1"] {
+    --xAxis: 180deg;
+}
+
+body:has(section:nth-of-type(5) label:nth-of-type(3) input:checked) section:last-of-type div[style*="--x:1"] {
+    --xAxis: 270deg;
+}
+
+/* x = 2 */
+body:has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:2"] {
+    --xAxis: 90deg;
+}
+
+body:has(section:nth-of-type(6) label:nth-of-type(2) input:checked) section:last-of-type div[style*="--x:2"] {
+    --xAxis: 180deg;
+}
+
+body:has(section:nth-of-type(6) label:nth-of-type(3) input:checked) section:last-of-type div[style*="--x:2"] {
+    --xAxis: 270deg;
+}
+
+/* MARK: Als gechecked: toon één, verberg de andere */
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked) section:nth-of-type(1) label:nth-of-type(1),
+body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) section:nth-of-type(1) label:nth-of-type(2),
+body:has(section:nth-of-type(1) label:nth-of-type(3) input:checked) section:nth-of-type(1) label:nth-of-type(3),
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked) section:nth-of-type(2) label:nth-of-type(1),
+body:has(section:nth-of-type(2) label:nth-of-type(2) input:checked) section:nth-of-type(2) label:nth-of-type(2),
+body:has(section:nth-of-type(2) label:nth-of-type(3) input:checked) section:nth-of-type(2) label:nth-of-type(3),
+body:has(section:nth-of-type(3) label:nth-of-type(1) input:checked) section:nth-of-type(3) label:nth-of-type(1),
+body:has(section:nth-of-type(3) label:nth-of-type(2) input:checked) section:nth-of-type(3) label:nth-of-type(2),
+body:has(section:nth-of-type(3) label:nth-of-type(3) input:checked) section:nth-of-type(3) label:nth-of-type(3),
+body:has(section:nth-of-type(4) label:nth-of-type(1) input:checked) section:nth-of-type(4) label:nth-of-type(1),
+body:has(section:nth-of-type(4) label:nth-of-type(2) input:checked) section:nth-of-type(4) label:nth-of-type(2),
+body:has(section:nth-of-type(4) label:nth-of-type(3) input:checked) section:nth-of-type(4) label:nth-of-type(3),
+body:has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:nth-of-type(5) label:nth-of-type(1),
+body:has(section:nth-of-type(5) label:nth-of-type(2) input:checked) section:nth-of-type(5) label:nth-of-type(2),
+body:has(section:nth-of-type(5) label:nth-of-type(3) input:checked) section:nth-of-type(5) label:nth-of-type(3),
+body:has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:nth-of-type(6) label:nth-of-type(1),
+body:has(section:nth-of-type(6) label:nth-of-type(2) input:checked) section:nth-of-type(6) label:nth-of-type(2),
+body:has(section:nth-of-type(6) label:nth-of-type(3) input:checked) section:nth-of-type(6) label:nth-of-type(3) {
     display: none;
 }
 
-#top-90:checked~.controls-top .b2,
-#middle-90:checked~.controls-middle .b2,
-#bottom-90:checked~.controls-bottom .b2 {
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked) section:nth-of-type(1) label:nth-of-type(2),
+body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) section:nth-of-type(1) label:nth-of-type(3),
+body:has(section:nth-of-type(1) label:nth-of-type(3) input:checked) section:nth-of-type(1) label:nth-of-type(4),
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked) section:nth-of-type(2) label:nth-of-type(2),
+body:has(section:nth-of-type(2) label:nth-of-type(2) input:checked) section:nth-of-type(2) label:nth-of-type(3),
+body:has(section:nth-of-type(2) label:nth-of-type(3) input:checked) section:nth-of-type(2) label:nth-of-type(4),
+body:has(section:nth-of-type(3) label:nth-of-type(1) input:checked) section:nth-of-type(3) label:nth-of-type(2), 
+body:has(section:nth-of-type(3) label:nth-of-type(2) input:checked) section:nth-of-type(3) label:nth-of-type(3),
+body:has(section:nth-of-type(3) label:nth-of-type(3) input:checked) section:nth-of-type(3) label:nth-of-type(4),
+body:has(section:nth-of-type(4) label:nth-of-type(1) input:checked) section:nth-of-type(4) label:nth-of-type(2),
+body:has(section:nth-of-type(4) label:nth-of-type(2) input:checked) section:nth-of-type(4) label:nth-of-type(3),
+body:has(section:nth-of-type(4) label:nth-of-type(3) input:checked) section:nth-of-type(4) label:nth-of-type(4),
+body:has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:nth-of-type(5) label:nth-of-type(2),
+body:has(section:nth-of-type(5) label:nth-of-type(2) input:checked) section:nth-of-type(5) label:nth-of-type(3),
+body:has(section:nth-of-type(5) label:nth-of-type(3) input:checked) section:nth-of-type(5) label:nth-of-type(4),
+body:has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:nth-of-type(6) label:nth-of-type(2),
+body:has(section:nth-of-type(6) label:nth-of-type(2) input:checked) section:nth-of-type(6) label:nth-of-type(3),
+body:has(section:nth-of-type(6) label:nth-of-type(3) input:checked) section:nth-of-type(6) label:nth-of-type(4) {
     display: block;
 }
 
-/* MARK: Als 180 is aangevinkt: verberg knop 2, toon knop 3 */
-#top-180:checked~.controls-top .b2,
-#middle-180:checked~.controls-middle .b2,
-#bottom-180:checked~.controls-bottom .b2 {
+section label {
     display: none;
 }
 
-#top-180:checked~.controls-top .b3,
-#middle-180:checked~.controls-middle .b3,
-#bottom-180:checked~.controls-bottom .b3 {
+section label:nth-of-type(1) {
     display: block;
-}
-
-/* MARK: Als 270 is aangevinkt: verberg knop 3, toon knop 4 */
-#top-270:checked~.controls-top .b3,
-#middle-270:checked~.controls-middle .b3,
-#bottom-270:checked~.controls-bottom .b3 {
-    display: none;
-}
-
-#top-270:checked~.controls-top .b4,
-#middle-270:checked~.controls-middle .b4,
-#bottom-270:checked~.controls-bottom .b4 {
-    display: block;
-}
-
-/* MARK: Als de 0-graden (reset) checkbox is aangevinkt: */
-#top-0:checked~.controls-top .b4,
-#middle-0:checked~.controls-middle .b4,
-#bottom-0:checked~.controls-bottom .b4 {
-    display: none;
-}
-
-#top-0:checked~.controls-top .b1,
-#middle-0:checked~.controls-middle .b1,
-#bottom-0:checked~.controls-bottom .b1 {
-    display: block;
-}
-
-.cubie div {
-    border-radius: 0.5em;
-}
-
-.cubie div:nth-child(1) {
-    transform: translateZ(33px);
-    background-color: red;
-}
-
-.cubie div:nth-child(2) {
-    transform: rotateY(180deg) translateZ(33px);
-    background-color: orange;
-}
-
-.cubie div:nth-child(3) {
-    transform: rotateY(-90deg) translateZ(33px);
-    background-color: green;
-}
-
-.cubie div:nth-child(4) {
-    transform: rotateY(90deg) translateZ(33px);
-    background-color: blue;
-}
-
-.layer-top .cubie:nth-of-type(-n+9) div:nth-child(5) {
-    transform: rotateX(90deg) translateZ(33px);
-    background-color: white;
-}
-
-.cubie div:nth-child(5) {
-    transform: rotateX(90deg) translateZ(33px);
-    background-color: rgb(23, 23, 23);
-}
-
-.cubie div:nth-child(6) {
-    transform: rotateX(-90deg) translateZ(33px);
-    background-color: yellow
-}
-
-.front {
-    transform: translateZ(100px);
-}
-
-.back {
-    transform: rotateY(180deg) translateZ(100px);
-}
-
-.left {
-    transform: rotateY(-90deg) translateZ(100px);
-}
-
-.right {
-    transform: rotateY(90deg) translateZ(100px);
-}
-
-.top {
-    transform: rotateX(90deg) translateZ(100px);
-}
-
-.bottom {
-    transform: translateZ(100px);
 }

@@ -9,265 +9,272 @@
 </head>
 
 <body>
-    <!-- Radio Buttons -->
-    <input type="radio" name="top-rotate" id="top-90" class="hidden-input">
-    <input type="radio" name="top-rotate" id="top-180" class="hidden-input">
-    <input type="radio" name="top-rotate" id="top-270" class="hidden-input">
-    <input type="radio" name="top-rotate" id="top-0" class="hidden-input" checked> 
+    <nav>
+        <section>
+        <h2>Top Laag (H)</h2>
+        <label><input type="radio" name="top">90°</label>
+        <label><input type="radio" name="top">180°</label>
+        <label><input type="radio" name="top">270°</label>
+        <label><input type="radio" name="top" checked>Reset</label>
+        </section>
 
-    <input type="radio" name="middle-rotate" id="middle-90" class="hidden-input">
-    <input type="radio" name="middle-rotate" id="middle-180" class="hidden-input">
-    <input type="radio" name="middle-rotate" id="middle-270" class="hidden-input">
-    <input type="radio" name="middle-rotate" id="middle-0" class="hidden-input" checked> 
+        <section>
+            <h2>Midden (H)</h2>
+            <label><input type="radio" name="middle-h">90°</label>
+            <label><input type="radio" name="middle-h">180°</label>
+            <label><input type="radio" name="middle-h">270°</label>
+            <label><input type="radio" name="middle-h" checked>Reset</label>
+        </section>
 
-    <input type="radio" name="bottom-rotate" id="bottom-90" class="hidden-input">
-    <input type="radio" name="bottom-rotate" id="bottom-180" class="hidden-input">
-    <input type="radio" name="bottom-rotate" id="bottom-270" class="hidden-input">
-    <input type="radio" name="bottom-rotate" id="bottom-0" class="hidden-input" checked> 
-   
-    <!-- Controls -->
-    <div class="controls-top">
-        <label for="top-90" class="btn b1">Draai Top (90°)</label>
-        <label for="top-180" class="btn b2">Draai Top (180°)</label>
-        <label for="top-270" class="btn b3">Draai Top (270°)</label>
-        <label for="top-0" class="btn b4">Draai Top (360°/Reset)</label>
-    </div>
+        <section>
+            <h2>Bodem (H)</h2>
+            <label><input type="radio" name="bottom">90°</label>
+            <label><input type="radio" name="bottom">180°</label>
+            <label><input type="radio" name="bottom">270°</label>
+            <label><input type="radio" name="bottom" checked>Reset</label>
+        </section>
 
-    <div class="controls-middle">
-        <label for="middle-90" class="btn b1">Draai Midden (90°)</label>
-        <label for="middle-180" class="btn b2">Draai Midden (180°)</label>
-        <label for="middle-270" class="btn b3">Draai Midden (270°)</label>
-        <label for="middle-0" class="btn b4">Draai Midden (360°/Reset)</label>
-    </div>
+        <section>
+            <h2>Links (V)</h2>
+            <label><input type="radio" name="left">90°</label>
+            <label><input type="radio" name="left">180°</label>
+            <label><input type="radio" name="left">270°</label>
+            <label><input type="radio" name="left" checked>Reset</label>
+        </section>
 
-    <div class="controls-bottom">
-        <label for="bottom-90" class="btn b1">Draai Bodem (90°)</label>
-        <label for="bottom-180" class="btn b2">Draai Bodem (180°)</label>
-        <label for="bottom-270" class="btn b3">Draai Bodem (270°)</label>
-        <label for="bottom-0" class="btn b4">Draai Bodem (360°/Reset)</label>
-    </div>
+        <section>
+            <h2>Midden (V)</h2>
+            <label><input type="radio" name="middle-v">90°</label>
+            <label><input type="radio" name="middle-v">180°</label>
+            <label><input type="radio" name="middle-v">270°</label>
+            <label><input type="radio" name="middle-v" checked>Reset</label>
+        </section>
+
+        <section>
+            <h2>Rechts (V)</h2>
+            <label><input type="radio" name="right">90°</label>
+            <label><input type="radio" name="right">180°</label>
+            <label><input type="radio" name="right">270°</label>
+            <label><input type="radio" name="right" checked>Reset</label>
+        </section>
+    </nav>
 
 
-    <section class="rubiks-cube">
+    <section>
         <!-- MARK: Rij 1 -->
-        <div class="layer layer-top">
-            <div class="cubie" style="--x:0; --y:0; --z:0;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:1; --y:0; --z:0;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:2; --y:0; --z:0;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:0; --y:0; --z:1;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:1; --y:0; --z:1;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:2; --y:0; --z:1;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:0; --y:0; --z:2;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:1; --y:0; --z:2;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:2; --y:0; --z:2;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>    
-            
-        <!-- MARK: Rij 2 -->
-        <div class="layer layer-middle"> 
-            <div class="cubie" style="--x:0; --y:1; --z:0;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:1; --y:1; --z:0;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:2; --y:1; --z:0;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:0; --y:1; --z:1;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:2; --y:1; --z:1;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:0; --y:1; --z:2;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:1; --y:1; --z:2;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:2; --y:1; --z:2;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div> 
-        
-        <!-- MARK: Rij 2 -->
-        <div class="layer layer-bottom"> 
-            <div class="cubie" style="--x:0; --y:2; --z:0;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:1; --y:2; --z:0;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:2; --y:2; --z:0;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:0; --y:2; --z:1;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:1; --y:2; --z:1;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:2; --y:2; --z:1;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:0; --y:2; --z:2;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:1; --y:2; --z:2;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="cubie" style="--x:2; --y:2; --z:2;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+        <div style="--x:0; --y:0; --z:0;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
+        <div style="--x:1; --y:0; --z:0;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:2; --y:0; --z:0;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:0; --y:0; --z:1;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:1; --y:0; --z:1;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:2; --y:0; --z:1;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:0; --y:0; --z:2;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:1; --y:0; --z:2;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:2; --y:0; --z:2;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <!-- MARK: Rij 2 -->
+        <div style="--x:0; --y:1; --z:0;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:1; --y:1; --z:0;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:2; --y:1; --z:0;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:0; --y:1; --z:1;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:2; --y:1; --z:1;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:0; --y:1; --z:2;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:1; --y:1; --z:2;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:2; --y:1; --z:2;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <!-- MARK: Rij 2 -->
+        <div style="--x:0; --y:2; --z:0;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:1; --y:2; --z:0;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:2; --y:2; --z:0;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:0; --y:2; --z:1;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:1; --y:2; --z:1;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:2; --y:2; --z:1;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:0; --y:2; --z:2;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:1; --y:2; --z:2;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="--x:2; --y:2; --z:2;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        </span>
     </section>
 </body>
 
