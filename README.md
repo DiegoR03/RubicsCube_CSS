@@ -58,6 +58,9 @@ Doelen:
 - Draai buttons mooi maken.
 - Achtergrond opmaak
 - Eventuele animations inplaats van radial kleuren
+- Hopelijk een alternatief vinden voor mijn rommelige code:
+<img width="1144" height="846" alt="image" src="https://github.com/user-attachments/assets/9fa97744-80a5-46dd-8e8c-bf7f1926b130" />
+
 
 
 
