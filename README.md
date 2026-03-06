@@ -63,7 +63,7 @@ Doelen:
 
 ## 06/03/2026
 - 14:15 Kort gewerkt
- 14:40 Gesprek met Sanne
+- 14:40 Gesprek met Sanne
 - 15:30 Gesprek met Vasilis
 
 Uitleg:
