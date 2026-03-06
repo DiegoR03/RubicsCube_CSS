@@ -61,6 +61,16 @@ Doelen:
 - Hopelijk een alternatief vinden voor mijn rommelige code:
 <img width="1144" height="846" alt="image" src="https://github.com/user-attachments/assets/9fa97744-80a5-46dd-8e8c-bf7f1926b130" />
 
+## 06/03/2026
+- 14:15 Kort gewerkt
+ 14:40 Gesprek met Sanne
+- 15:30 Gesprek met Vasilis
+
+Uitleg:
+Ik heb vandaag een gesprek gehad met Sanne over de progressie die heb heb gemaakt. Ik heb mijn code laten zien en hoever ik ben op de html website zelf. Tijdens dit gesprek heb ik eigenlijk gehoord dat het onmogelijk is om oneindig een randomiser te maken voor de cube. De maximum die iemand ooit heeft gemaakt is 7 draaien, en dat kostte al heel veel code. Zelf moet ik nu een doel stellen hoeveel draaien ik minimaal wil bereiken in de tijd die ik nog heb tijdens dit vak. 
+Ik heb wel tips gekregen over waar ik mij nu op moet focussen ik moet mij nu meer gaan focussen op een styling voor de cube. Bijvoorbeeld een animatie voor de rode kant zodat hij ook werkt als hij is gedraait.
+
+
 
 
 
