@@ -225,42 +225,265 @@ body:has(section:nth-of-type(3) label:nth-of-type(3) input:checked) section:last
 
 /* MARK: Verticaal draaien (X-as) */
 /* x = 0 */
-body:has(section:nth-of-type(4) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:0"] {
+/* 1. STANDAARD: Alleen als Top, Midden-H en Bodem op RESET staan */
+body:has(section:is(:nth-of-type(1), :nth-of-type(2), :nth-of-type(3)) label:nth-of-type(4) input:checked)
+    :has(section:nth-of-type(4) label:nth-of-type(1) input:checked) 
+    section:last-of-type div[style*="--x:0"] {
     --xAxis: 90deg;
 }
 
-body:has(section:nth-of-type(4) label:nth-of-type(2) input:checked) section:last-of-type div[style*="--x:0"] {
+body:has(section:is(:nth-of-type(1), :nth-of-type(2), :nth-of-type(3)) label:nth-of-type(4) input:checked)
+    :has(section:nth-of-type(4) label:nth-of-type(2) input:checked) 
+    section:last-of-type div[style*="--x:0"] {
     --xAxis: 180deg;
 }
 
-body:has(section:nth-of-type(4) label:nth-of-type(3) input:checked) section:last-of-type div[style*="--x:0"] {
+body:has(section:is(:nth-of-type(1), :nth-of-type(2), :nth-of-type(3)) label:nth-of-type(4) input:checked)
+    :has(section:nth-of-type(4) label:nth-of-type(3) input:checked) 
+    section:last-of-type div[style*="--x:0"] {
     --xAxis: 270deg;
 }
 
 /* x = 1 */
-body:has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:1"] {
+body:has(section:is(:nth-of-type(1), :nth-of-type(2), :nth-of-type(3)) label:nth-of-type(4) input:checked)
+    :has(section:nth-of-type(5) label:nth-of-type(1) input:checked) 
+    section:last-of-type div[style*="--x:1"] {
     --xAxis: 90deg;
 }
 
-body:has(section:nth-of-type(5) label:nth-of-type(2) input:checked) section:last-of-type div[style*="--x:1"] {
+body:has(section:is(:nth-of-type(1), :nth-of-type(2), :nth-of-type(3)) label:nth-of-type(4) input:checked)
+    :has(section:nth-of-type(5) label:nth-of-type(2) input:checked) 
+    section:last-of-type div[style*="--x:1"] {
     --xAxis: 180deg;
 }
 
-body:has(section:nth-of-type(5) label:nth-of-type(3) input:checked) section:last-of-type div[style*="--x:1"] {
+body:has(section:is(:nth-of-type(1), :nth-of-type(2), :nth-of-type(3)) label:nth-of-type(4) input:checked)
+    :has(section:nth-of-type(5) label:nth-of-type(3) input:checked) 
+    section:last-of-type div[style*="--x:1"] {
     --xAxis: 270deg;
 }
 
 /* x = 2 */
-body:has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:2"] {
+body:has(section:is(:nth-of-type(1), :nth-of-type(2), :nth-of-type(3)) label:nth-of-type(4) input:checked)
+    :has(section:nth-of-type(6) label:nth-of-type(1) input:checked) 
+    section:last-of-type div[style*="--x:2"] {
     --xAxis: 90deg;
 }
 
-body:has(section:nth-of-type(6) label:nth-of-type(2) input:checked) section:last-of-type div[style*="--x:2"] {
+body:has(section:is(:nth-of-type(1), :nth-of-type(2), :nth-of-type(3)) label:nth-of-type(4) input:checked)
+    :has(section:nth-of-type(6) label:nth-of-type(2) input:checked) 
+    section:last-of-type div[style*="--x:2"] {
     --xAxis: 180deg;
 }
 
-body:has(section:nth-of-type(6) label:nth-of-type(3) input:checked) section:last-of-type div[style*="--x:2"] {
+body:has(section:is(:nth-of-type(1), :nth-of-type(2), :nth-of-type(3)) label:nth-of-type(4) input:checked)
+    :has(section:nth-of-type(6) label:nth-of-type(3) input:checked) 
+    section:last-of-type div[style*="--x:2"] {
     --xAxis: 270deg;
+}
+
+
+body:has(section:nth-of-type(1) label:nth-of-type(4) input:checked):has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:2"] {
+    --xAxis: 90deg;
+}
+
+body:has(section:nth-of-type(1) label:nth-of-type(4) input:checked):has(section:nth-of-type(6) label:nth-of-type(2) input:checked) section:last-of-type div[style*="--x:2"] {
+    --xAxis: 180deg;
+}
+
+body:has(section:nth-of-type(1) label:nth-of-type(4) input:checked):has(section:nth-of-type(6) label:nth-of-type(3) input:checked) section:last-of-type div[style*="--x:2"] {
+    --xAxis: 270deg;
+}
+
+/* MARK: Combinatie draai*/
+
+/* Gevraagt aan Gemini of mijn code korter kon: Is er een manier waarop ik niet steeds deze regels moet herhalen? misschien dat ik div[style*="--x:0; --y:2; --z:2;"],[style*="--x:0; --y:1; --z:2;"] kan doen ofzo? */
+/* Gemini zei Absoluut, dat kan een stuk korter! Je kunt de body:has(...) selector één keer opschrijven en daarachter een lijst met de specifieke div selectors hangen, gescheiden door komma's. */
+/* Met :is() kun je de herhaling van de body:has volledig voorkomen. Je zet de variabele onderdelen gewoon in een lijstje. */
+
+/* MARK: Top laag */
+/* Links 90 */
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked):has(section:nth-of-type(4) label:nth-of-type(1) input:checked) 
+section:last-of-type div:is(
+    [style*="--x:0; --y:0; --z:0;"],
+    [style*="--x:1; --y:0; --z:0;"],
+    [style*="--x:2; --y:0; --z:0;"],
+    [style*="--x:0; --y:1; --z:0;"],
+    [style*="--x:0; --y:1; --z:1;"],
+    [style*="--x:0; --y:1; --z:2;"],
+    [style*="--x:0; --y:2; --z:0;"],
+    [style*="--x:0; --y:2; --z:1;"],
+    [style*="--x:0; --y:2; --z:2;"]
+) {
+    --xAxis: 90deg;
+}
+
+/* Links 180 */
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked):has(section:nth-of-type(4) label:nth-of-type(2) input:checked) 
+section:last-of-type div:is(
+    [style*="--x:0; --y:0; --z:0;"],
+    [style*="--x:1; --y:0; --z:0;"],
+    [style*="--x:2; --y:0; --z:0;"],
+    [style*="--x:0; --y:1; --z:0;"],
+    [style*="--x:0; --y:1; --z:1;"],
+    [style*="--x:0; --y:1; --z:2;"],
+    [style*="--x:0; --y:2; --z:0;"],
+    [style*="--x:0; --y:2; --z:1;"],
+    [style*="--x:0; --y:2; --z:2;"]
+) {
+    --xAxis: 180deg;
+}
+
+
+/* Links 270 */
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked):has(section:nth-of-type(4) label:nth-of-type(3) input:checked) 
+section:last-of-type div:is(
+    [style*="--x:0; --y:0; --z:0;"],
+    [style*="--x:1; --y:0; --z:0;"],
+    [style*="--x:2; --y:0; --z:0;"],
+    [style*="--x:0; --y:1; --z:0;"],
+    [style*="--x:0; --y:1; --z:1;"],
+    [style*="--x:0; --y:1; --z:2;"],
+    [style*="--x:0; --y:2; --z:0;"],
+    [style*="--x:0; --y:2; --z:1;"],
+    [style*="--x:0; --y:2; --z:2;"]
+) {
+    --xAxis: 270deg;
+}
+
+/* Midden 90 */
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked):has(section:nth-of-type(5) label:nth-of-type(1) input:checked) 
+section:last-of-type div:is(
+    [style*="--x:0; --y:0; --z:1;"],
+    [style*="--x:1; --y:0; --z:1;"],
+    [style*="--x:2; --y:0; --z:1;"],
+    [style*="--x:1; --y:1; --z:0;"],
+    [style*="--x:1; --y:1; --z:2;"],
+    [style*="--x:1; --y:2; --z:0;"],
+    [style*="--x:1; --y:2; --z:1;"],
+    [style*="--x:1; --y:2; --z:2;"]
+) {
+    --xAxis: 90deg;
+}
+
+/* Midden 180 */
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked):has(section:nth-of-type(5) label:nth-of-type(2) input:checked) 
+section:last-of-type div:is(
+    [style*="--x:0; --y:0; --z:1;"],
+    [style*="--x:1; --y:0; --z:1;"],
+    [style*="--x:2; --y:0; --z:1;"],
+    [style*="--x:1; --y:1; --z:0;"],
+    [style*="--x:1; --y:1; --z:2;"],
+    [style*="--x:1; --y:2; --z:0;"],
+    [style*="--x:1; --y:2; --z:1;"],
+    [style*="--x:1; --y:2; --z:2;"] 
+) {
+    --xAxis: 180deg;
+}
+
+/* Midden 270 */
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked):has(section:nth-of-type(5) label:nth-of-type(3) input:checked) 
+section:last-of-type div:is(
+    [style*="--x:0; --y:0; --z:1;"],
+    [style*="--x:1; --y:0; --z:1;"],
+    [style*="--x:2; --y:0; --z:1;"],
+    [style*="--x:1; --y:1; --z:0;"],
+    [style*="--x:1; --y:1; --z:2;"],
+    [style*="--x:1; --y:2; --z:0;"],
+    [style*="--x:1; --y:2; --z:1;"],
+    [style*="--x:1; --y:2; --z:2;"] 
+) {
+    --xAxis: 270deg;
+}
+
+/* Rechts 90 */
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked):has(section:nth-of-type(6) label:nth-of-type(1) input:checked) 
+section:last-of-type div:is(
+    [style*="--x:0; --y:0; --z:2;"],
+    [style*="--x:1; --y:0; --z:2;"],
+    [style*="--x:2; --y:0; --z:2;"],
+    [style*="--x:2; --y:1; --z:2;"],
+    [style*="--x:2; --y:1; --z:1;"],
+    [style*="--x:2; --y:2; --z:0;"],
+    [style*="--x:2; --y:2; --z:2;"],
+    [style*="--x:2; --y:2; --z:1;"],
+    [style*="--x:2; --y:2; --z:0;"] 
+) {
+    --xAxis: 90deg;
+}
+
+/* Rechts 180 */
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked):has(section:nth-of-type(6) label:nth-of-type(2) input:checked) 
+section:last-of-type div:is(
+    [style*="--x:0; --y:0; --z:2;"],
+    [style*="--x:1; --y:0; --z:2;"],
+    [style*="--x:2; --y:0; --z:2;"],
+    [style*="--x:2; --y:1; --z:2;"],
+    [style*="--x:2; --y:1; --z:1;"],
+    [style*="--x:2; --y:1; --z:0;"],
+    [style*="--x:2; --y:2; --z:2;"],
+    [style*="--x:2; --y:2; --z:1;"],
+    [style*="--x:2; --y:2; --z:0;"]
+) {
+    --xAxis: 180deg;
+}
+
+/* Rechts 270 */
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked):has(section:nth-of-type(6) label:nth-of-type(3) input:checked) 
+section:last-of-type div:is(
+    [style*="--x:0; --y:0; --z:2;"],
+    [style*="--x:1; --y:0; --z:2;"],
+    [style*="--x:2; --y:0; --z:2;"],
+    [style*="--x:2; --y:1; --z:2;"],
+    [style*="--x:2; --y:1; --z:1;"],
+    [style*="--x:2; --y:1; --z:0;"],
+    [style*="--x:2; --y:2; --z:2;"],
+    [style*="--x:2; --y:2; --z:1;"],
+    [style*="--x:2; --y:2; --z:0;"]
+) {
+    --xAxis: 270deg;
+}
+
+/* MARK: Midden laag */
+/* Links 90 */
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(4) label:nth-of-type(1) input:checked) 
+section:last-of-type div:is(
+    [style*="--x:0; --y:0; --z:0;"],
+    [style*="--x:0; --y:0; --z:1;"],
+    [style*="--x:0; --y:0; --z:2;"],
+    [style*="--x:2; --y:1; --z:0;"],
+    [style*="--x:1; --y:1; --z:0;"],
+    [style*="--x:0; --y:1; --z:0;"],
+    [style*="--x:0; --y:2; --z:0;"],
+    [style*="--x:0; --y:2; --z:1;"],
+    [style*="--x:0; --y:2; --z:2;"]
+) {
+    --xAxis: 90deg;
+}
+
+/* Midden laag 90 + Midden 90 */
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:0; --y:0; --z:1;"],
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:1; --y:0; --z:1;"],
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:2; --y:0; --z:1;"],
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:1; --y:1; --z:0;"],
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:1; --y:1; --z:2;"],
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:1; --y:2; --z:0;"],
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:1; --y:2; --z:1;"],
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:1; --y:2; --z:2;"] {
+    --xAxis: 90deg;
+}
+
+/* Midden laag 90 + Rechts 90 */
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:0; --y:0; --z:2;"],
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:1; --y:0; --z:2;"],
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:2; --y:0; --z:2;"],
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:2; --y:1; --z:2;"],
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:2; --y:1; --z:1     ;"],
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:2; --y:2; --z:0;"],
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:2; --y:2; --z:2;"],
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:2; --y:2; --z:1;"],
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked):has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:2; --y:2; --z:0;"] {
+    --xAxis: 90deg;
 }
 
 /* MARK: Als gechecked: toon één, verberg de andere */
