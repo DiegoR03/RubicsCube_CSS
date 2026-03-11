@@ -70,6 +70,57 @@ Uitleg:
 Ik heb vandaag een gesprek gehad met Sanne over de progressie die heb heb gemaakt. Ik heb mijn code laten zien en hoever ik ben op de html website zelf. Tijdens dit gesprek heb ik eigenlijk gehoord dat het onmogelijk is om oneindig een randomiser te maken voor de cube. De maximum die iemand ooit heeft gemaakt is 7 draaien, en dat kostte al heel veel code. Zelf moet ik nu een doel stellen hoeveel draaien ik minimaal wil bereiken in de tijd die ik nog heb tijdens dit vak. 
 Ik heb wel tips gekregen over waar ik mij nu op moet focussen ik moet mij nu meer gaan focussen op een styling voor de cube. Bijvoorbeeld een animatie voor de rode kant zodat hij ook werkt als hij is gedraait.
 
+## Week 2
+Deze week was heel interessant voor mij, ik heb voor het eerst leren werken met 3D objecten binnen HTML. Ik zou nu al kunnen zeggen dat ik meer heb geleerd dan ik ook had gedacht te leren in deze korte tijd. Voor volgende week heb ik veel doelen:
+- 3D rubics cube, horizontaal en verticaal combineren
+- De kleuren van de cube animeren
+- Start state van de rubics cube psuedo-randomisen
+
+## 11/03/2026
+- 09:30 Short talk met Sanne over kleuren
+- 10:30 zelfstandig werken
+- 10:45 Workshop met sanne over container style queries
+- 11:35 Zelfstandig werken
+- 13:30 Pauze
+- 14:00 Zelfstandig werken
+- 16:00 Checkout
+
+Gesprek met Patoune:
+<br>Vandaag heb ik verassend veel bereikt, het was een geweldige dag voor productiviteit. Ik begon de dag met een short talk met Sanne over de kleuren en gradients, hoewel deze short talk heel interessant was heeft het niet veel geholpen voor mijn eindproduct. Ik ga het wel onderhouden als ik mijn rubiks cube met gradients/animaties wil verbeteren. Om 11:35 ben ik begonnen met zelfstandig werken, ik heb de eerste twee uur onderzoek gedaan naar het feit of ik mijn rubics cube niet random komn laten draaien, maar mijn antwoord van internet in combinatie met het antwoord van Sanne gaf mij te realisatie dat het echt niet kon. Maar dit stopte mij niet, mijn plan hierna was om elke positie (zo ver mogelijk was) te hard-coden. Ik ben daarna gelijk begonnen met onderzoek doen en het testen van code. Mijn eerste poging was gelijk raak, het kosste mij flink wat tijd om het allemaal uit te schrijven, maar het werkte, ik had een combinatie van Horizontaal en Verticaal draaien met de bovenste laag en de linker kant. Hoewel het werkte was de code wel rommelig:<br>
+<img width="1274" height="197" alt="image" src="https://github.com/user-attachments/assets/3e97b10b-55ab-458f-a98d-2ca7513b35a0" /><br>
+Deze code wilde ik graag verbeteren naar code die overzichtelijker was en makkelijker te herhalen was voor toekomstige draai combinaties, voor deze verbetering heb ik gebruik gemaakt van internet en van de AI Gemini. Met deze antwoorden heb ik nieuwe code kunenn schrijven die makkelijk toepasbaar was, korter dan de voortgaande code en veel overzichtelijker:<br>
+<img width="1083" height="347" alt="image" src="https://github.com/user-attachments/assets/439a0d5b-8418-4a60-b6b3-2e8e720a708b" /><br><br>
+
+Maar met deze nieuwe code kwamen ook problemen. Als ik een tweede keer draide, draaiden er soms ander blokjes mee, ondanks het feit dat ik specifieke blokjes een andere draaing gaf, daarom heb ik een soort psuedo-state geschreven die gebruik maakt van het feit dat alle controls via radio-buttons gaan:<br>
+<img width="854" height="174" alt="image" src="https://github.com/user-attachments/assets/998e7b06-3f06-4af0-a6ec-ee77893a038d" /><br>
+Deze code checkt over welke blokjes moeten draaien en welke niet, daarna laat hij de andere blokjes in hun 'default' state. Hoewel dit nog een klein probleempje heeft is het bijna perfect. Het enige probleem is dat hij soms niet draait tijdens zijn eerste draaiing.
+<br><br>
+Maar ik heb mijn doel voor vandaag bereikt, ik heb horizontaal en verticaal kunnen combineren in een rubics cube, vanaf hier zal het veel copy past wwerk worden, maar er is een vooruitzicht:<br>
+// Top laag 90 graden gedraait
+<br>
+<img width="1310" height="685" alt="image" src="https://github.com/user-attachments/assets/d3e3172e-6202-4fd6-9d79-6aa259209225" />
+<br><br>
+// Top laag 90 graden gedraait + Link 90 graden gedraait
+<br>
+<img width="1319" height="674" alt="image" src="https://github.com/user-attachments/assets/7e349adb-b4a6-4fda-8001-be267e5b562b" />
+<br><br>
+
+Mijn doelen voor morgen zijn:<br>
+- Start state fixen
+- Kleuren animeren
+- Start randomisen inplaats van 'solved' starten
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
