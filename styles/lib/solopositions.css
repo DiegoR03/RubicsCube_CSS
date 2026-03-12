@@ -1,0 +1,87 @@
+/* MARK: Verticaal draaien (X-as) */
+/* x = 0 */
+/* 1. STANDAARD: Alleen als Top, Midden-H en Bodem op RESET staan */
+body:has(section:nth-of-type(4) label:nth-of-type(4) input:checked):has(section:nth-of-type(5) label:nth-of-type(4) input:checked),:has(section:nth-of-type(6) label:nth-of-type(4) input:checked) {
+        /* (Top-laag) */
+        &:has(section:nth-of-type(1) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--y:0"] {
+            --xAxis: 90deg;
+        }
+    
+        &:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) section:last-of-type div[style*="--y:0"] {
+            --xAxis: 180deg;
+        }
+    
+        &:has(section:nth-of-type(1) label:nth-of-type(3) input:checked) section:last-of-type div[style*="--y:0"] {
+            --xAxis: 270deg;
+        }
+        
+        /* (Midden-V) */
+        &:has(section:nth-of-type(2) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--y:1"] {
+            --xAxis: 90deg;
+        }
+    
+        &:has(section:nth-of-type(2) label:nth-of-type(2) input:checked) section:last-of-type div[style*="--y:1"] {
+            --xAxis: 180deg;
+        }
+    
+        &:has(section:nth-of-type(2) label:nth-of-type(3) input:checked) section:last-of-type div[style*="--y:1"] {
+            --xAxis: 270deg;
+        }
+    
+        /* (Rechts) */
+        &:has(section:nth-of-type(3) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--y:2"] {
+            --xAxis: 90deg;
+        }
+    
+        &:has(section:nth-of-type(3) label:nth-of-type(2) input:checked) section:last-of-type div[style*="--y:2"] {
+            --xAxis: 180deg;
+        }
+    
+        &:has(section:nth-of-type(3) label:nth-of-type(3) input:checked) section:last-of-type div[style*="--y:2"] {
+            --xAxis: 270deg;
+        }
+}
+
+body:has(section:nth-of-type(1) label:nth-of-type(4) input:checked):has(section:nth-of-type(2) label:nth-of-type(4) input:checked):has(section:nth-of-type(3) label:nth-of-type(4) input:checked){
+    
+        /* (Links-V) */
+        &:has(section:nth-of-type(4) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:0"] {
+            --yAxis: 90deg;
+        }
+    
+        &:has(section:nth-of-type(4) label:nth-of-type(2) input:checked) section:last-of-type div[style*="--x:0"] {
+            --yAxis: 180deg;
+        }
+    
+        &:has(section:nth-of-type(4) label:nth-of-type(3) input:checked) section:last-of-type div[style*="--x:0"] {
+            --yAxis: 270deg;
+        }
+    
+        /* (Midden-V) */
+        &:has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:1"] {
+            --yAxis: 90deg;
+        }
+    
+        &:has(section:nth-of-type(5) label:nth-of-type(2) input:checked) section:last-of-type div[style*="--x:1"] {
+            --yAxis: 180deg;
+        }
+    
+        &:has(section:nth-of-type(5) label:nth-of-type(3) input:checked) section:last-of-type div[style*="--x:1"] {
+            --yAxis: 270deg;
+        }
+    
+        /* (Rechts) */
+        &:has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div[style*="--x:2"] {
+            --yAxis: 90deg;
+        }
+    
+        &:has(section:nth-of-type(6) label:nth-of-type(2) input:checked) section:last-of-type div[style*="--x:2"] {
+            --yAxis: 180deg;
+        }
+    
+        &:has(section:nth-of-type(6) label:nth-of-type(3) input:checked) section:last-of-type div[style*="--x:2"] {
+            --yAxis: 270deg;
+        }
+}
+
+

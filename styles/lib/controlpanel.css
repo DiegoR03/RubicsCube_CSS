@@ -1,0 +1,100 @@
+/* MARK: Control buttons */
+section:nth-of-type(1),
+section:nth-of-type(2),
+section:nth-of-type(3),
+section:nth-of-type(4),
+section:nth-of-type(5),
+section:nth-of-type(6) {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 1;
+    top: 0;
+}
+
+/* MARK: Control buttons */
+section:not(:has(div)) {
+    margin-bottom: 0;
+    /* Verwijder de oude bottom margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    min-width: 130px;
+    z-index: 10;
+}
+
+/* De buttons zelf onzichtbaar maken */
+input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* De labels stylen als knoppen */
+label {
+    padding: 2px 12px;
+    background: #eee;
+    border: 1px solid #333;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+
+}
+
+label:hover {
+    background: #ddd;
+}
+
+/* MARK: Als gechecked: toon één, verberg de andere */
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked) section:nth-of-type(1) label:nth-of-type(1),
+body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) section:nth-of-type(1) label:nth-of-type(2),
+body:has(section:nth-of-type(1) label:nth-of-type(3) input:checked) section:nth-of-type(1) label:nth-of-type(3),
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked) section:nth-of-type(2) label:nth-of-type(1),
+body:has(section:nth-of-type(2) label:nth-of-type(2) input:checked) section:nth-of-type(2) label:nth-of-type(2),
+body:has(section:nth-of-type(2) label:nth-of-type(3) input:checked) section:nth-of-type(2) label:nth-of-type(3),
+body:has(section:nth-of-type(3) label:nth-of-type(1) input:checked) section:nth-of-type(3) label:nth-of-type(1),
+body:has(section:nth-of-type(3) label:nth-of-type(2) input:checked) section:nth-of-type(3) label:nth-of-type(2),
+body:has(section:nth-of-type(3) label:nth-of-type(3) input:checked) section:nth-of-type(3) label:nth-of-type(3),
+body:has(section:nth-of-type(4) label:nth-of-type(1) input:checked) section:nth-of-type(4) label:nth-of-type(1),
+body:has(section:nth-of-type(4) label:nth-of-type(2) input:checked) section:nth-of-type(4) label:nth-of-type(2),
+body:has(section:nth-of-type(4) label:nth-of-type(3) input:checked) section:nth-of-type(4) label:nth-of-type(3),
+body:has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:nth-of-type(5) label:nth-of-type(1),
+body:has(section:nth-of-type(5) label:nth-of-type(2) input:checked) section:nth-of-type(5) label:nth-of-type(2),
+body:has(section:nth-of-type(5) label:nth-of-type(3) input:checked) section:nth-of-type(5) label:nth-of-type(3),
+body:has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:nth-of-type(6) label:nth-of-type(1),
+body:has(section:nth-of-type(6) label:nth-of-type(2) input:checked) section:nth-of-type(6) label:nth-of-type(2),
+body:has(section:nth-of-type(6) label:nth-of-type(3) input:checked) section:nth-of-type(6) label:nth-of-type(3) {
+    display: none;
+}
+
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked) section:nth-of-type(1) label:nth-of-type(2),
+body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) section:nth-of-type(1) label:nth-of-type(3),
+body:has(section:nth-of-type(1) label:nth-of-type(3) input:checked) section:nth-of-type(1) label:nth-of-type(4),
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked) section:nth-of-type(2) label:nth-of-type(2),
+body:has(section:nth-of-type(2) label:nth-of-type(2) input:checked) section:nth-of-type(2) label:nth-of-type(3),
+body:has(section:nth-of-type(2) label:nth-of-type(3) input:checked) section:nth-of-type(2) label:nth-of-type(4),
+body:has(section:nth-of-type(3) label:nth-of-type(1) input:checked) section:nth-of-type(3) label:nth-of-type(2), 
+body:has(section:nth-of-type(3) label:nth-of-type(2) input:checked) section:nth-of-type(3) label:nth-of-type(3),
+body:has(section:nth-of-type(3) label:nth-of-type(3) input:checked) section:nth-of-type(3) label:nth-of-type(4),
+body:has(section:nth-of-type(4) label:nth-of-type(1) input:checked) section:nth-of-type(4) label:nth-of-type(2),
+body:has(section:nth-of-type(4) label:nth-of-type(2) input:checked) section:nth-of-type(4) label:nth-of-type(3),
+body:has(section:nth-of-type(4) label:nth-of-type(3) input:checked) section:nth-of-type(4) label:nth-of-type(4),
+body:has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:nth-of-type(5) label:nth-of-type(2),
+body:has(section:nth-of-type(5) label:nth-of-type(2) input:checked) section:nth-of-type(5) label:nth-of-type(3),
+body:has(section:nth-of-type(5) label:nth-of-type(3) input:checked) section:nth-of-type(5) label:nth-of-type(4),
+body:has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:nth-of-type(6) label:nth-of-type(2),
+body:has(section:nth-of-type(6) label:nth-of-type(2) input:checked) section:nth-of-type(6) label:nth-of-type(3),
+body:has(section:nth-of-type(6) label:nth-of-type(3) input:checked) section:nth-of-type(6) label:nth-of-type(4) {
+    display: block;
+}
+
+section label {
+    display: none;
+}
+
+section label:nth-of-type(1) {
+    display: block;
+}

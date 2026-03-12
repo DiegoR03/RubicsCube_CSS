@@ -1,0 +1,213 @@
+@import '/styles/lib/solopositions.css';
+@import '/styles/lib/combinationpositions.css';
+@import '/styles/lib/controlpanel.css';
+
+:root {
+    --dimensions: 66.66px;
+}
+
+/* MARK: Algemeen */
+body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 100vh;
+    perspective: 50em;
+    background:#6c6c6c;
+    margin: 0;
+    font-family: sans-serif;
+    gap: 20px;
+    transition: background 0.5s ease; 
+
+    /* Voor de if() functie ben ik naar https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/if gegaan */
+    
+}
+
+html {
+    container-type: normal;
+    container-name: theme-container;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;       
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    z-index: 10;
+    top: 0;
+}
+
+/* MARK: Typografie */
+section h2 {
+    font-size: 1em;
+}
+
+/* MARK: Rubics Cube */
+section:has(div) {
+    width: 100%;
+    height: 60dvh;
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
+    position: relative;
+    height: 200px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg) rotateY(30deg);
+}
+
+
+/* Met hulp van CHatGPT om de opbouw te bepalen van de cubes */
+/* Hoe kan ik de mini-cubes zelf 3D krijgen zonder een moeilijk systeem te bouwen die zichzelf herhaalt? */
+/* Antwoord: Leuk idee wat je wilt maken! Helaas kan het niet zonder herhaling, maar ik ga je helpen om de kubussen van jouw Rubiks kubus 3D te krijgen. Elke mini-kubus moet dezelfde obouw krijgen als de grote kubus, elk met verschillende kanten. */
+section div[style*="--x"] {
+    position: absolute;
+    width: var(--dimensions);
+    height: var(--dimensions);
+    transform-style: preserve-3d;
+
+    /* Zowel --base-pos als de transition heb ik met behulp van ChatGPT gedaan en Internet */
+    --base-pos: translate3d(calc(var(--x) * var(--dimensions) - 66.66px),
+            calc(var(--y) * var(--dimensions) - 66.66px),
+            calc((var(--z) - 1) * var(--dimensions)));
+
+    /* Link naar bron: https://www.w3schools.com/cssref/func_cubic-bezier.php */
+    transform: rotateX(var(--yAxis, 0deg)) rotateY(var(--xAxis, 0deg)) var(--base-pos);
+    transition: transform 0.6s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    counter-reset: face-counter;
+}
+
+section div div::after {
+    counter-reset: x var(--x) y var(--y) z var(--z);
+    content: counter(x) "," counter(y) "," counter(z);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    /* Link naar website voor text-shadow: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-shadow */
+    text-shadow: 2px 2px 0px black, -1px -1px 0px black;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* De vlakken van de blokjes */
+section div div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid black;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+}
+
+/* MARK: Bolkjes kleuren */
+section div div:nth-child(1) {
+    transform: translateZ(33px);
+    background-size: 60px 60px;
+    background: radial-gradient(circle 4em, red, rgba(0, 0, 0, 0.5));
+}
+
+section div div:nth-child(2) {
+    transform: rotateY(180deg) translateZ(33px);
+    background: radial-gradient(circle 4em, orange, rgba(0, 0, 0, 0.5));
+}
+
+section div div:nth-child(3) {
+    transform: rotateY(-90deg) translateZ(33px);
+   background: radial-gradient(circle 4em, green, rgba(0, 0, 0, 0.5));
+}
+
+section div div:nth-child(4) {
+    transform: rotateY(90deg) translateZ(33px);
+    background: radial-gradient(circle 4em, blue, rgba(0, 0, 0, 0.5));
+}
+
+section div div:nth-child(5) {
+    transform: rotateX(90deg) translateZ(33px);
+    background: radial-gradient(circle 4em, white, rgba(0, 0, 0, 0.5));
+}
+
+section div div:nth-child(6) {
+    transform: rotateX(-90deg) translateZ(33px);
+    background: radial-gradient(circle 4em, yellow, rgba(0, 0, 0, 0.5));
+}
+
+
+
+/* MARK: Aantal graden die de laag moet draaien wanneer er een checkbox is aangevinkt (Oude logica) */
+/* body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked) section:has(span) span:nth-of-type(1),
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked) section:has(span) span:nth-of-type(2),
+body:has(section:nth-of-type(3) label:nth-of-type(1) input:checked) section:has(span) span:nth-of-type(3) {
+    transform: rotateY(90deg);
+}
+
+body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) section:has(span) span:nth-of-type(1),
+body:has(section:nth-of-type(2) label:nth-of-type(2) input:checked) section:has(span) span:nth-of-type(2),
+body:has(section:nth-of-type(3) label:nth-of-type(2) input:checked) section:has(span) span:nth-of-type(3) {
+    transform: rotateY(180deg);
+}
+
+body:has(section:nth-of-type(1) label:nth-of-type(3) input:checked) section:has(span) span:nth-of-type(1),
+body:has(section:nth-of-type(2) label:nth-of-type(3) input:checked) section:has(span) span:nth-of-type(2),
+body:has(section:nth-of-type(3) label:nth-of-type(3) input:checked) section:has(span) span:nth-of-type(3) {
+    transform: rotateY(270deg);
+}
+
+body:has(section:nth-of-type(1) label:nth-of-type(4) input:checked) section:has(span) span:nth-of-type(1),
+body:has(section:nth-of-type(2) label:nth-of-type(4) input:checked) section:has(span) span:nth-of-type(2),
+body:has(section:nth-of-type(3) label:nth-of-type(4) input:checked) section:has(span) span:nth-of-type(3) {
+    transform: rotateY(0deg);
+} */
+
+
+
+/* MARK: Animaties */
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* MARK: Container queries */
+/* Gevraagd aan gemini waarom:  body:has(input[value="neutral"]:checked) { --scheme: neutral; }*/
+/* Antwoord: In jouw code is de body de container, en je probeert binnen de @container regel de body aan te passen. Dat ziet de browser als een soort "oneindige lus" en negeert het. De Oplossing: Gebruik de html tag of een wrapper */
+html:has(input[value="neutral"]:checked) { 
+    --scheme: neutral; 
+}
+html:has(input[value="chaos"]:checked)   {
+     --scheme: chaos; 
+}
+html:has(input[value="pooltable"]:checked) {
+     --scheme: pooltable; 
+}
+
+/* Voor de regenboow gradient achtergrond heb ik: https://codepen.io/P1N2O/pen/pyBNzX gebruikt */
+@container theme-container style(--scheme: chaos) {
+  body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 5s ease infinite;
+  }
+}
+
+/* Pooltable Thema (Groen) */
+@container theme-container style(--scheme: pooltable) {
+  body {
+    box-shadow: 0px 0px 10px 3px #052F18 inset;
+    background: radial-gradient(ellipse at center, #16A757 0%, #116336 85%);
+  }
+}

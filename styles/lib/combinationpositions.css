@@ -1,0 +1,685 @@
+/* MARK: Combinatie draai*/
+
+/* Gevraagt aan Gemini of mijn code korter kon: Is er een manier waarop ik niet steeds deze regels moet herhalen? misschien dat ik div[style*="--x:0; --y:2; --z:2;"],[style*="--x:0; --y:1; --z:2;"] kan doen ofzo? */
+/* Gemini zei Absoluut, dat kan een stuk korter! Je kunt de body:has(...) selector één keer opschrijven en daarachter een lijst met de specifieke div selectors hangen, gescheiden door komma's. */
+/* Met :has() kun je de herhaling van de body:has volledig voorkomen. Je zet de variabele onderdelen gewoon in een lijstje. */
+
+/* MARK: Top laag 90*/
+/* Top 90 + Links */
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked) {
+        /* Links 90 graden */    
+        &:has(section:nth-of-type(4) label:nth-of-type(1) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:0;"], 
+                [style*="--x:1; --y:0; --z:0;"],    
+                [style*="--x:2; --y:0; --z:0;"],
+                [style*="--x:0; --y:1; --z:0;"], 
+                [style*="--x:0; --y:1; --z:1;"], 
+                [style*="--x:0; --y:1; --z:2;"],
+                [style*="--x:0; --y:2; --z:0;"], 
+                [style*="--x:0; --y:2; --z:1;"], 
+                [style*="--x:0; --y:2; --z:2;"]) {
+            --yAxis: 90deg;
+        }
+    
+        /* Links 180 graden */
+        &:has(section:nth-of-type(4) label:nth-of-type(2) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:0;"], 
+                [style*="--x:1; --y:0; --z:0;"], 
+                [style*="--x:2; --y:0; --z:0;"],
+                [style*="--x:0; --y:1; --z:0;"], 
+                [style*="--x:0; --y:1; --z:1;"], 
+                [style*="--x:0; --y:1; --z:2;"],
+                [style*="--x:0; --y:2; --z:0;"], 
+                [style*="--x:0; --y:2; --z:1;"], 
+                [style*="--x:0; --y:2; --z:2;"]) {
+            --yAxis: 180deg;
+        }
+
+        /* Links 270 graden */
+        &:has(section:nth-of-type(4) label:nth-of-type(3) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:0;"],
+                [style*="--x:1; --y:0; --z:0;"],
+                [style*="--x:2; --y:0; --z:0;"],
+                [style*="--x:0; --y:1; --z:0;"],
+                [style*="--x:0; --y:1; --z:1;"],
+                [style*="--x:0; --y:1; --z:2;"],
+                [style*="--x:0; --y:2; --z:0;"],
+                [style*="--x:0; --y:2; --z:1;"],
+                [style*="--x:0; --y:2; --z:2;"]) {
+            --yAxis: 270deg;
+        }
+}
+
+/* Top laag 90 + Midden */
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked) {
+        /* Midden 90 graden */    
+        &:has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:1;"],
+                [style*="--x:1; --y:0; --z:1;"],
+                [style*="--x:2; --y:0; --z:1;"],
+                [style*="--x:1; --y:1; --z:0;"],
+                [style*="--x:1; --y:1; --z:2;"],
+                [style*="--x:1; --y:2; --z:0;"],
+                [style*="--x:1; --y:2; --z:1;"],
+                [style*="--x:1; --y:2; --z:2;"]) {
+            --yAxis: 90deg;
+        }
+    
+        /* Midden 180 graden */
+        &:has(section:nth-of-type(5) label:nth-of-type(2) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:1;"],
+                [style*="--x:1; --y:0; --z:1;"],
+                [style*="--x:2; --y:0; --z:1;"],
+                [style*="--x:1; --y:1; --z:0;"],
+                [style*="--x:1; --y:1; --z:2;"],
+                [style*="--x:1; --y:2; --z:0;"],
+                [style*="--x:1; --y:2; --z:1;"],
+                [style*="--x:1; --y:2; --z:2;"]) {
+            --yAxis: 180deg;
+        }
+
+        /* Midden 270 graden */
+        &:has(section:nth-of-type(5) label:nth-of-type(3) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:1;"],
+                [style*="--x:1; --y:0; --z:1;"],
+                [style*="--x:2; --y:0; --z:1;"],
+                [style*="--x:1; --y:1; --z:0;"],
+                [style*="--x:1; --y:1; --z:2;"],
+                [style*="--x:1; --y:2; --z:0;"],
+                [style*="--x:1; --y:2; --z:1;"],
+                [style*="--x:1; --y:2; --z:2;"]) {
+            --yAxis: 270deg;
+        }
+}
+
+/* Top laag 90 + Rechts */
+body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked) {
+        /* Rechts 90 graden */    
+        &:has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:2;"],
+                [style*="--x:1; --y:0; --z:2;"],
+                [style*="--x:2; --y:0; --z:2;"],
+                [style*="--x:2; --y:1; --z:2;"],
+                [style*="--x:2; --y:1; --z:1;"],
+                [style*="--x:2; --y:2; --z:0;"],
+                [style*="--x:2; --y:2; --z:2;"],
+                [style*="--x:2; --y:2; --z:1;"],
+                [style*="--x:2; --y:2; --z:0;"] ) {
+            --yAxis: 90deg;
+        }
+    
+        /* Rechts 180 graden */
+        &:has(section:nth-of-type(6) label:nth-of-type(2) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:2;"],
+                [style*="--x:1; --y:0; --z:2;"],
+                [style*="--x:2; --y:0; --z:2;"],
+                [style*="--x:2; --y:1; --z:2;"],
+                [style*="--x:2; --y:1; --z:1;"],
+                [style*="--x:2; --y:1; --z:0;"],
+                [style*="--x:2; --y:2; --z:2;"],
+                [style*="--x:2; --y:2; --z:1;"],
+                [style*="--x:2; --y:2; --z:0;"]) {
+            --yAxis: 180deg;
+        }
+
+        /* Rechts 270 graden */
+        &:has(section:nth-of-type(6) label:nth-of-type(3) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:2;"],
+                [style*="--x:1; --y:0; --z:2;"],
+                [style*="--x:2; --y:0; --z:2;"],
+                [style*="--x:2; --y:1; --z:2;"],
+                [style*="--x:2; --y:1; --z:1;"],
+                [style*="--x:2; --y:1; --z:0;"],
+                [style*="--x:2; --y:2; --z:2;"],
+                [style*="--x:2; --y:2; --z:1;"],
+                [style*="--x:2; --y:2; --z:0;"]) {
+            --yAxis: 270deg;
+        }
+}
+
+/* MARK: Top laag 180 */
+/* Top 180 + Links */
+body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) {
+        /* Links 90 graden */    
+        &:has(section:nth-of-type(4) label:nth-of-type(1) input:checked) section:last-of-type div:is(
+                [style*="--x:2; --y:0; --z:2;"], 
+                [style*="--x:2; --y:0; --z:1;"],    
+                [style*="--x:2; --y:0; --z:0;"],
+                [style*="--x:0; --y:1; --z:0;"], 
+                [style*="--x:0; --y:1; --z:1;"], 
+                [style*="--x:0; --y:1; --z:2;"],
+                [style*="--x:0; --y:2; --z:0;"], 
+                [style*="--x:0; --y:2; --z:1;"], 
+                [style*="--x:0; --y:2; --z:2;"]) {
+            --yAxis: 90deg;
+        }
+    
+        /* Links 180 graden */
+        &:has(section:nth-of-type(4) label:nth-of-type(2) input:checked) section:last-of-type div:is(
+                [style*="--x:2; --y:0; --z:2;"], 
+                [style*="--x:2; --y:0; --z:1;"],    
+                [style*="--x:2; --y:0; --z:0;"],
+                [style*="--x:0; --y:1; --z:0;"], 
+                [style*="--x:0; --y:1; --z:1;"], 
+                [style*="--x:0; --y:1; --z:2;"],
+                [style*="--x:0; --y:2; --z:0;"], 
+                [style*="--x:0; --y:2; --z:1;"], 
+                [style*="--x:0; --y:2; --z:2;"]) {
+            --yAxis: 180deg;
+        }
+
+        /* Links 270 graden */
+        &:has(section:nth-of-type(4) label:nth-of-type(3) input:checked) section:last-of-type div:is(
+                [style*="--x:2; --y:0; --z:2;"], 
+                [style*="--x:2; --y:0; --z:1;"],    
+                [style*="--x:2; --y:0; --z:0;"],
+                [style*="--x:0; --y:1; --z:0;"], 
+                [style*="--x:0; --y:1; --z:1;"], 
+                [style*="--x:0; --y:1; --z:2;"],
+                [style*="--x:0; --y:2; --z:0;"], 
+                [style*="--x:0; --y:2; --z:1;"], 
+                [style*="--x:0; --y:2; --z:2;"]) {
+            --yAxis: 270deg;
+        }
+}
+
+/* Top laag 180 + Midden */
+body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) {
+        /* Midden 90 graden */    
+        &:has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:last-of-type div:is(
+                [style*="--x:1; --y:0; --z:2;"], 
+                [style*="--x:1; --y:0; --z:1;"],    
+                [style*="--x:1; --y:0; --z:0;"],
+                [style*="--x:1; --y:1; --z:0;"], 
+                [style*="--x:1; --y:1; --z:1;"], 
+                [style*="--x:1; --y:1; --z:2;"],
+                [style*="--x:1; --y:2; --z:0;"], 
+                [style*="--x:1; --y:2; --z:1;"], 
+                [style*="--x:1; --y:2; --z:2;"]) {
+            --yAxis: 90deg;
+        }
+    
+        /* Midden 180 graden */
+        &:has(section:nth-of-type(5) label:nth-of-type(2) input:checked) section:last-of-type div:is(
+                [style*="--x:1; --y:0; --z:2;"], 
+                [style*="--x:1; --y:0; --z:1;"],    
+                [style*="--x:1; --y:0; --z:0;"],
+                [style*="--x:1; --y:1; --z:0;"], 
+                [style*="--x:1; --y:1; --z:1;"], 
+                [style*="--x:1; --y:1; --z:2;"],
+                [style*="--x:1; --y:2; --z:0;"], 
+                [style*="--x:1; --y:2; --z:1;"], 
+                [style*="--x:1; --y:2; --z:2;"]) {
+            --yAxis: 180deg;
+        }
+
+        /* Midden 270 graden */
+        &:has(section:nth-of-type(5) label:nth-of-type(3) input:checked) section:last-of-type div:is(
+                [style*="--x:1; --y:0; --z:2;"], 
+                [style*="--x:1; --y:0; --z:1;"],    
+                [style*="--x:1; --y:0; --z:0;"],
+                [style*="--x:1; --y:1; --z:0;"], 
+                [style*="--x:1; --y:1; --z:1;"], 
+                [style*="--x:1; --y:1; --z:2;"],
+                [style*="--x:1; --y:2; --z:0;"], 
+                [style*="--x:1; --y:2; --z:1;"], 
+                [style*="--x:1; --y:2; --z:2;"]) {
+            --yAxis: 270deg;
+        }
+}
+
+
+
+/* Top laag 180 + Rechts */
+body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) {
+        /* Rechts 90 graden */    
+        &:has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:2;"],
+                [style*="--x:0; --y:0; --z:1;"],
+                [style*="--x:0; --y:0; --z:0;"],
+                [style*="--x:2; --y:1; --z:0;"],
+                [style*="--x:2; --y:1; --z:1;"],
+                [style*="--x:2; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:0;"],
+                [style*="--x:2; --y:2; --z:1;"],
+                [style*="--x:2; --y:2; --z:2;"]) {
+            --yAxis: 90deg;
+        }
+    
+        /* Rechts 180 graden */
+        &:has(section:nth-of-type(6) label:nth-of-type(2) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:2;"],
+                [style*="--x:0; --y:0; --z:1;"],
+                [style*="--x:0; --y:0; --z:0;"],
+                [style*="--x:2; --y:1; --z:0;"],
+                [style*="--x:2; --y:1; --z:1;"],
+                [style*="--x:2; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:0;"],
+                [style*="--x:2; --y:2; --z:1;"],
+                [style*="--x:2; --y:2; --z:2;"]) {
+            --yAxis: 180deg;
+        }
+
+        /* Rechts 270 graden */
+        &:has(section:nth-of-type(6) label:nth-of-type(3) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:2;"],
+                [style*="--x:0; --y:0; --z:1;"],
+                [style*="--x:0; --y:0; --z:0;"],
+                [style*="--x:2; --y:1; --z:0;"],
+                [style*="--x:2; --y:1; --z:1;"],
+                [style*="--x:2; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:0;"],
+                [style*="--x:2; --y:2; --z:1;"],
+                [style*="--x:2; --y:2; --z:2;"]) {
+            --yAxis: 270deg;
+        }
+}
+
+/* MARK: Top laag 270 */
+/* Top 180 + Links */
+body:has(section:nth-of-type(1) label:nth-of-type(3) input:checked) {
+        /* Links 90 graden */    
+        &:has(section:nth-of-type(4) label:nth-of-type(1) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:2;"], 
+                [style*="--x:1; --y:0; --z:2;"],    
+                [style*="--x:2; --y:0; --z:2;"],
+                [style*="--x:0; --y:1; --z:0;"], 
+                [style*="--x:0; --y:1; --z:1;"], 
+                [style*="--x:0; --y:1; --z:2;"],
+                [style*="--x:0; --y:2; --z:0;"], 
+                [style*="--x:0; --y:2; --z:1;"], 
+                [style*="--x:0; --y:2; --z:2;"]) {
+            --yAxis: 90deg;
+        }
+    
+        /* Links 180 graden */
+        &:has(section:nth-of-type(4) label:nth-of-type(2) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:2;"], 
+                [style*="--x:1; --y:0; --z:2;"],    
+                [style*="--x:2; --y:0; --z:2;"],
+                [style*="--x:0; --y:1; --z:0;"], 
+                [style*="--x:0; --y:1; --z:1;"], 
+                [style*="--x:0; --y:1; --z:2;"],
+                [style*="--x:0; --y:2; --z:0;"], 
+                [style*="--x:0; --y:2; --z:1;"], 
+                [style*="--x:0; --y:2; --z:2;"]) {
+            --yAxis: 180deg;
+        }
+
+        /* Links 270 graden */
+        &:has(section:nth-of-type(4) label:nth-of-type(3) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:2;"], 
+                [style*="--x:1; --y:0; --z:2;"],    
+                [style*="--x:2; --y:0; --z:2;"],
+                [style*="--x:0; --y:1; --z:0;"], 
+                [style*="--x:0; --y:1; --z:1;"], 
+                [style*="--x:0; --y:1; --z:2;"],
+                [style*="--x:0; --y:2; --z:0;"], 
+                [style*="--x:0; --y:2; --z:1;"], 
+                [style*="--x:0; --y:2; --z:2;"]) {
+            --yAxis: 270deg;
+        }
+}
+
+/* Top laag 180 + Midden */
+body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) {
+        /* Midden 90 graden */    
+        &:has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:last-of-type div:is(
+                [style*="--x:1; --y:0; --z:2;"], 
+                [style*="--x:1; --y:0; --z:1;"],    
+                [style*="--x:1; --y:0; --z:0;"],
+                [style*="--x:1; --y:1; --z:0;"], 
+                [style*="--x:1; --y:1; --z:1;"], 
+                [style*="--x:1; --y:1; --z:2;"],
+                [style*="--x:1; --y:2; --z:0;"], 
+                [style*="--x:1; --y:2; --z:1;"], 
+                [style*="--x:1; --y:2; --z:2;"]) {
+            --yAxis: 90deg;
+        }
+    
+        /* Midden 180 graden */
+        &:has(section:nth-of-type(5) label:nth-of-type(2) input:checked) section:last-of-type div:is(
+                [style*="--x:1; --y:0; --z:2;"], 
+                [style*="--x:1; --y:0; --z:1;"],    
+                [style*="--x:1; --y:0; --z:0;"],
+                [style*="--x:1; --y:1; --z:0;"], 
+                [style*="--x:1; --y:1; --z:1;"], 
+                [style*="--x:1; --y:1; --z:2;"],
+                [style*="--x:1; --y:2; --z:0;"], 
+                [style*="--x:1; --y:2; --z:1;"], 
+                [style*="--x:1; --y:2; --z:2;"]) {
+            --yAxis: 180deg;
+        }
+
+        /* Midden 270 graden */
+        &:has(section:nth-of-type(5) label:nth-of-type(3) input:checked) section:last-of-type div:is(
+                [style*="--x:1; --y:0; --z:2;"], 
+                [style*="--x:1; --y:0; --z:1;"],    
+                [style*="--x:1; --y:0; --z:0;"],
+                [style*="--x:1; --y:1; --z:0;"], 
+                [style*="--x:1; --y:1; --z:1;"], 
+                [style*="--x:1; --y:1; --z:2;"],
+                [style*="--x:1; --y:2; --z:0;"], 
+                [style*="--x:1; --y:2; --z:1;"], 
+                [style*="--x:1; --y:2; --z:2;"]) {
+            --yAxis: 270deg;
+        }
+}
+
+
+
+/* Top laag 180 + Rechts */
+body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) {
+        /* Rechts 90 graden */    
+        &:has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:2;"],
+                [style*="--x:0; --y:0; --z:1;"],
+                [style*="--x:0; --y:0; --z:0;"],
+                [style*="--x:2; --y:1; --z:0;"],
+                [style*="--x:2; --y:1; --z:1;"],
+                [style*="--x:2; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:0;"],
+                [style*="--x:2; --y:2; --z:1;"],
+                [style*="--x:2; --y:2; --z:2;"]) {
+            --yAxis: 90deg;
+        }
+    
+        /* Rechts 180 graden */
+        &:has(section:nth-of-type(6) label:nth-of-type(2) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:2;"],
+                [style*="--x:0; --y:0; --z:1;"],
+                [style*="--x:0; --y:0; --z:0;"],
+                [style*="--x:2; --y:1; --z:0;"],
+                [style*="--x:2; --y:1; --z:1;"],
+                [style*="--x:2; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:0;"],
+                [style*="--x:2; --y:2; --z:1;"],
+                [style*="--x:2; --y:2; --z:2;"]) {
+            --yAxis: 180deg;
+        }
+
+        /* Rechts 270 graden */
+        &:has(section:nth-of-type(6) label:nth-of-type(3) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:2;"],
+                [style*="--x:0; --y:0; --z:1;"],
+                [style*="--x:0; --y:0; --z:0;"],
+                [style*="--x:2; --y:1; --z:0;"],
+                [style*="--x:2; --y:1; --z:1;"],
+                [style*="--x:2; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:0;"],
+                [style*="--x:2; --y:2; --z:1;"],
+                [style*="--x:2; --y:2; --z:2;"]) {
+            --yAxis: 270deg;
+        }
+}
+
+/* MARK: Midden laag */
+
+/* Midden laag 90 + Links */
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked) {
+        /* Midden 90 graden */    
+        &:has(section:nth-of-type(4) label:nth-of-type(1) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:0;"],
+                [style*="--x:0; --y:0; --z:1;"],
+                [style*="--x:0; --y:0; --z:2;"],
+                [style*="--x:2; --y:1; --z:0;"],
+                [style*="--x:1; --y:1; --z:0;"],
+                [style*="--x:0; --y:1; --z:0;"],
+                [style*="--x:0; --y:2; --z:0;"],
+                [style*="--x:0; --y:2; --z:1;"],
+                [style*="--x:0; --y:2; --z:2;"] ) {
+            --yAxis: 90deg;
+        }
+    
+        /* Midden 180 graden */
+        &:has(section:nth-of-type(4) label:nth-of-type(2) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:0;"],
+                [style*="--x:0; --y:0; --z:1;"],
+                [style*="--x:0; --y:0; --z:2;"],
+                [style*="--x:2; --y:1; --z:0;"],
+                [style*="--x:1; --y:1; --z:0;"],
+                [style*="--x:0; --y:1; --z:0;"],
+                [style*="--x:0; --y:2; --z:0;"],
+                [style*="--x:0; --y:2; --z:1;"],
+                [style*="--x:0; --y:2; --z:2;"]) {
+            --yAxis: 180deg;
+        }
+
+        /* Midden 270 graden */
+        &:has(section:nth-of-type(4) label:nth-of-type(3) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:0;"],
+                [style*="--x:0; --y:0; --z:1;"],
+                [style*="--x:0; --y:0; --z:2;"],
+                [style*="--x:2; --y:1; --z:0;"],
+                [style*="--x:1; --y:1; --z:0;"],
+                [style*="--x:0; --y:1; --z:0;"],
+                [style*="--x:0; --y:2; --z:0;"],
+                [style*="--x:0; --y:2; --z:1;"],
+                [style*="--x:0; --y:2; --z:2;"]) {
+            --yAxis: 270deg;
+        }
+}
+
+/* Midden laag 90 + midden */
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked) {
+        /* Midden 90 graden */    
+        &:has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:last-of-type div:is(
+                [style*="--x:1; --y:0; --z:0;"],
+                [style*="--x:1; --y:0; --z:1;"],
+                [style*="--x:1; --y:0; --z:2;"],
+                [style*="--x:2; --y:1; --z:1;"],
+                [style*="--x:0; --y:1; --z:1;"],
+                [style*="--x:1; --y:2; --z:0;"],
+                [style*="--x:1; --y:2; --z:1;"],                
+                [style*="--x:1; --y:2; --z:2;"] ) {
+            --yAxis: 90deg;
+        }
+    
+        /* Midden 180 graden */
+         &:has(section:nth-of-type(5) label:nth-of-type(2) input:checked) section:last-of-type div:is(
+                [style*="--x:1; --y:0; --z:0;"],
+                [style*="--x:1; --y:0; --z:1;"],
+                [style*="--x:1; --y:0; --z:2;"],
+                [style*="--x:2; --y:1; --z:1;"],
+                [style*="--x:0; --y:1; --z:1;"],
+                [style*="--x:1; --y:2; --z:0;"],
+                [style*="--x:1; --y:2; --z:1;"],                
+                [style*="--x:1; --y:2; --z:2;"] ) {
+            --yAxis: 180deg;
+        }
+
+        /* Midden 270 graden */
+         &:has(section:nth-of-type(5) label:nth-of-type(3) input:checked) section:last-of-type div:is(
+                [style*="--x:1; --y:0; --z:0;"],
+                [style*="--x:1; --y:0; --z:1;"],
+                [style*="--x:1; --y:0; --z:2;"],
+                [style*="--x:2; --y:1; --z:1;"],
+                [style*="--x:0; --y:1; --z:1;"],
+                [style*="--x:1; --y:2; --z:0;"],
+                [style*="--x:1; --y:2; --z:1;"],                
+                [style*="--x:1; --y:2; --z:2;"] ) {
+            --yAxis: 270deg;
+        }
+}
+
+/* Midden laag 90 + Rechts */
+body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked) {
+        /* Midden 90 graden */    
+        &:has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div:is(
+                [style*="--x:2; --y:0; --z:0;"],
+                [style*="--x:2; --y:0; --z:1;"],
+                [style*="--x:2; --y:0; --z:2;"],
+                [style*="--x:2; --y:1; --z:2;"],
+                [style*="--x:1; --y:1; --z:2;"],
+                [style*="--x:0; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:0;"],
+                [style*="--x:2; --y:2; --z:1;"],
+                [style*="--x:2; --y:2; --z:2;"] ) {
+            --yAxis: 90deg;
+        }
+    
+        /* Midden 180 graden */
+        &:has(section:nth-of-type(6) label:nth-of-type(2) input:checked) section:last-of-type div:is(
+                [style*="--x:2; --y:0; --z:0;"],
+                [style*="--x:2; --y:0; --z:1;"],
+                [style*="--x:2; --y:0; --z:2;"],
+                [style*="--x:2; --y:1; --z:2;"],
+                [style*="--x:1; --y:1; --z:2;"],
+                [style*="--x:0; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:0;"],
+                [style*="--x:2; --y:2; --z:1;"],
+                [style*="--x:2; --y:2; --z:2;"] ) {
+            --yAxis: 180deg;
+        }
+
+        /* Midden 270 graden */
+        &:has(section:nth-of-type(6) label:nth-of-type(3) input:checked) section:last-of-type div:is(
+                [style*="--x:2; --y:0; --z:0;"],
+                [style*="--x:2; --y:0; --z:1;"],
+                [style*="--x:2; --y:0; --z:2;"],
+                [style*="--x:2; --y:1; --z:2;"],
+                [style*="--x:1; --y:1; --z:2;"],
+                [style*="--x:0; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:0;"],
+                [style*="--x:2; --y:2; --z:1;"],
+                [style*="--x:2; --y:2; --z:2;"] ) {
+            --yAxis: 270deg;
+        }
+}
+
+/* MARK: Bodem laag */
+
+/* Bodem laag 90 + Links */
+body:has(section:nth-of-type(3) label:nth-of-type(1) input:checked) {
+        /* Links 90 graden */    
+        &:has(section:nth-of-type(4) label:nth-of-type(1) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:0;"],
+                [style*="--x:0; --y:0; --z:1;"],
+                [style*="--x:0; --y:0; --z:2;"],
+                [style*="--x:0; --y:1; --z:0;"],
+                [style*="--x:0; --y:1; --z:1;"],
+                [style*="--x:0; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:0;"],
+                [style*="--x:1; --y:2; --z:0;"],
+                [style*="--x:0; --y:2; --z:0;"] ) {
+            --yAxis: 90deg;
+        }
+    
+        /* Links 180 graden */
+        &:has(section:nth-of-type(4) label:nth-of-type(2) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:0;"],
+                [style*="--x:0; --y:0; --z:1;"],
+                [style*="--x:0; --y:0; --z:2;"],
+                [style*="--x:0; --y:1; --z:0;"],
+                [style*="--x:0; --y:1; --z:1;"],
+                [style*="--x:0; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:0;"],
+                [style*="--x:1; --y:2; --z:0;"],
+                [style*="--x:0; --y:2; --z:0;"] ) {
+            --yAxis: 180deg;
+        }
+
+        /* Links 270 graden */
+        &:has(section:nth-of-type(4) label:nth-of-type(3) input:checked) section:last-of-type div:is(
+                [style*="--x:0; --y:0; --z:0;"],
+                [style*="--x:0; --y:0; --z:1;"],
+                [style*="--x:0; --y:0; --z:2;"],
+                [style*="--x:0; --y:1; --z:0;"],
+                [style*="--x:0; --y:1; --z:1;"],
+                [style*="--x:0; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:0;"],
+                [style*="--x:1; --y:2; --z:0;"],
+                [style*="--x:0; --y:2; --z:0;"]) {
+            --yAxis: 270deg;
+        }
+}
+
+/* Bodem laag 90 + midden */
+body:has(section:nth-of-type(3) label:nth-of-type(1) input:checked) {
+        /* Links 90 graden */    
+        &:has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:last-of-type div:is(
+                [style*="--x:1; --y:0; --z:0;"],
+                [style*="--x:1; --y:0; --z:1;"],
+                [style*="--x:1; --y:0; --z:2;"],
+                [style*="--x:1; --y:1; --z:0;"],
+                [style*="--x:1; --y:1; --z:1;"],
+                [style*="--x:1; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:1;"],
+                [style*="--x:1; --y:2; --z:1;"],
+                [style*="--x:0; --y:2; --z:1;"] ) {
+            --yAxis: 90deg;
+        }
+    
+        /* Links 180 graden */
+        &:has(section:nth-of-type(5) label:nth-of-type(2) input:checked) section:last-of-type div:is(
+                [style*="--x:1; --y:0; --z:0;"],
+                [style*="--x:1; --y:0; --z:1;"],
+                [style*="--x:1; --y:0; --z:2;"],
+                [style*="--x:1; --y:1; --z:0;"],
+                [style*="--x:1; --y:1; --z:1;"],
+                [style*="--x:1; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:1;"],
+                [style*="--x:1; --y:2; --z:1;"],
+                [style*="--x:0; --y:2; --z:1;"] ) {
+            --yAxis: 180deg;
+        }
+
+        /* Links 270 graden */
+        &:has(section:nth-of-type(5) label:nth-of-type(3) input:checked) section:last-of-type div:is(
+                [style*="--x:1; --y:0; --z:0;"],
+                [style*="--x:1; --y:0; --z:1;"],
+                [style*="--x:1; --y:0; --z:2;"],
+                [style*="--x:1; --y:1; --z:0;"],
+                [style*="--x:1; --y:1; --z:1;"],
+                [style*="--x:1; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:1;"],
+                [style*="--x:1; --y:2; --z:1;"],
+                [style*="--x:0; --y:2; --z:1;"]) {
+            --yAxis: 270deg;
+        }
+}
+
+/* Bodem laag 90 + Rechts */
+body:has(section:nth-of-type(3) label:nth-of-type(1) input:checked) {
+        /* Rechts 90 graden */    
+        &:has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:last-of-type div:is(
+                [style*="--x:2; --y:0; --z:0;"],
+                [style*="--x:2; --y:0; --z:1;"],
+                [style*="--x:2; --y:0; --z:2;"],
+                [style*="--x:2; --y:1; --z:0;"],
+                [style*="--x:2; --y:1; --z:1;"],
+                [style*="--x:2; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:2;"],
+                [style*="--x:1; --y:2; --z:2;"],
+                [style*="--x:0; --y:2; --z:2;"] ) {
+            --yAxis: 90deg;
+        }
+    
+        /* Rechts 180 graden */
+        &:has(section:nth-of-type(6) label:nth-of-type(2) input:checked) section:last-of-type div:is(
+                [style*="--x:2; --y:0; --z:0;"],
+                [style*="--x:2; --y:0; --z:1;"],
+                [style*="--x:2; --y:0; --z:2;"],
+                [style*="--x:2; --y:1; --z:0;"],
+                [style*="--x:2; --y:1; --z:1;"],
+                [style*="--x:2; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:2;"],
+                [style*="--x:1; --y:2; --z:2;"],
+                [style*="--x:0; --y:2; --z:2;"] ) {
+            --yAxis: 180deg;
+        }
+
+        /* Rechts 270 graden */
+        &:has(section:nth-of-type(6) label:nth-of-type(3) input:checked) section:last-of-type div:is(
+                [style*="--x:2; --y:0; --z:0;"],
+                [style*="--x:2; --y:0; --z:1;"],
+                [style*="--x:2; --y:0; --z:2;"],
+                [style*="--x:2; --y:1; --z:0;"],
+                [style*="--x:2; --y:1; --z:1;"],
+                [style*="--x:2; --y:1; --z:2;"],
+                [style*="--x:2; --y:2; --z:2;"],
+                [style*="--x:1; --y:2; --z:2;"],
+                [style*="--x:0; --y:2; --z:2;"] ) {
+            --yAxis: 270deg;
+        }
+}
