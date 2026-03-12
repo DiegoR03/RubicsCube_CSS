@@ -109,6 +109,40 @@ Mijn doelen voor morgen zijn:<br>
 - Start state fixen
 - Kleuren animeren
 - Start randomisen inplaats van 'solved' starten
+- 
+## 12/03/2026
+- 09:30 Short talk met Sanne
+- 10:30 Zelfstandig werken
+- 12:30 Pauze
+- 13:00 Workshop met Vasilis over Fonts
+- 13:30 Zelfstandig verder werken
+- 15:25 Checkout met Sanne en Club 1
+
+Gesprek met Sanne en Club 1:
+<br>Vandaag heb ik super veel bereikt! Ik heb eindelijk mijn cube zo gemaakt dat ik gecombineert met meerdere combinaties kan draaien (Zowel horizontaal als verticaal). Dit heb ik bereikt door mijn code om te gooien op een manier dat ik de coordinaten nu zelf invul:<br>
+<img width="1237" height="620" alt="image" src="https://github.com/user-attachments/assets/533970a5-051e-4c0c-a2d4-6cd97fc8d175" /><br>
+Hoewel ik dit gisteren al deels had bereikt werkt het vandaag in combinatie met de solo-posities. Deze waren gisteren helaas kapot, maar nu werken ze:<br>
+<img width="1479" height="400" alt="image" src="https://github.com/user-attachments/assets/e77caf1e-24b2-4f8e-ae3d-983bd0a6ea0d" /><br><br>
+
+Daarnaast ben ik kort bezig geweest met wat kleine thema's op de website door middel van container queries:
+<br>
+// Neutraal<br>
+<img width="1332" height="834" alt="image" src="https://github.com/user-attachments/assets/757dc18f-19af-4b1e-84d4-2619e6beef5a" />
+<br><br>
+// Chaos<br>
+<img width="1325" height="884" alt="image" src="https://github.com/user-attachments/assets/773c733b-2bec-4884-92d0-c15582c2e989" />
+
+<br><br>
+// Pool tafel??<br>
+<img width="1315" height="881" alt="image" src="https://github.com/user-attachments/assets/40eedf71-5833-4740-8e6e-5e20c401cd97" />
+<br>
+Doelen:
+- Meer aan opmaak CSS werken
+- Easter eggs
+
+
+
+
 
 
 
