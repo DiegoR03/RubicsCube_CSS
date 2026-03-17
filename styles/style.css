@@ -1,6 +1,6 @@
-@import '/styles/lib/solopositions.css';
-@import '/styles/lib/combinationpositions.css';
-@import '/styles/lib/controlpanel.css';
+@import 'solopositions.css';
+@import 'combinationpositions.css';
+@import 'controlpanel.css';
 
 :root {
     --dimensions: 66.66px;
