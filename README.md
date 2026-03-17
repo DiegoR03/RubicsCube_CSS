@@ -154,14 +154,14 @@ Gesprek met:
 - Verschillende 'levels'/thema's
 - Achtergrond
 - Achtergrond thema's
-- Random start (Soort van ,eerder hard coded)
+- Random start (Soort van, eerder hard coded)
 - Control panel verbetered
 - Debug mode
-<br><br>
-Ten eerste heb ik een Titel moeten bedenken, mijn idee achter de website is een break, of te wel een pauze. Dit vindt plaats achter een bureau sinds het persoon aan het werk is. Daarom heb je ook drie verschillende niveaus: Neutraal, work en night.
-- Neutraal is vrij rondspelen met de rubik's cube, je hoeft hem niet op te lossen. Dit is echt iets dat je in de pauze zou doen, niet serieus bezig zijn en eerder een beetje bewegen.
-- Work, hier ga je echt zitten voor de rubik's cube, je gaat hem op proberen te lossen. De start is dan ook geshuffeld.
-- Night, de moeilijkste graag. Hier zijn mensen vaak moe en zien ze niet goed meer, daarom zijn de kleuren ook grijs. Dit is puur geheugen.
+
+<br>Ten eerste heb ik een Titel moeten bedenken, mijn idee achter de website is een break, of te wel een pauze. Dit vindt plaats achter een bureau sinds het persoon aan het werk is. Daarom heb je ook drie verschillende niveaus: Neutraal, work en night:
+* Neutraal is vrij rondspelen met de rubik's cube, je hoeft hem niet op te lossen. Dit is echt iets dat je in de pauze zou doen, niet serieus bezig zijn en eerder een beetje bewegen.
+* Work, hier ga je echt zitten voor de rubik's cube, je gaat hem op proberen te lossen. De start is dan ook geshuffeld.
+* Night, de moeilijkste graag. Hier zijn mensen vaak moe en zien ze niet goed meer, daarom zijn de kleuren ook grijs. Dit is puur geheugen.
 <br>
 Ik heb gekozen voor deze drie moeilijkheidsgraden omdat ik op deze manier mijn werk het beste kan laten zijn, elke stap heeft zijn eigen moeilijkheidsgraad inplaats van dat ik het werk 'overwrite'.
 <br><br>
@@ -172,9 +172,47 @@ Omdat ik deze moeilijkheidgraden wilde hebben moest ik ook een leuke achtergrond
 // Raam element <br>
 <img width="923" height="405" alt="image" src="https://github.com/user-attachments/assets/45ace1d6-069a-42d1-854e-fca85df92cda" />
 <br><br>
-// Lamp Element
+// Lamp Element <br>
 <img width="525" height="249" alt="image" src="https://github.com/user-attachments/assets/d493954d-b6ea-4c89-a7d5-58f4de065944" />
 <br><br>
+// Lamp Element (Avond) <br>
+5d3b23
+<img width="202" height="225" alt="image" src="https://github.com/user-attachments/assets/661a7d6f-194d-44be-ac62-0cfa8cdb29ca" />
+<br><br>
+Hoewel deze elementen niet heel veel toevoegen aan de interactiviteit, vond ik persoonlijk dat de details ervoor zorgen dat het voelt als een kamer met een bureau en niet een lege canvas. Daarnaast wilde ik het ook duidelijk maken voor de gebruiker wanneer zij in een ander level zitten zonder de hele 'vibe' aan te passen.
+<br><br>
+// Start Scherm <br>
+<img width="1381" height="841" alt="image" src="https://github.com/user-attachments/assets/967af2af-3e76-471a-9b4d-6469adde9b89" /> <br>
+Ik wilde een leuk start scherm maken waar de gebruiker zelf de moeilijkheids graad kan kiezen, maar ik wilde wel nog een beetje het gevoel vast houden dat je op een website zit waar je met een rubik's cube kan spelen, dus ben ik voor een soort retro achtige achtergrond gegaan waar het wel voelt als een kame, maar waar je transitioned naar een kamer. Ook wilde ik de achtergrond doorzichtig maken zodat je ziet wat er op je staat te wachten.
+<br><br>
+Zoals ik eerder heb aangegeven heb ik elk level zijn eigen achtergrond gegeven. De veranderingen zijn bet subtiel, maar veranderen het gevoel wel een beetje zodat je het verschil merkt: <br>
+// Neutraal (Vrij spelen) <br>
+<img width="1376" height="839" alt="image" src="https://github.com/user-attachments/assets/cbe869bc-e195-4634-b9a4-06fecaf3e7cd" /> <br>
+<br>
+// Work (Random kleuren, normale rubik's cube) <br>
+<img width="1384" height="841" alt="image" src="https://github.com/user-attachments/assets/beed4f5b-b71e-40b8-a20a-e584312c98f5" /> <br>
+<br>
+// Night (Moeilijkste level, zonder kleuren) <br>
+<img width="1375" height="841" alt="image" src="https://github.com/user-attachments/assets/0a520358-319c-4a4d-a521-989f887a894a" /> <br>
+<br>
+Daarbij heb ik ook een 'debug mode' gemaakt voor developers zodat zij de coordinated van derubik's cube kunnen checken en of alles nog goed verloopt. Dis was ook voornamelijk handig tijdens het uitwerken van de combinatie draaiingen: <br>
+// Debug Mode <br>
+<img width="1382" height="837" alt="image" src="https://github.com/user-attachments/assets/299e13ac-0cfb-4374-b14c-76d0adc6c315" /> <br>
+<br>
+Als laatste heb ik de control panel verbeterd en meer overzichtelijk gemaakt. Niet alleen heb ik deze aan de linker kant van het scherm gezet op desktop, maar staat deze boven aan je scherm op mobiel zodat het responsive blijft. Daarbij heb ik ook een `backdrop-filter: blur` gezte zodat het niet voelt alsof het een standaarc UI element is op de pagina: <br>
+// Nieuwe versie <br>
+<img width="311" height="833" alt="image" src="https://github.com/user-attachments/assets/f16e697e-4b94-4184-8ebd-2d81041bb4ca" /> <br>
+<br>
+// Oude versie <br>
+<img width="753" height="165" alt="image" src="https://github.com/user-attachments/assets/4c12f1de-2b31-4ed5-a546-d4d179c12048" /> <br>
+<br>
+Dit is meer overzichtelijk dan eerder en het voelt moderner.
+
+
+
+
+
+
 
 
 
