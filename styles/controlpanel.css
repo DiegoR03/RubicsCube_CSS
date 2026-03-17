@@ -1,29 +1,53 @@
 /* MARK: Control buttons */
-section:nth-of-type(1),
-section:nth-of-type(2),
-section:nth-of-type(3),
-section:nth-of-type(4),
-section:nth-of-type(5),
-section:nth-of-type(6) {
-    margin-bottom: 10px;
+nav section:nth-of-type(1),
+nav section:nth-of-type(2),
+nav section:nth-of-type(3),
+nav section:nth-of-type(4),
+nav section:nth-of-type(5),
+nav section:nth-of-type(6) {
     display: flex;
     gap: 10px;
     z-index: 1;
+}
+
+nav {
+    position: fixed;
+    left: 0;
     top: 0;
+    width: 10em; 
+    height: 100vh;
+    display: none;
+    flex-direction: column; 
+    justify-content: space-evenly;
+    padding: 20px;
+    padding-top: 0;
+    background: rgba(255, 255, 255, 0.0319); 
+    /* Backdrop filter van: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/backdrop-filter */
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    overflow-y: auto;
+}
+
+nav section {
+    display: flex;
+    flex-direction: column; 
+    background: rgba(0, 0, 0, 0.364);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+
+nav h2 {
+    margin: 0 0 5px 0;
+    font-size: 0.9rem;
+    color: var(--white)
 }
 
 /* MARK: Control buttons */
-section:not(:has(div)) {
-    margin-bottom: 0;
-    /* Verwijder de oude bottom margin */
-    display: flex;
+nav section:not(:has(div)) {
     flex-direction: column;
     align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
     border-radius: 8px;
-    min-width: 130px;
-    z-index: 10;
 }
 
 /* De buttons zelf onzichtbaar maken */
@@ -49,45 +73,45 @@ label:hover {
 }
 
 /* MARK: Als gechecked: toon één, verberg de andere */
-body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked) section:nth-of-type(1) label:nth-of-type(1),
-body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) section:nth-of-type(1) label:nth-of-type(2),
-body:has(section:nth-of-type(1) label:nth-of-type(3) input:checked) section:nth-of-type(1) label:nth-of-type(3),
-body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked) section:nth-of-type(2) label:nth-of-type(1),
-body:has(section:nth-of-type(2) label:nth-of-type(2) input:checked) section:nth-of-type(2) label:nth-of-type(2),
-body:has(section:nth-of-type(2) label:nth-of-type(3) input:checked) section:nth-of-type(2) label:nth-of-type(3),
-body:has(section:nth-of-type(3) label:nth-of-type(1) input:checked) section:nth-of-type(3) label:nth-of-type(1),
-body:has(section:nth-of-type(3) label:nth-of-type(2) input:checked) section:nth-of-type(3) label:nth-of-type(2),
-body:has(section:nth-of-type(3) label:nth-of-type(3) input:checked) section:nth-of-type(3) label:nth-of-type(3),
-body:has(section:nth-of-type(4) label:nth-of-type(1) input:checked) section:nth-of-type(4) label:nth-of-type(1),
-body:has(section:nth-of-type(4) label:nth-of-type(2) input:checked) section:nth-of-type(4) label:nth-of-type(2),
-body:has(section:nth-of-type(4) label:nth-of-type(3) input:checked) section:nth-of-type(4) label:nth-of-type(3),
-body:has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:nth-of-type(5) label:nth-of-type(1),
-body:has(section:nth-of-type(5) label:nth-of-type(2) input:checked) section:nth-of-type(5) label:nth-of-type(2),
-body:has(section:nth-of-type(5) label:nth-of-type(3) input:checked) section:nth-of-type(5) label:nth-of-type(3),
-body:has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:nth-of-type(6) label:nth-of-type(1),
-body:has(section:nth-of-type(6) label:nth-of-type(2) input:checked) section:nth-of-type(6) label:nth-of-type(2),
-body:has(section:nth-of-type(6) label:nth-of-type(3) input:checked) section:nth-of-type(6) label:nth-of-type(3) {
+body:has(nav section:nth-of-type(1) label:nth-of-type(1) input:checked) nav section:nth-of-type(1) label:nth-of-type(1),
+body:has(nav section:nth-of-type(1) label:nth-of-type(2) input:checked) nav section:nth-of-type(1) label:nth-of-type(2),
+body:has(nav section:nth-of-type(1) label:nth-of-type(3) input:checked) nav section:nth-of-type(1) label:nth-of-type(3),
+body:has(nav section:nth-of-type(2) label:nth-of-type(1) input:checked) nav section:nth-of-type(2) label:nth-of-type(1),
+body:has(nav section:nth-of-type(2) label:nth-of-type(2) input:checked) nav section:nth-of-type(2) label:nth-of-type(2),
+body:has(nav section:nth-of-type(2) label:nth-of-type(3) input:checked) nav section:nth-of-type(2) label:nth-of-type(3),
+body:has(nav section:nth-of-type(3) label:nth-of-type(1) input:checked) nav section:nth-of-type(3) label:nth-of-type(1),
+body:has(nav section:nth-of-type(3) label:nth-of-type(2) input:checked) nav section:nth-of-type(3) label:nth-of-type(2),
+body:has(nav section:nth-of-type(3) label:nth-of-type(3) input:checked) nav section:nth-of-type(3) label:nth-of-type(3),
+body:has(nav section:nth-of-type(4) label:nth-of-type(1) input:checked) nav section:nth-of-type(4) label:nth-of-type(1),
+body:has(nav section:nth-of-type(4) label:nth-of-type(2) input:checked) nav section:nth-of-type(4) label:nth-of-type(2),
+body:has(nav section:nth-of-type(4) label:nth-of-type(3) input:checked) nav section:nth-of-type(4) label:nth-of-type(3),
+body:has(nav section:nth-of-type(5) label:nth-of-type(1) input:checked) nav section:nth-of-type(5) label:nth-of-type(1),
+body:has(nav section:nth-of-type(5) label:nth-of-type(2) input:checked) nav section:nth-of-type(5) label:nth-of-type(2),
+body:has(nav section:nth-of-type(5) label:nth-of-type(3) input:checked) nav section:nth-of-type(5) label:nth-of-type(3),
+body:has(nav section:nth-of-type(6) label:nth-of-type(1) input:checked) nav section:nth-of-type(6) label:nth-of-type(1),
+body:has(nav section:nth-of-type(6) label:nth-of-type(2) input:checked) nav section:nth-of-type(6) label:nth-of-type(2),
+body:has(nav section:nth-of-type(6) label:nth-of-type(3) input:checked) nav section:nth-of-type(6) label:nth-of-type(3) {
     display: none;
 }
 
-body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked) section:nth-of-type(1) label:nth-of-type(2),
-body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) section:nth-of-type(1) label:nth-of-type(3),
-body:has(section:nth-of-type(1) label:nth-of-type(3) input:checked) section:nth-of-type(1) label:nth-of-type(4),
-body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked) section:nth-of-type(2) label:nth-of-type(2),
-body:has(section:nth-of-type(2) label:nth-of-type(2) input:checked) section:nth-of-type(2) label:nth-of-type(3),
-body:has(section:nth-of-type(2) label:nth-of-type(3) input:checked) section:nth-of-type(2) label:nth-of-type(4),
-body:has(section:nth-of-type(3) label:nth-of-type(1) input:checked) section:nth-of-type(3) label:nth-of-type(2), 
-body:has(section:nth-of-type(3) label:nth-of-type(2) input:checked) section:nth-of-type(3) label:nth-of-type(3),
-body:has(section:nth-of-type(3) label:nth-of-type(3) input:checked) section:nth-of-type(3) label:nth-of-type(4),
-body:has(section:nth-of-type(4) label:nth-of-type(1) input:checked) section:nth-of-type(4) label:nth-of-type(2),
-body:has(section:nth-of-type(4) label:nth-of-type(2) input:checked) section:nth-of-type(4) label:nth-of-type(3),
-body:has(section:nth-of-type(4) label:nth-of-type(3) input:checked) section:nth-of-type(4) label:nth-of-type(4),
-body:has(section:nth-of-type(5) label:nth-of-type(1) input:checked) section:nth-of-type(5) label:nth-of-type(2),
-body:has(section:nth-of-type(5) label:nth-of-type(2) input:checked) section:nth-of-type(5) label:nth-of-type(3),
-body:has(section:nth-of-type(5) label:nth-of-type(3) input:checked) section:nth-of-type(5) label:nth-of-type(4),
-body:has(section:nth-of-type(6) label:nth-of-type(1) input:checked) section:nth-of-type(6) label:nth-of-type(2),
-body:has(section:nth-of-type(6) label:nth-of-type(2) input:checked) section:nth-of-type(6) label:nth-of-type(3),
-body:has(section:nth-of-type(6) label:nth-of-type(3) input:checked) section:nth-of-type(6) label:nth-of-type(4) {
+body:has(nav section:nth-of-type(1) label:nth-of-type(1) input:checked) nav section:nth-of-type(1) label:nth-of-type(2),
+body:has(nav section:nth-of-type(1) label:nth-of-type(2) input:checked) nav section:nth-of-type(1) label:nth-of-type(3),
+body:has(nav section:nth-of-type(1) label:nth-of-type(3) input:checked) nav section:nth-of-type(1) label:nth-of-type(4),
+body:has(nav section:nth-of-type(2) label:nth-of-type(1) input:checked) nav section:nth-of-type(2) label:nth-of-type(2),
+body:has(nav section:nth-of-type(2) label:nth-of-type(2) input:checked) nav section:nth-of-type(2) label:nth-of-type(3),
+body:has(nav section:nth-of-type(2) label:nth-of-type(3) input:checked) nav section:nth-of-type(2) label:nth-of-type(4),
+body:has(nav section:nth-of-type(3) label:nth-of-type(1) input:checked) nav section:nth-of-type(3) label:nth-of-type(2), 
+body:has(nav section:nth-of-type(3) label:nth-of-type(2) input:checked) nav section:nth-of-type(3) label:nth-of-type(3),
+body:has(nav section:nth-of-type(3) label:nth-of-type(3) input:checked) nav section:nth-of-type(3) label:nth-of-type(4),
+body:has(nav section:nth-of-type(4) label:nth-of-type(1) input:checked) nav section:nth-of-type(4) label:nth-of-type(2),
+body:has(nav section:nth-of-type(4) label:nth-of-type(2) input:checked) nav section:nth-of-type(4) label:nth-of-type(3),
+body:has(nav section:nth-of-type(4) label:nth-of-type(3) input:checked) nav section:nth-of-type(4) label:nth-of-type(4),
+body:has(nav section:nth-of-type(5) label:nth-of-type(1) input:checked) nav section:nth-of-type(5) label:nth-of-type(2),
+body:has(nav section:nth-of-type(5) label:nth-of-type(2) input:checked) nav section:nth-of-type(5) label:nth-of-type(3),
+body:has(nav section:nth-of-type(5) label:nth-of-type(3) input:checked) nav section:nth-of-type(5) label:nth-of-type(4),
+body:has(nav section:nth-of-type(6) label:nth-of-type(1) input:checked) nav section:nth-of-type(6) label:nth-of-type(2),
+body:has(nav section:nth-of-type(6) label:nth-of-type(2) input:checked) nav section:nth-of-type(6) label:nth-of-type(3),
+body:has(nav section:nth-of-type(6) label:nth-of-type(3) input:checked) nav section:nth-of-type(6) label:nth-of-type(4) {
     display: block;
 }
 
@@ -97,4 +121,29 @@ section label {
 
 section label:nth-of-type(1) {
     display: block;
+}
+
+/* MARK: Media queries */
+@media (max-width: 450px) {
+    nav {
+        position: fixed;
+        width: 100%; 
+        height: fit-content;
+        max-height: 40vh; 
+        overflow-y: hidden; 
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        gap: 10px;
+        box-sizing: border-box;
+    }
+
+    nav section {
+        display: flex;
+        flex-direction: column; 
+    }
+
+    nav h2 {
+        font-size: 0.8em;
+        margin: 0;
+    }
 }

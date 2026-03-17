@@ -1,9 +1,23 @@
 @import 'solopositions.css';
 @import 'combinationpositions.css';
 @import 'controlpanel.css';
+@import 'cubelogic.css';
 
 :root {
     --dimensions: 66.66px;
+    --red: #e70000;
+    --orange: #e79a00;
+    --yellow: #d6e814;
+    --green: #00bb1f;
+    --blue: #0127fe;
+    --white: #ffffff;
+
+    --redNight: rgb(84, 84, 84);
+    --orangeNight: rgb(84, 84, 84);
+    --yellowNight: rgb(84, 84, 84);
+    --greenNight: rgb(84, 84, 84);
+    --blueNight: rgb(84, 84, 84);
+    --whiteNight: rgb(84, 84, 84);
 }
 
 /* MARK: Algemeen */
@@ -15,15 +29,43 @@ body {
     align-items: center;
     align-content: center;
     height: 100vh;
-    perspective: 50em;
-    background:#6c6c6c;
+
+    perspective: 70em;
+    background: linear-gradient(to bottom,
+            #e0a174 0%,
+            #a7724d 50%,
+            #522709 50%,
+            #8B4513 52%,
+            #964B00 100%),
+        radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+    background-attachment: fixed;
+
     margin: 0;
     font-family: sans-serif;
     gap: 20px;
-    transition: background 0.5s ease; 
+    transition: background 0.5s ease;
+    overflow-y: hidden;
+}
 
-    /* Voor de if() functie ben ik naar https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/if gegaan */
-    
+/* Aan gemini gevraagd of hij een raam kon maken als achtergrond materiaal */
+/* Antwoord: Ah, nu snap ik je! Je wilt dat het raam echt onderdeel is van de muur (bijna als een uitsnede) in plaats van een zwevend object met een eigen perspectief. De oranje lijnen laten zien dat je een plat, grafisch raam wilt dat strak in de linkerbovenhoek tegen de bovenkant aan zit. Hier is de code om dat precies zo te krijgen. We gebruiken de ::before of ::after op de body, maar we zetten hem nu fixed en top: 0. */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 5%;
+    min-width: 10em;
+    width: 50vw;
+    height: 150px;
+
+    background:
+        linear-gradient(to right, transparent 48%, #ccc 48%, #ccc 52%, transparent 52%),
+        linear-gradient(to bottom, #e2fffd, #87ceeb);
+    border: 8px solid #ccc;
+    border-top: none;
+    transform: none;
+    opacity: 0.8;
+    z-index: -1;
 }
 
 html {
@@ -31,183 +73,243 @@ html {
     container-name: theme-container;
 }
 
-nav {
-    display: flex;
-    flex-wrap: wrap;       
-    justify-content: center;
-    gap: 10px;
-    padding: 15px;
-    z-index: 10;
-    top: 0;
+/* MARK: Typografie */
+h1 {
+    position: absolute;
+    text-transform: uppercase;
+    font-size: min(max(40px, 8vw), 80px);
+    margin-bottom: 1.35em;
 }
 
-/* MARK: Typografie */
+/* Lamp */
+h1::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 80%;
+    width: 2px;
+    height: 80px;
+    background: #333;
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+
+h1::after {
+    content: '';
+    position: fixed;
+    top: 80px;
+    left: calc(80% - 40px);
+    width: 80px;
+    height: 45px;
+    background: #222;
+    border-radius: 40px 40px 5px 5px;
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+
 section h2 {
     font-size: 1em;
 }
 
-/* MARK: Rubics Cube */
-section:has(div) {
-    width: 100%;
-    height: 60dvh;
-    display: flex;
-    justify-content: center;
-    margin-top: 120px;
-    position: relative;
-    height: 200px;
-    transform-style: preserve-3d;
-    transform: rotateX(-30deg) rotateY(30deg);
-}
-
-
-/* Met hulp van CHatGPT om de opbouw te bepalen van de cubes */
-/* Hoe kan ik de mini-cubes zelf 3D krijgen zonder een moeilijk systeem te bouwen die zichzelf herhaalt? */
-/* Antwoord: Leuk idee wat je wilt maken! Helaas kan het niet zonder herhaling, maar ik ga je helpen om de kubussen van jouw Rubiks kubus 3D te krijgen. Elke mini-kubus moet dezelfde obouw krijgen als de grote kubus, elk met verschillende kanten. */
-section div[style*="--x"] {
-    position: absolute;
-    width: var(--dimensions);
-    height: var(--dimensions);
-    transform-style: preserve-3d;
-
-    /* Zowel --base-pos als de transition heb ik met behulp van ChatGPT gedaan en Internet */
-    --base-pos: translate3d(calc(var(--x) * var(--dimensions) - 66.66px),
-            calc(var(--y) * var(--dimensions) - 66.66px),
-            calc((var(--z) - 1) * var(--dimensions)));
-
-    /* Link naar bron: https://www.w3schools.com/cssref/func_cubic-bezier.php */
-    transform: rotateX(var(--yAxis, 0deg)) rotateY(var(--xAxis, 0deg)) var(--base-pos);
-    transition: transform 0.6s cubic-bezier(0.45, 0.05, 0.55, 0.95);
-    counter-reset: face-counter;
-}
-
-section div div::after {
-    counter-reset: x var(--x) y var(--y) z var(--z);
-    content: counter(x) "," counter(y) "," counter(z);
-    position: absolute;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: monospace;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    /* Link naar website voor text-shadow: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-shadow */
-    text-shadow: 2px 2px 0px black, -1px -1px 0px black;
-    pointer-events: none;
-    z-index: 10;
-}
-
-/* De vlakken van de blokjes */
-section div div {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 3px solid black;
-    border-radius: 0.5em;
-    box-sizing: border-box;
-}
-
-/* MARK: Bolkjes kleuren */
-section div div:nth-child(1) {
-    transform: translateZ(33px);
-    background-size: 60px 60px;
-    background: radial-gradient(circle 4em, red, rgba(0, 0, 0, 0.5));
-}
-
-section div div:nth-child(2) {
-    transform: rotateY(180deg) translateZ(33px);
-    background: radial-gradient(circle 4em, orange, rgba(0, 0, 0, 0.5));
-}
-
-section div div:nth-child(3) {
-    transform: rotateY(-90deg) translateZ(33px);
-   background: radial-gradient(circle 4em, green, rgba(0, 0, 0, 0.5));
-}
-
-section div div:nth-child(4) {
-    transform: rotateY(90deg) translateZ(33px);
-    background: radial-gradient(circle 4em, blue, rgba(0, 0, 0, 0.5));
-}
-
-section div div:nth-child(5) {
-    transform: rotateX(90deg) translateZ(33px);
-    background: radial-gradient(circle 4em, white, rgba(0, 0, 0, 0.5));
-}
-
-section div div:nth-child(6) {
-    transform: rotateX(-90deg) translateZ(33px);
-    background: radial-gradient(circle 4em, yellow, rgba(0, 0, 0, 0.5));
-}
-
-
-
-/* MARK: Aantal graden die de laag moet draaien wanneer er een checkbox is aangevinkt (Oude logica) */
-/* body:has(section:nth-of-type(1) label:nth-of-type(1) input:checked) section:has(span) span:nth-of-type(1),
-body:has(section:nth-of-type(2) label:nth-of-type(1) input:checked) section:has(span) span:nth-of-type(2),
-body:has(section:nth-of-type(3) label:nth-of-type(1) input:checked) section:has(span) span:nth-of-type(3) {
-    transform: rotateY(90deg);
-}
-
-body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) section:has(span) span:nth-of-type(1),
-body:has(section:nth-of-type(2) label:nth-of-type(2) input:checked) section:has(span) span:nth-of-type(2),
-body:has(section:nth-of-type(3) label:nth-of-type(2) input:checked) section:has(span) span:nth-of-type(3) {
-    transform: rotateY(180deg);
-}
-
-body:has(section:nth-of-type(1) label:nth-of-type(3) input:checked) section:has(span) span:nth-of-type(1),
-body:has(section:nth-of-type(2) label:nth-of-type(3) input:checked) section:has(span) span:nth-of-type(2),
-body:has(section:nth-of-type(3) label:nth-of-type(3) input:checked) section:has(span) span:nth-of-type(3) {
-    transform: rotateY(270deg);
-}
-
-body:has(section:nth-of-type(1) label:nth-of-type(4) input:checked) section:has(span) span:nth-of-type(1),
-body:has(section:nth-of-type(2) label:nth-of-type(4) input:checked) section:has(span) span:nth-of-type(2),
-body:has(section:nth-of-type(3) label:nth-of-type(4) input:checked) section:has(span) span:nth-of-type(3) {
-    transform: rotateY(0deg);
-} */
-
-
-
-/* MARK: Animaties */
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+label {
+    border: none;
 }
 
 /* MARK: Container queries */
-/* Gevraagd aan gemini waarom:  body:has(input[value="neutral"]:checked) { --scheme: neutral; }*/
+/* Voor de container queries heb ik https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries gebruikt */
+/* Gevraagd aan gemini waarom:  body:has(input[value="neutral"]:checked) { --scheme: neutral; } niet werkt*/
 /* Antwoord: In jouw code is de body de container, en je probeert binnen de @container regel de body aan te passen. Dat ziet de browser als een soort "oneindige lus" en negeert het. De Oplossing: Gebruik de html tag of een wrapper */
-html:has(input[value="neutral"]:checked) { 
-    --scheme: neutral; 
-}
-html:has(input[value="chaos"]:checked)   {
-     --scheme: chaos; 
-}
-html:has(input[value="pooltable"]:checked) {
-     --scheme: pooltable; 
+html:has(input[value="neutral"]:checked) {
+    --scheme: neutral;
 }
 
-/* Voor de regenboow gradient achtergrond heb ik: https://codepen.io/P1N2O/pen/pyBNzX gebruikt */
-@container theme-container style(--scheme: chaos) {
-  body {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 5s ease infinite;
-  }
+html:has(input[value="work"]:checked) {
+    --scheme: work;
 }
 
-/* Pooltable Thema (Groen) */
-@container theme-container style(--scheme: pooltable) {
-  body {
-    box-shadow: 0px 0px 10px 3px #052F18 inset;
-    background: radial-gradient(ellipse at center, #16A757 0%, #116336 85%);
-  }
+html:has(input[value="night"]:checked) {
+    --scheme: night;
+}
+
+html:has(input[value="debug"]:checked) {
+    --scheme: debug;
+}
+
+div:has(label) {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(#444cf7 1px, transparent 1px), linear-gradient(to right, #444cf7 1px, #09091d8b 1px);
+    background-size: var(--dimensions) var(--dimensions);
+}
+
+div:has(label) h2 {
+    position: absolute;
+    text-transform: uppercase;
+    font-size: min(max(40px, 8vw), 80px);
+    top: 0;
+    z-index: 1;
+    color: var(--white);
+}
+
+span {
+    margin-left: -0.2em;
+}
+
+label:has(input[name="theme"]) {
+    margin: 1em;
+    padding: 1.5em;
+}
+
+label:has(input[value="debug"]) {
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding: 0.5em;
+    z-index: 4;
+}
+
+/* Een werk thema */
+@container theme-container style(--scheme: neutral) {
+    div:has(label) {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+    }
+}
+
+@container theme-container style(--scheme: work) {
+    div:has(label) {
+        display: none;
+    }
+
+    nav {
+        background: rgba(255, 255, 255, 0.319);
+        backdrop-filter: blur(10px);
+        display: flex;
+    }
+
+    nav section {
+        background: rgba(0, 0, 0, 0.364);
+    }
+
+    section h2 {
+        color: var(--white);
+    }
+
+    body {
+        perspective: 70em;
+        background: linear-gradient(to bottom,
+                #b76f3c 0%,
+                #864d25 50%,
+                #492205 50%,
+                #60310f 52%,
+                #643200 100%),
+            radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+    }
+
+    body::after {
+        background:
+            linear-gradient(to right, transparent 48%, #ccc 48%, #ccc 52%, transparent 52%),
+            linear-gradient(to bottom, #4141ff, #e49100);
+    }
+}
+
+/* Nacht thema */
+@container theme-container style(--scheme: night) {
+    div:has(label) {
+        display: none;
+    }
+
+    nav {
+        background: rgba(255, 255, 255, 0.319);
+        backdrop-filter: blur(10px);
+        display: flex;
+    }
+
+    nav section {
+        background: rgba(0, 0, 0, 0.364);
+    }
+
+    section h2 {
+        color: var(--white)
+    }
+
+    body {
+        box-shadow: inset 0 0 5em 1em rgba(0, 0, 0, 0.404);
+        background: linear-gradient(to bottom,
+                #e0a174 0%,
+                #864d25 50%,
+                #522709 50%,
+                #60310f 52%,
+                #964B00 100%),
+            radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+    }
+
+    body::after {
+        background:
+            linear-gradient(to right, transparent 48%, #ccc 48%, #ccc 52%, transparent 52%),
+            linear-gradient(to bottom, #1f002c, #000000);
+    }
+
+    h1::after {
+        background: #444;
+        box-shadow:
+            inset 0 -2px 2px rgba(255, 200, 0, 0.777),
+            0 40px 50px rgb(255, 200, 0),
+            0 100px 300px 80px rgba(255, 220, 100, 0.2);
+    }
+
+    section:has(div)::before {
+        background: rgba(1em, 1em, 1em, 0.4);
+    }
+}
+
+@container theme-container style(--scheme: debug) {
+    section div div::after {
+        counter-reset: x var(--x) y var(--y) z var(--z);
+        content: counter(x) "," counter(y) "," counter(z);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: monospace;
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+        /* Link naar website voor text-shadow: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-shadow */
+        text-shadow: 1px 1px 0px black, -1px -1px 0px black;
+        pointer-events: none;
+        z-index: 10;
+    }
+
+    div:has(label) {
+        display: none;
+    }
+}
+
+/* MARK: Media Queries */
+@media (max-width: 450px) {
+    h1::before {
+        left: 50%;
+    }
+
+    h1::after {
+        left: calc(50% - 40px);
+        z-index: 0;
+    }
+
+    h1 {
+        font-size: min(max(55px, 8vw), 80px);
+        text-align: center;
+        margin-bottom: 2.3em;
+        line-height: 0.8em;
+    }
 }

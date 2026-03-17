@@ -1,0 +1,414 @@
+/* MARK: Rubics Cube */
+section:has(div) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 250px;
+    position: relative;
+    height: 400px;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(35deg);
+}
+
+section:has(div)::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.4);
+    filter: blur(20px);
+    border-radius: 50%;
+    transform: translateZ(-150px) translateY(180px) rotateX(90deg);
+    pointer-events: none;
+}
+
+/* Met hulp van CHatGPT om de opbouw te bepalen van de cubes */
+/* Hoe kan ik de mini-cubes zelf 3D krijgen zonder een moeilijk systeem te bouwen die zichzelf herhaalt? */
+/* Antwoord: Leuk idee wat je wilt maken! Helaas kan het niet zonder herhaling, maar ik ga je helpen om de kubussen van jouw Rubiks kubus 3D te krijgen. Elke mini-kubus moet dezelfde obouw krijgen als de grote kubus, elk met verschillende kanten. */
+section div[style*="--x"] {
+    position: absolute;
+    width: var(--dimensions);
+    height: var(--dimensions);
+    transform-style: preserve-3d;
+
+    /* Zowel --backsidease-pos als de transition heb ik met behulp van ChatGPT gedaan en Internet */
+    --backsidease-pos: translate3d(calc(var(--x) * var(--dimensions) - 66.66px),
+            calc(var(--y) * var(--dimensions) - 66.66px),
+            calc((var(--z) - 1) * var(--dimensions)));
+
+    /* Link naar bron: https://www.w3schools.com/cssref/func_cubic-bezier.php */
+    transform: rotateX(var(--yAxis, 0deg)) rotateY(var(--xAxis, 0deg)) var(--backsidease-pos);
+    transition: transform 0.6s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    counter-reset: face-counter;
+}
+
+/* De vlakken van de blokjes */
+section div div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid black;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+}
+
+section div div:nth-child(1) {
+    transform: translateZ(33px);
+    background: radial-gradient(circle 4em, var(--frontside, var(--red)), rgba(0, 0, 0, 0.5));
+}
+
+section div div:nth-child(2) {
+    transform: rotateY(180deg) translateZ(33px);
+    background: radial-gradient(circle 4em, var(--backside, var(--orange)), rgba(0, 0, 0, 0.5));
+}
+
+section div div:nth-child(3) {
+    transform: rotateY(-90deg) translateZ(33px);
+    background: radial-gradient(circle 4em, var(--leftside, var(--green)), rgba(0, 0, 0, 0.5));
+}
+
+section div div:nth-child(4) {
+    transform: rotateY(90deg) translateZ(33px);
+    background: radial-gradient(circle 4em, var(--rightside, var(--blue)), rgba(0, 0, 0, 0.5));
+}
+
+section div div:nth-child(5) {
+    transform: rotateX(90deg) translateZ(33px);
+    background: radial-gradient(circle 4em, var(--topside, var(--white)), rgba(0, 0, 0, 0.5));
+}
+
+section div div:nth-child(6) {
+    transform: rotateX(-90deg) translateZ(33px);
+    background: radial-gradient(circle 4em, var(--bottomside, var(--yellow)), rgba(0, 0, 0, 0.5));
+}
+
+@container theme-container style(--scheme: neutral) {
+    section div div:nth-child(1) {
+        transform: translateZ(33px);
+        background-size: 60px 60px;
+        background: radial-gradient(circle 4em, var(--red), rgba(0, 0, 0, 0.5));
+    }
+
+    section div div:nth-child(2) {
+        transform: rotateY(180deg) translateZ(33px);
+        background: radial-gradient(circle 4em, var(--orange), rgba(0, 0, 0, 0.5));
+    }
+
+    section div div:nth-child(3) {
+        transform: rotateY(-90deg) translateZ(33px);
+        background: radial-gradient(circle 4em, var(--green), rgba(0, 0, 0, 0.5));
+    }
+
+    section div div:nth-child(4) {
+        transform: rotateY(90deg) translateZ(33px);
+        background: radial-gradient(circle 4em, var(--blue), rgba(0, 0, 0, 0.5));
+    }
+
+    section div div:nth-child(5) {
+        transform: rotateX(90deg) translateZ(33px);
+        background: radial-gradient(circle 4em, var(--white), rgba(0, 0, 0, 0.5));
+    }
+
+    section div div:nth-child(6) {
+        transform: rotateX(-90deg) translateZ(33px);
+        background: radial-gradient(circle 4em, var(--yellow), rgba(0, 0, 0, 0.5));
+    }
+}
+
+@container theme-container style(--scheme: work) {
+
+    /* Soort van randomised kleuren (Hardcoded) */
+    section div[style*="x:0"][style*="y:0"][style*="z:2"] {
+        --frontside: var(--blue);
+        --topside: var(--yellow);
+        --leftside: var(--orange);
+    }
+
+    section div[style*="x:1"][style*="y:0"][style*="z:2"] {
+        --frontside: var(--yellow);
+        --topside: var(--white);
+    }
+
+    section div[style*="x:2"][style*="y:0"][style*="z:2"] {
+        --frontside: var(--white);
+        --topside: var(--green);
+        --rightside: var(--blue);
+    }
+
+    section div[style*="x:0"][style*="y:1"][style*="z:2"] {
+        --frontside: var(--orange);
+        --leftside: var(--green);
+    }
+
+    section div[style*="x:1"][style*="y:1"][style*="z:2"] {
+        --frontside: var(--green);
+    }
+
+    /* HET MIDDEN */
+    section div[style*="x:2"][style*="y:1"][style*="z:2"] {
+        --frontside: var(--blue);
+        --rightside: var(--yellow);
+    }
+
+    section div[style*="x:0"][style*="y:2"][style*="z:2"] {
+        --frontside: var(--yellow);
+        --bottomside: var(--blue);
+        --leftside: var(--white);
+    }
+
+    section div[style*="x:1"][style*="y:2"][style*="z:2"] {
+        --frontside: var(--red);
+        --bottomside: var(--orange);
+    }
+
+    section div[style*="x:2"][style*="y:2"][style*="z:2"] {
+        --frontside: var(--orange);
+        --bottomside: var(--yellow);
+        --rightside: var(--green);
+    }
+
+    section div[style*="x:0"][style*="y:0"][style*="z:1"] {
+        --topside: var(--blue);
+        --leftside: var(--red);
+    }
+
+    section div[style*="x:1"][style*="y:0"][style*="z:1"] {
+        --topside: var(--green);
+    }
+
+    section div[style*="x:2"][style*="y:0"][style*="z:1"] {
+        --topside: var(--orange);
+        --rightside: var(--white);
+    }
+
+    section div[style*="x:0"][style*="y:1"][style*="z:1"] {
+        --leftside: var(--yellow);
+    }
+
+    section div[style*="x:2"][style*="y:1"][style*="z:1"] {
+        --rightside: var(--blue);
+    }
+
+    section div[style*="x:0"][style*="y:2"][style*="z:1"] {
+        --bottomside: var(--white);
+        --leftside: var(--orange);
+    }
+
+    section div[style*="x:1"][style*="y:2"][style*="z:1"] {
+        --bottomside: var(--blue);
+    }
+
+    section div[style*="x:2"][style*="y:2"][style*="z:1"] {
+        --bottomside: var(--green);
+        --rightside: var(--yellow);
+    }
+
+    section div[style*="x:0"][style*="y:0"][style*="z:0"] {
+        --backside: var(--red);
+        --topside: var(--orange);
+        --leftside: var(--blue);
+    }
+
+    section div[style*="x:1"][style*="y:0"][style*="z:0"] {
+        --backside: var(--white);
+        --topside: var(--red);
+    }
+
+    section div[style*="x:2"][style*="y:0"][style*="z:0"] {
+        --backside: var(--orange);
+        --topside: var(--yellow);
+        --rightside: var(--white);
+    }
+
+    section div[style*="x:0"][style*="y:1"][style*="z:0"] {
+        --backside: var(--blue);
+        --leftside: var(--green);
+    }
+
+    section div[style*="x:1"][style*="y:1"][style*="z:0"] {
+        --backside: var(--yellow);
+    }
+
+    section div[style*="x:2"][style*="y:1"][style*="z:0"] {
+        --backside: var(--green);
+        --rightside: var(--red);
+    }
+
+    section div[style*="x:0"][style*="y:2"][style*="z:0"] {
+        --backside: var(--white);
+        --bottomside: var(--blue);
+        --leftside: var(--orange);
+    }
+
+    section div[style*="x:1"][style*="y:2"][style*="z:0"] {
+        --backside: var(--green);
+        --bottomside: var(--yellow);
+    }
+
+    section div[style*="x:2"][style*="y:2"][style*="z:0"] {
+        --backside: var(--red);
+        --bottomside: var(--white);
+        --rightside: var(--blue);
+    }
+}
+
+@container theme-container style(--scheme: night) {
+        @keyframes colorFade {
+        0% {
+            --redNight: red;
+            --orangeNight: orange;
+            --yellowNight: yellow;
+            --greenNight: green;
+            --blueNight: blue;
+            --whiteNight: white;
+        }
+
+        100% {
+            --redNight: rgb(84, 84, 84);
+            --orangeNight: rgb(84, 84, 84);
+            --yellowNight: rgb(84, 84, 84);
+            --greenNight: rgb(84, 84, 84);
+            --blueNight: rgb(84, 84, 84);
+            --whiteNight: rgb(84, 84, 84);
+        }
+    }
+
+    section div  {
+        animation: colorFade 15s  linear;
+    }
+
+    /* Soort van randomised kleuren (Hardcoded) */
+    section div[style*="x:0"][style*="y:0"][style*="z:2"] {
+        --frontside: var(--blueNight);
+        --topside: var(--yellowNight);
+        --leftside: var(--orangeNight);
+    }
+
+    section div[style*="x:1"][style*="y:0"][style*="z:2"] {
+        --frontside: var(--yellowNight);
+        --topside: var(--whiteNight);
+    }
+
+    section div[style*="x:2"][style*="y:0"][style*="z:2"] {
+        --frontside: var(--whiteNight);
+        --topside: var(--greenNight);
+        --rightside: var(--blueNight);
+    }
+
+    section div[style*="x:0"][style*="y:1"][style*="z:2"] {
+        --frontside: var(--orangeNight);
+        --leftside: var(--greenNight);
+    }
+
+    section div[style*="x:1"][style*="y:1"][style*="z:2"] {
+        --frontside: var(--greenNight);
+    }
+
+    /* HET MIDDEN */
+    section div[style*="x:2"][style*="y:1"][style*="z:2"] {
+        --frontside: var(--blueNight);
+        --rightside: var(--yellowNight);
+    }
+
+    section div[style*="x:0"][style*="y:2"][style*="z:2"] {
+        --frontside: var(--yellowNight);
+        --bottomside: var(--blueNight);
+        --leftside: var(--whiteNight);
+    }
+
+    section div[style*="x:1"][style*="y:2"][style*="z:2"] {
+        --frontside: var(--redNight);
+        --bottomside: var(--orangeNight);
+    }
+
+    section div[style*="x:2"][style*="y:2"][style*="z:2"] {
+        --frontside: var(--orangeNight);
+        --bottomside: var(--yellowNight);
+        --rightside: var(--greenNight);
+    }
+
+    section div[style*="x:0"][style*="y:0"][style*="z:1"] {
+        --topside: var(--blueNight);
+        --leftside: var(--redNight);
+    }
+
+    section div[style*="x:1"][style*="y:0"][style*="z:1"] {
+        --topside: var(--greenNight);
+    }
+
+    section div[style*="x:2"][style*="y:0"][style*="z:1"] {
+        --topside: var(--orangeNight);
+        --rightside: var(--whiteNight);
+    }
+
+    section div[style*="x:0"][style*="y:1"][style*="z:1"] {
+        --leftside: var(--yellowNight);
+    }
+
+    section div[style*="x:2"][style*="y:1"][style*="z:1"] {
+        --rightside: var(--blueNight);
+    }
+
+    section div[style*="x:0"][style*="y:2"][style*="z:1"] {
+        --bottomside: var(--whiteNight);
+        --leftside: var(--orangeNight);
+    }
+
+    section div[style*="x:1"][style*="y:2"][style*="z:1"] {
+        --bottomside: var(--blueNight);
+    }
+
+    section div[style*="x:2"][style*="y:2"][style*="z:1"] {
+        --bottomside: var(--greenNight);
+        --rightside: var(--yellowNight);
+    }
+
+    section div[style*="x:0"][style*="y:0"][style*="z:0"] {
+        --backside: var(--redNight);
+        --topside: var(--orangeNight);
+        --leftside: var(--blueNight);
+    }
+
+    section div[style*="x:1"][style*="y:0"][style*="z:0"] {
+        --backside: var(--whiteNight);
+        --topside: var(--redNight);
+    }
+
+    section div[style*="x:2"][style*="y:0"][style*="z:0"] {
+        --backside: var(--orangeNight);
+        --topside: var(--yellowNight);
+        --rightside: var(--whiteNight);
+    }
+
+    section div[style*="x:0"][style*="y:1"][style*="z:0"] {
+        --backside: var(--blueNight);
+        --leftside: var(--greenNight);
+    }
+
+    section div[style*="x:1"][style*="y:1"][style*="z:0"] {
+        --backside: var(--yellowNight);
+    }
+
+    section div[style*="x:2"][style*="y:1"][style*="z:0"] {
+        --backside: var(--greenNight);
+        --rightside: var(--redNight);
+    }
+
+    section div[style*="x:0"][style*="y:2"][style*="z:0"] {
+        --backside: var(--whiteNight);
+        --bottomside: var(--blueNight);
+        --leftside: var(--orangeNight);
+    }
+
+    section div[style*="x:1"][style*="y:2"][style*="z:0"] {
+        --backside: var(--greenNight);
+        --bottomside: var(--yellowNight);
+    }
+
+    section div[style*="x:2"][style*="y:2"][style*="z:0"] {
+        --backside: var(--redNight);
+        --bottomside: var(--whiteNight);
+        --rightside: var(--blueNight);
+    }
+}

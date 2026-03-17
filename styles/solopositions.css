@@ -1,4 +1,5 @@
 /* MARK: Verticaal draaien (X-as) */
+
 /* x = 0 */
 /* 1. STANDAARD: Alleen als Top, Midden-H en Bodem op RESET staan */
 body:has(section:nth-of-type(4) label:nth-of-type(4) input:checked):has(section:nth-of-type(5) label:nth-of-type(4) input:checked),:has(section:nth-of-type(6) label:nth-of-type(4) input:checked) {
