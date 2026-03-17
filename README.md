@@ -140,6 +140,45 @@ Doelen:
 - Meer aan opmaak CSS werken
 - Easter eggs
 
+## 17/03/2026
+- 09:30 zelfstandig werken aan BT
+- 11:00 Zelfstandig werken aan CSS
+- 13:00 Paue
+- 13:45 Zelfstandig werken
+- 16:00 Checkout
+
+Gesprek met:
+<br> Vandaag heb ik voornamelijk gewerkt aan CSS. Ik heb eerst wat kleine problemen opgelost op de website van BT. Hier ded de knoppen het niet goed meer en veranderde de kleuren niet meer goed. Dit heb ik opgelost door elke knop eerst op te ruimen en daarna zij eigen styling te geven inplaats van alle styling los. Daarna ben ik verder gegaan met de Rubik's Cube. Vandaag heb ik super veel bereikt. Ik ga het op een lijstje zetten:
+- Titel (Nog geen typografie, soort van)
+- Start scherm
+- Verschillende 'levels'/thema's
+- Achtergrond
+- Achtergrond thema's
+- Random start (Soort van ,eerder hard coded)
+- Control panel verbetered
+- Debug mode
+<br><br>
+Ten eerste heb ik een Titel moeten bedenken, mijn idee achter de website is een break, of te wel een pauze. Dit vindt plaats achter een bureau sinds het persoon aan het werk is. Daarom heb je ook drie verschillende niveaus: Neutraal, work en night.
+- Neutraal is vrij rondspelen met de rubik's cube, je hoeft hem niet op te lossen. Dit is echt iets dat je in de pauze zou doen, niet serieus bezig zijn en eerder een beetje bewegen.
+- Work, hier ga je echt zitten voor de rubik's cube, je gaat hem op proberen te lossen. De start is dan ook geshuffeld.
+- Night, de moeilijkste graag. Hier zijn mensen vaak moe en zien ze niet goed meer, daarom zijn de kleuren ook grijs. Dit is puur geheugen.
+<br>
+Ik heb gekozen voor deze drie moeilijkheidsgraden omdat ik op deze manier mijn werk het beste kan laten zijn, elke stap heeft zijn eigen moeilijkheidsgraad inplaats van dat ik het werk 'overwrite'.
+<br><br>
+Omdat ik deze moeilijkheidgraden wilde hebben moest ik ook een leuke achtergrond hebben. Ik ben de hele dag bezig geweest met het mooi maken van de achtergrond. Elk element is gemaakt met CSS only, dus geen foto's en geen svg elementen, alleen maar css.<br>
+// Achtergrond zonder elementen <br>
+<img width="1499" height="902" alt="image" src="https://github.com/user-attachments/assets/734272f9-7312-46ce-a46d-878d86cc298b" />
+<br><br>
+// Raam element <br>
+<img width="923" height="405" alt="image" src="https://github.com/user-attachments/assets/45ace1d6-069a-42d1-854e-fca85df92cda" />
+<br><br>
+// Lamp Element
+<img width="525" height="249" alt="image" src="https://github.com/user-attachments/assets/d493954d-b6ea-4c89-a7d5-58f4de065944" />
+<br><br>
+
+
+
+
 
 
 
