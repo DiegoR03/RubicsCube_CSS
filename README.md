@@ -207,33 +207,3 @@ Als laatste heb ik de control panel verbeterd en meer overzichtelijk gemaakt. Ni
 <img width="753" height="165" alt="image" src="https://github.com/user-attachments/assets/4c12f1de-2b31-4ed5-a546-d4d179c12048" /> <br>
 <br>
 Dit is meer overzichtelijk dan eerder en het voelt moderner.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
