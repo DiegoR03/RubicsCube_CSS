@@ -228,8 +228,6 @@ body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) {
         }
 }
 
-
-
 /* Top laag 180 + Rechts */
 body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) {
         /* Rechts 90 graden */    
@@ -365,8 +363,6 @@ body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) {
             --yAxis: 270deg;
         }
 }
-
-
 
 /* Top laag 180 + Rechts */
 body:has(section:nth-of-type(1) label:nth-of-type(2) input:checked) {

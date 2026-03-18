@@ -9,24 +9,8 @@
 </head>
 
 <body>
-    <label><input type="radio" name="debug" value="debug">Debug</label>
-    <h1>
-        <span>R</span>
-        <span>u</span>
-        <span>B</span>
-        <span>i</span>
-        <span>k</span>
-        <span>'</span>
-        <span>s</span>
-        <span style="padding: 0.2em;"> </span>
-        <span>B</span>
-        <span>r</span>
-        <span>e</span>
-        <span>a</span>
-        <span>k</span>
-    </h1>   
     <div>
-        <h2>
+        <h1>
             <span>R</span>
             <span>u</span>
             <span>B</span>
@@ -34,21 +18,42 @@
             <span>k</span>
             <span>'</span>
             <span>s</span>
-            <span style="padding: 0.2em;"> </span>
+            <span> </span>
             <span>B</span>
             <span>r</span>
             <span>e</span>
-            <span>a</span>
-            <span>k</span>
-        </h2>   
+            <div>
+                <span>a</span>
+                <span>k</span>
+            </div>
+        </h1>
         <label><input type="radio" name="theme" value="neutral">Neutral</label>
         <label><input type="radio" name="theme" value="work">Work</label>
         <label><input type="radio" name="theme" value="night">Night</label>
-    </div>    
+    </div>
+    <label><input type="checkbox" name="theme" value="debug">Debug</label>
+    <h2>
+        <span>R</span>
+        <span>u</span>
+        <span>B</span>
+        <span>i</span>
+        <span>k</span>
+        <span>'</span>
+        <span>s</span>
+        <span> </span>
+        <span>B</span>
+        <span>r</span>
+        <span>e</span>
+        <div>
+            <span>a</span>
+            <span>k</span>
+        </div>
+    </h2>
 
+    <label><input type="radio" name="theme" value="back">Back</label>
     <nav>
         <section>
-            <h2>Top Laag (H)</h2>
+            <h2>Top (H)</h2>
             <label><input type="radio" name="top">90°</label>
             <label><input type="radio" name="top">180°</label>
             <label><input type="radio" name="top">270°</label>
@@ -56,7 +61,7 @@
         </section>
 
         <section>
-            <h2>Midden (H)</h2>
+            <h2>Mid (H)</h2>
             <label><input type="radio" name="middle-h">90°</label>
             <label><input type="radio" name="middle-h">180°</label>
             <label><input type="radio" name="middle-h">270°</label>
@@ -80,7 +85,7 @@
         </section>
 
         <section>
-            <h2>Midden (V)</h2>
+            <h2>Mid (V)</h2>
             <label><input type="radio" name="middle-v">90°</label>
             <label><input type="radio" name="middle-v">180°</label>
             <label><input type="radio" name="middle-v">270°</label>
@@ -94,7 +99,15 @@
             <label><input type="radio" name="right">270°</label>
             <label><input type="radio" name="right" checked>Reset</label>
         </section>
-        
+
+        <section>
+            <h2>Geheel</h2>
+            <label><input type="radio" name="geheel">90°</label>
+            <label><input type="radio" name="geheel">180°</label>
+            <label><input type="radio" name="geheel">270°</label>
+            <label><input type="radio" name="geheel" checked>Reset</label>
+        </section>
+
     </nav>
 
 
@@ -312,7 +325,6 @@
             <div></div>
             <div></div>
         </div>
-        </span>
     </section>
 </body>
 

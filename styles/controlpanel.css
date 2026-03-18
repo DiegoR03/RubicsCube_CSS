@@ -1,18 +1,7 @@
 /* MARK: Control buttons */
-nav section:nth-of-type(1),
-nav section:nth-of-type(2),
-nav section:nth-of-type(3),
-nav section:nth-of-type(4),
-nav section:nth-of-type(5),
-nav section:nth-of-type(6) {
-    display: flex;
-    gap: 10px;
-    z-index: 1;
-}
-
 nav {
     position: fixed;
-    left: 0;
+    right:0;
     top: 0;
     width: 10em; 
     height: 100vh;
@@ -34,20 +23,30 @@ nav section {
     background: rgba(0, 0, 0, 0.364);
     padding: 10px;
     border-radius: 8px;
-}
 
+    &:nth-of-type(1),
+    &:nth-of-type(2),
+    &:nth-of-type(3),
+    &:nth-of-type(4),
+    &:nth-of-type(5),
+    &:nth-of-type(6) {
+        display: flex;
+        gap: 10px;
+        z-index: 1;
+        margin: 0.1em;
+    }
+
+    &:not(:has(div)) {
+        flex-direction: column;
+        text-align: center;
+        border-radius: 8px;
+    }
+}
 
 nav h2 {
     margin: 0 0 5px 0;
     font-size: 0.9rem;
     color: var(--white)
-}
-
-/* MARK: Control buttons */
-nav section:not(:has(div)) {
-    flex-direction: column;
-    align-items: center;
-    border-radius: 8px;
 }
 
 /* De buttons zelf onzichtbaar maken */
@@ -59,17 +58,77 @@ input[type="radio"] {
 
 /* De labels stylen als knoppen */
 label {
-    padding: 2px 12px;
+    padding: 0.1em;
     background: #eee;
     border: 1px solid #333;
     border-radius: 4px;
     cursor: pointer;
     user-select: none;
+    transition: 0.15s;
 
+    &:hover {
+        background: #3d3d3d;
+    }
+
+    &:has(input[value="debug"]) {
+        position: absolute;
+        left: 0;
+        z-index: 1;
+    }
+
+    &:has(input[value="back"]){
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
 }
 
-label:hover {
-    background: #ddd;
+/* Met behulp van Gemini de knop gestyled */
+/* Vraag: Ik wil de debug knop stylen naar een stukje papier die op het bureau ligt. Ik weet dat het mogelijk is, maar ik krijg de positioning niet correct. Elke eker verdwijnt hij. */
+/* Dat is zeker mogelijk en een heel tof detail voor je interface! Omdat je kubus al in een 3D-omgeving lijkt te staan met die schaduw eronder, kunnen we de debug-knop transformeren tot een "post-it" of een gescheurd blaadje dat plat op het bureau ligt. Hier is hoe we dat doen met CSS transform en wat subtiele filters: Vervang de styling van je debug-label door deze code. We gebruiken rotateX om hem "plat" neer te leggen. */
+label{
+    &:has(input[value="debug"]), &:has(input[value="back"]) {
+        position: fixed;
+        background: #fffde7; 
+        font-size: 0.7rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        z-index: 0;
+    }
+
+    &:has(input[value="debug"]) {
+        left: 190px;
+        top: 400px;
+        width: 120px;
+        height: 120px;
+        /* Uiteindelijk heb ik alleen de transform over hoeven nemen, de rest had ik al */
+        transform: rotateX(40deg) rotateZ(30deg);
+    }    
+
+    &:has(input[value="debug"]):hover {
+        transform: rotateX(40deg) rotateZ(30deg) translateY(-10px);
+        box-shadow: 5px 10px 15px rgba(0,0,0,0.3);
+        background: #ffffd2;
+    }
+
+    &:has(input[value="back"]){
+        left: 100px;
+        top: 370px;
+        width: 120px;
+        height: 120px;
+        transform: rotateX(40deg) rotateZ(10deg);
+    }
+
+    &:has(input[value="back"]):hover {
+        transform: rotateX(40deg) rotateZ(10deg) translateY(-10px);
+        box-shadow: 5px 10px 15px rgba(0,0,0,0.3);
+        background: #ffffd2;
+    }
 }
 
 /* MARK: Als gechecked: toon één, verberg de andere */
@@ -90,7 +149,10 @@ body:has(nav section:nth-of-type(5) label:nth-of-type(2) input:checked) nav sect
 body:has(nav section:nth-of-type(5) label:nth-of-type(3) input:checked) nav section:nth-of-type(5) label:nth-of-type(3),
 body:has(nav section:nth-of-type(6) label:nth-of-type(1) input:checked) nav section:nth-of-type(6) label:nth-of-type(1),
 body:has(nav section:nth-of-type(6) label:nth-of-type(2) input:checked) nav section:nth-of-type(6) label:nth-of-type(2),
-body:has(nav section:nth-of-type(6) label:nth-of-type(3) input:checked) nav section:nth-of-type(6) label:nth-of-type(3) {
+body:has(nav section:nth-of-type(6) label:nth-of-type(3) input:checked) nav section:nth-of-type(6) label:nth-of-type(3),
+body:has(nav section:nth-of-type(7) label:nth-of-type(1) input:checked) nav section:nth-of-type(7) label:nth-of-type(1),
+body:has(nav section:nth-of-type(7) label:nth-of-type(2) input:checked) nav section:nth-of-type(7) label:nth-of-type(2),
+body:has(nav section:nth-of-type(7) label:nth-of-type(3) input:checked) nav section:nth-of-type(7) label:nth-of-type(3) {
     display: none;
 }
 
@@ -111,17 +173,22 @@ body:has(nav section:nth-of-type(5) label:nth-of-type(2) input:checked) nav sect
 body:has(nav section:nth-of-type(5) label:nth-of-type(3) input:checked) nav section:nth-of-type(5) label:nth-of-type(4),
 body:has(nav section:nth-of-type(6) label:nth-of-type(1) input:checked) nav section:nth-of-type(6) label:nth-of-type(2),
 body:has(nav section:nth-of-type(6) label:nth-of-type(2) input:checked) nav section:nth-of-type(6) label:nth-of-type(3),
-body:has(nav section:nth-of-type(6) label:nth-of-type(3) input:checked) nav section:nth-of-type(6) label:nth-of-type(4) {
+body:has(nav section:nth-of-type(6) label:nth-of-type(3) input:checked) nav section:nth-of-type(6) label:nth-of-type(4),
+body:has(nav section:nth-of-type(7) label:nth-of-type(1) input:checked) nav section:nth-of-type(7) label:nth-of-type(2),
+body:has(nav section:nth-of-type(7) label:nth-of-type(2) input:checked) nav section:nth-of-type(7) label:nth-of-type(3),
+body:has(nav section:nth-of-type(7) label:nth-of-type(3) input:checked) nav section:nth-of-type(7) label:nth-of-type(4) {
     display: block;
 }
 
 section label {
     display: none;
+
+    &:nth-of-type(1) {
+        display: block;
+    }
 }
 
-section label:nth-of-type(1) {
-    display: block;
-}
+
 
 /* MARK: Media queries */
 @media (max-width: 450px) {
@@ -131,19 +198,41 @@ section label:nth-of-type(1) {
         height: fit-content;
         max-height: 40vh; 
         overflow-y: hidden; 
-        display: grid;
-        grid-template-columns: 1fr 1fr; 
+        
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
         gap: 10px;
         box-sizing: border-box;
-    }
 
-    nav section {
-        display: flex;
-        flex-direction: column; 
-    }
+        section {
+            display: flex;
+            flex-direction: column; 
+        }
 
-    nav h2 {
-        font-size: 0.8em;
-        margin: 0;
+        h2 {
+            font-size: 0.8em;
+            margin: 0;
+        }
+
+        section, nav label{
+            &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), :nth-of-type(7) {
+                display: flex;
+                z-index: 1;
+                gap: 10px;
+            }  
+            &:nth-of-type(7) {
+            grid-column: 1 / -1;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        }
+    }
+    label {
+        &:has(input[value="debug"]) {
+            position: fixed;
+            left: 66vw;
+            top: 88vh;
+            width: 60px;
+            height: 60px;
+        }
     }
 }

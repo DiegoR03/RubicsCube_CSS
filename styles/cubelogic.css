@@ -1,6 +1,41 @@
+@property --redNight {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: rgb(84, 84, 84);
+}
+
+@property --orangeNight {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: rgb(84, 84, 84);
+}
+
+@property --yellowNight {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: rgb(84, 84, 84);
+}
+
+@property --greenNight {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: rgb(84, 84, 84);
+}
+
+@property --blueNight {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: rgb(84, 84, 84);
+}
+
+@property --whiteNight {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: rgb(84, 84, 84);
+}
+
 /* MARK: Rubics Cube */
 section:has(div) {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,13 +48,13 @@ section:has(div) {
 
 section:has(div)::before {
     content: '';
-    position: absolute;
+    position: fixed;
     width: 300px;
-    height: 100px;
+    height: 300px;
     background: rgba(0, 0, 0, 0.4);
     filter: blur(20px);
     border-radius: 50%;
-    transform: translateZ(-150px) translateY(180px) rotateX(90deg);
+    transform: translateZ(-100px) translateY(100px) rotateX(90deg);
     pointer-events: none;
 }
 
@@ -117,7 +152,6 @@ section div div:nth-child(6) {
 }
 
 @container theme-container style(--scheme: work) {
-
     /* Soort van randomised kleuren (Hardcoded) */
     section div[style*="x:0"][style*="y:0"][style*="z:2"] {
         --frontside: var(--blue);
@@ -145,7 +179,6 @@ section div div:nth-child(6) {
         --frontside: var(--green);
     }
 
-    /* HET MIDDEN */
     section div[style*="x:2"][style*="y:1"][style*="z:2"] {
         --frontside: var(--blue);
         --rightside: var(--yellow);
@@ -255,7 +288,7 @@ section div div:nth-child(6) {
 
 @container theme-container style(--scheme: night) {
         @keyframes colorFade {
-        0% {
+        from {
             --redNight: red;
             --orangeNight: orange;
             --yellowNight: yellow;
@@ -264,7 +297,7 @@ section div div:nth-child(6) {
             --whiteNight: white;
         }
 
-        100% {
+        to {
             --redNight: rgb(84, 84, 84);
             --orangeNight: rgb(84, 84, 84);
             --yellowNight: rgb(84, 84, 84);
@@ -275,10 +308,9 @@ section div div:nth-child(6) {
     }
 
     section div  {
-        animation: colorFade 15s  linear;
+        animation: colorFade 15s linear;
     }
 
-    /* Soort van randomised kleuren (Hardcoded) */
     section div[style*="x:0"][style*="y:0"][style*="z:2"] {
         --frontside: var(--blueNight);
         --topside: var(--yellowNight);
@@ -305,7 +337,6 @@ section div div:nth-child(6) {
         --frontside: var(--greenNight);
     }
 
-    /* HET MIDDEN */
     section div[style*="x:2"][style*="y:1"][style*="z:2"] {
         --frontside: var(--blueNight);
         --rightside: var(--yellowNight);
@@ -411,4 +442,10 @@ section div div:nth-child(6) {
         --bottomside: var(--whiteNight);
         --rightside: var(--blueNight);
     }
+}
+
+@media (max-width: 450px){
+    section:has(div)::before {
+        transform: translateZ(-150px) translateY(100px) rotateX(90deg);
+    }  
 }

@@ -3,6 +3,12 @@
 @import 'controlpanel.css';
 @import 'cubelogic.css';
 
+@font-face {
+    /* Squares Bold van https://www.1001fonts.com/squares-bold-font.html */
+    font-family: Squared;
+    src: url('/font/SquaredFont.otf');
+}
+
 :root {
     --dimensions: 66.66px;
     --red: #e70000;
@@ -21,34 +27,38 @@
 }
 
 /* MARK: Algemeen */
+html {
+    container-type: normal;
+    container-name: theme-container;
+}
+
 body {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center;
-    height: 100vh;
+    min-height: 100dvh;
 
     perspective: 70em;
-    background: linear-gradient(to bottom,
-            #e0a174 0%,
-            #a7724d 50%,
+    background: linear-gradient(to top,
+            #964B00 0%,
+            #8B4513  50%,
             #522709 50%,
-            #8B4513 52%,
-            #964B00 100%),
+            #a7724d 52%,
+            #e0a174 100%),
         radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
     background-attachment: fixed;
 
     margin: 0;
-    font-family: sans-serif;
+    font-family: Squared;
     gap: 20px;
     transition: background 0.5s ease;
     overflow-y: hidden;
 }
 
 /* Aan gemini gevraagd of hij een raam kon maken als achtergrond materiaal */
-/* Antwoord: Ah, nu snap ik je! Je wilt dat het raam echt onderdeel is van de muur (bijna als een uitsnede) in plaats van een zwevend object met een eigen perspectief. De oranje lijnen laten zien dat je een plat, grafisch raam wilt dat strak in de linkerbovenhoek tegen de bovenkant aan zit. Hier is de code om dat precies zo te krijgen. We gebruiken de ::before of ::after op de body, maar we zetten hem nu fixed en top: 0. */
+/* Antwoord: Ah, nu snap ik je! Je wilt dat het raam echt onderdeel is van de muur (bijna als een uitsnede) in plaats van een zwevend object met een eigen perspectief. De oranje lijnen laten zien dat je een plat, grafisch raam wilt dat strak in de linkerbovenhoek tegen de bovenkant aan zit. We gebruiken de ::before of ::after op de body, maar we zetten hem nu fixed en top: 0. */
 body::after {
     content: '';
     position: fixed;
@@ -68,109 +78,242 @@ body::after {
     z-index: -1;
 }
 
-html {
-    container-type: normal;
-    container-name: theme-container;
-}
-
-/* MARK: Typografie */
-h1 {
-    position: absolute;
-    text-transform: uppercase;
-    font-size: min(max(40px, 8vw), 80px);
-    margin-bottom: 1.35em;
-}
-
-/* Lamp */
-h1::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 80%;
-    width: 2px;
-    height: 80px;
-    background: #333;
-    z-index: 1;
-    transition: all 0.5s ease;
-}
-
-h1::after {
-    content: '';
-    position: fixed;
-    top: 80px;
-    left: calc(80% - 40px);
-    width: 80px;
-    height: 45px;
-    background: #222;
-    border-radius: 40px 40px 5px 5px;
-    z-index: 1;
-    transition: all 0.5s ease;
-}
-
-section h2 {
-    font-size: 1em;
-}
-
 label {
     border: none;
+}
+
+/* MARK: Typografie algemeen */
+section h2 {
+    font-size: 0.9em;
+}
+
+h1 span,
+h2 span {
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    float: left;
+    height: auto;
+    width: 0.8em;
+    height: 0.8em;
+    text-align: center;
+    align-items: center;
+    font-family: Squared;
+}
+
+/* MARK: H1 element */
+h1 {
+    position: absolute;
+    display: flex;
+    text-transform: uppercase;
+    font-size: min(max(40px, 11vw), 70px);
+    margin-bottom: 4.85em;
+    justify-content: center;
+    width: 70vw;
+    flex-wrap: wrap;
+    
+    span {
+        background-color: var(--white);
+        border: 3px solid black;
+        transform-style: preserve-3d;
+        animation: flipForward 6s ease-in alternate infinite;
+    }
+
+    span::after {
+        content: '';
+        position: absolute;
+        inset: -3px;
+        background: inherit;
+        border: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: rotateX(90deg) translateZ(0.45em);
+    }
+
+    span:nth-child(3n) {
+        animation-delay: 3s;
+    }
+
+    span:nth-child(2n) {
+        animation-delay: 3.5s;
+    }
+}
+
+/* H2 elementen */
+h2{
+    span{
+        opacity: 0.3;
+    }
+
+    &:has(span) {
+        position: absolute;
+        display: flex;
+        text-transform: uppercase;
+        font-size: min(max(35px, 8vw), 70px);
+        margin-bottom: 5em;
+        justify-content: center;
+        width: 70vw;
+        min-width: 7em;
+        flex-wrap: wrap;
+    }
+
+    /* Lamp */
+    &:has(span)::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 80%;
+        width: 2px;
+        height: 80px;
+        background: #333;
+        z-index: 1;
+        transition: all 0.5s ease;
+    }
+
+    &:has(span)::after {
+        content: '';
+        position: fixed;
+        top: 80px;
+        left: calc(80% - 40px);
+        width: 80px;
+        height: 45px;
+        background: #222;
+        border-radius: 40px 40px 5px 5px;
+        z-index: 1;
+        transition: all 0.5s ease;
+    }
+}
+
+div {
+    &:has(label) {
+        position: absolute;
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        background-image: linear-gradient(#444cf7 1px, transparent 1px), linear-gradient(to right, #444cf7 1px, #09091d8b 1px);
+        background-size: var(--dimensions) var(--dimensions);
+    }
+
+    &:has(label) h2 {
+        position: absolute;
+        display: flex;
+        text-transform: uppercase;
+        font-size: min(max(40px, 8vw), 80px);
+        top: 0;
+        z-index: 1;
+        color: var(--white);
+        justify-content: center;
+        width: 80vw;
+        flex-wrap: wrap;
+    }
+}
+
+span{
+    &:nth-of-type(6n+1) {
+        background-color: var(--red);
+    }
+
+    &:nth-of-type(6n+2) {
+        background-color: var(--blue);
+    }
+
+    &:nth-of-type(6n+3) {
+        background-color: var(--orange);
+    }
+
+    &:nth-of-type(6n+4) {
+        background-color: var(--green);
+    }
+
+    &:nth-of-type(6n+5) {
+        background-color: var(--yellow);
+    }
+
+    &:nth-of-type(6N+6) {
+        background-color: var(--white);
+    }
+}
+
+/* MARK: Animaties */
+@keyframes break {
+    from {
+        rotate: 0;
+    }
+
+    20% {
+        rotate: var(--rotationStepDegree);
+    }
+
+    35% {
+        rotate: var(--rotationStep2Degree);
+    }
+
+    50% {
+        rotate: var(--rotationStepDegree);
+    }
+
+    65% {
+        rotate: var(--rotationStep2Degree);
+    }
+
+    80% {
+        rotate: var(--rotationStepDegree);
+    }
+
+    to {
+        rotate: var(--rotationEndDegree);
+    }
+}
+
+@keyframes flipForward {
+    0% {
+        transform: rotateX(0deg);
+    }
+    25% {
+        transform: rotateX(-90deg);
+    }
+    50% {
+        transform: rotateX(-180deg);
+    }
+    75% {
+        transform: rotateX(-270deg);
+    }
+    100% {
+        transform: rotateX(-360deg); 
+    }
 }
 
 /* MARK: Container queries */
 /* Voor de container queries heb ik https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries gebruikt */
 /* Gevraagd aan gemini waarom:  body:has(input[value="neutral"]:checked) { --scheme: neutral; } niet werkt*/
 /* Antwoord: In jouw code is de body de container, en je probeert binnen de @container regel de body aan te passen. Dat ziet de browser als een soort "oneindige lus" en negeert het. De Oplossing: Gebruik de html tag of een wrapper */
-html:has(input[value="neutral"]:checked) {
-    --scheme: neutral;
+html{
+    &:has(input[value="neutral"]:checked) {
+        --scheme: neutral;
+    }
+
+    &:has(input[value="work"]:checked) {
+        --scheme: work;
+    }
+
+    &:has(input[value="night"]:checked) {
+        --scheme: night;
+    }
+
+    &:has(input[value="debug"]:checked) {
+        --scheme: debug;
+    }
 }
 
-html:has(input[value="work"]:checked) {
-    --scheme: work;
-}
-
-html:has(input[value="night"]:checked) {
-    --scheme: night;
-}
-
-html:has(input[value="debug"]:checked) {
-    --scheme: debug;
-}
-
-div:has(label) {
-    position: absolute;
-    z-index: 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-image: linear-gradient(#444cf7 1px, transparent 1px), linear-gradient(to right, #444cf7 1px, #09091d8b 1px);
-    background-size: var(--dimensions) var(--dimensions);
-}
-
-div:has(label) h2 {
-    position: absolute;
-    text-transform: uppercase;
-    font-size: min(max(40px, 8vw), 80px);
-    top: 0;
-    z-index: 1;
-    color: var(--white);
-}
-
-span {
-    margin-left: -0.2em;
-}
-
-label:has(input[name="theme"]) {
-    margin: 1em;
-    padding: 1.5em;
-}
-
-label:has(input[value="debug"]) {
-    position: fixed;
-    right: 0;
-    top: 0;
-    padding: 0.5em;
-    z-index: 4;
+label{
+    &:has(input[name="theme"]) {
+        margin: 0.2em;
+        padding: 1.5em;
+    }
 }
 
 /* Een werk thema */
@@ -180,7 +323,7 @@ label:has(input[value="debug"]) {
     }
 
     nav {
-        display: flex;
+        display: grid;
     }
 }
 
@@ -192,11 +335,11 @@ label:has(input[value="debug"]) {
     nav {
         background: rgba(255, 255, 255, 0.319);
         backdrop-filter: blur(10px);
-        display: flex;
-    }
+        display: grid;
 
-    nav section {
-        background: rgba(0, 0, 0, 0.364);
+        section {
+            background: rgba(0, 0, 0, 0.364);
+        }
     }
 
     section h2 {
@@ -205,24 +348,43 @@ label:has(input[value="debug"]) {
 
     body {
         perspective: 70em;
-        background: linear-gradient(to bottom,
-                #b76f3c 0%,
-                #864d25 50%,
+        background: linear-gradient(to top,
+                #643200 0%,
+                #60310f 50%,
                 #492205 50%,
-                #60310f 52%,
-                #643200 100%),
+                #864d25 52%,
+                #b76f3c 100%),
             radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
-    }
-
-    body::after {
-        background:
-            linear-gradient(to right, transparent 48%, #ccc 48%, #ccc 52%, transparent 52%),
-            linear-gradient(to bottom, #4141ff, #e49100);
+        
+        &::after {
+            background:
+                linear-gradient(to right, transparent 48%, #ccc 48%, #ccc 52%, transparent 52%),
+                linear-gradient(to bottom, #4141ff, #e49100);
+        }
     }
 }
 
 /* Nacht thema */
 @container theme-container style(--scheme: night) {
+    h2{
+        div:has(span) {
+            --rotationStepDegree: 120deg;
+            --rotationStep2Degree: 70deg;
+            --rotationEndDegree: 100deg;
+            animation-delay: 2s;
+            animation: break 5s ease-in-out forwards;
+            transform-origin: bottom left;
+        }
+
+        &:has(span)::after {
+        background: #444;
+        box-shadow:
+            inset 0 -2px 2px rgba(255, 200, 0, 0.777),
+            0 40px 50px rgb(255, 200, 0),
+            0 100px 300px 80px rgba(255, 220, 100, 0.2);
+        }
+    }
+
     div:has(label) {
         display: none;
     }
@@ -230,44 +392,39 @@ label:has(input[value="debug"]) {
     nav {
         background: rgba(255, 255, 255, 0.319);
         backdrop-filter: blur(10px);
-        display: flex;
+        display: grid;
+
+        section {
+            background: rgba(0, 0, 0, 0.364);
+        }
     }
 
-    nav section {
-        background: rgba(0, 0, 0, 0.364);
-    }
+    section {
+        h2{
+            color: var(--white)
+        }
 
-    section h2 {
-        color: var(--white)
+        &:has(div)::before {
+            background: rgba(1em, 1em, 1em, 0.4);
+        }
+        
     }
 
     body {
         box-shadow: inset 0 0 5em 1em rgba(0, 0, 0, 0.404);
-        background: linear-gradient(to bottom,
-                #e0a174 0%,
-                #864d25 50%,
+        background: linear-gradient(to top,
+                #964B00  0%,
+                #60310f  50%,
                 #522709 50%,
-                #60310f 52%,
-                #964B00 100%),
+                #864d25 52%,
+                #ba6020 100%),
             radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
-    }
 
-    body::after {
-        background:
-            linear-gradient(to right, transparent 48%, #ccc 48%, #ccc 52%, transparent 52%),
-            linear-gradient(to bottom, #1f002c, #000000);
-    }
-
-    h1::after {
-        background: #444;
-        box-shadow:
-            inset 0 -2px 2px rgba(255, 200, 0, 0.777),
-            0 40px 50px rgb(255, 200, 0),
-            0 100px 300px 80px rgba(255, 220, 100, 0.2);
-    }
-
-    section:has(div)::before {
-        background: rgba(1em, 1em, 1em, 0.4);
+        &::after {
+            background:
+                linear-gradient(to right, transparent 48%, #ccc 48%, #ccc 52%, transparent 52%),
+                linear-gradient(to bottom, #1f002c, #000000);
+        }
     }
 }
 
@@ -293,23 +450,28 @@ label:has(input[value="debug"]) {
     div:has(label) {
         display: none;
     }
+
+    nav {
+        display: grid;
+    }
 }
 
 /* MARK: Media Queries */
 @media (max-width: 450px) {
-    h1::before {
+    h2:has(span)::before {
         left: 50%;
     }
 
-    h1::after {
-        left: calc(50% - 40px);
-        z-index: 0;
-    }
-
     h1 {
-        font-size: min(max(55px, 8vw), 80px);
+        font-size: min(max(55px, 8vw), 70px);
         text-align: center;
-        margin-bottom: 2.3em;
+        margin-bottom: 5em;
         line-height: 0.8em;
+        width: 85vw;
+
+        &::after {
+            left: calc(50% - 40px);
+            z-index: 0;
+        }
     }
 }
