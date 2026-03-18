@@ -6,7 +6,7 @@
 @font-face {
     /* Squares Bold van https://www.1001fonts.com/squares-bold-font.html */
     font-family: Squared;
-    src: url('/font/SquaredFont.otf');
+    src: url('../font/SquaredFont.otf');
 }
 
 :root {
