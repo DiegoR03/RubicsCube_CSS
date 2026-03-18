@@ -140,10 +140,19 @@ Doelen:
 - Meer aan opmaak CSS werken
 - Easter eggs
 
+## Week 3
+Dit was een geweldige development week. Deze week heb ik het eindelijk voor elkaar gekregen om zowel horizontaal als verticaal te draaien te combineren. Dit was een flinke uitdaging en is zelfs tot nu toe nog steeds niet dynamisch. Maar via een 'hardcoded' manier heb ik ervoor gezorgd dat je de cube meerdere kanten op kan draaien. Daarnaast heb ik ook hele goede feedback gekregen van Sanne over mijn website. Voor volgende week heb ik daarbij dus ook gelijk mijn volgende plannen:
+- De achtergrond vorm geven
+- Thema's toevoegen (Deze keer niet alleen achtergrond kleuren)
+- Meer met nesting werken
+- Achtergrond elementen toevoegen
+- Eventueel (als er tijd over is) meer levels toevoegen
+- En als laatste ook de titel vorm geven en een goede titel bedenken.
+
 ## 17/03/2026
 - 09:30 zelfstandig werken aan BT
 - 11:00 Zelfstandig werken aan CSS
-- 13:00 Paue
+- 13:00 Pauze
 - 13:45 Zelfstandig werken
 - 16:00 Checkout
 
@@ -207,3 +216,111 @@ Als laatste heb ik de control panel verbeterd en meer overzichtelijk gemaakt. Ni
 <img width="753" height="165" alt="image" src="https://github.com/user-attachments/assets/4c12f1de-2b31-4ed5-a546-d4d179c12048" /> <br>
 <br>
 Dit is meer overzichtelijk dan eerder en het voelt moderner.
+
+## 18/03/2026
+- 09:30 Zelfstandig werken
+- 13:00 Pauze
+- 13:40 Zelfstandig werken
+- 16:00 Checkout
+
+<br>Vandaag is de laatste dag dat ik heb kunnen werken aan mijn Rubik's cube, ik hebvandaag dus ook heel veel bereikt. Omdat het zo veel is zal ik alles op een lijstje zetten en het punt voor punt behandelen:
+- CSS Fixes (Voornamelijk hoogtes, animaties en code opmaak)
+- Geanimeerde Titel + Typografie
+- Buttons (Zowel control panel als Terug/debug knop)
+- Compleet draaien van de kubus.
+- Details (Animaties, kleuren en kleine aanpassingen)
+
+<br><br>
+// CSS Fixes <br>
+Om te beginnen ga ik vertellen over de kleine CSS fixes die ik heb uitgevoerd. Omdat ik vandaag al mijn code ga inleveren wilde ik mijn code opschonen zodat eht leesbaar is voor zowel mijzelf als de docenten. Dit betekent dat ik onnodige code ging weg halen, maar ook meer ging focussen op nesten. Tijdens deze fixes ben ik erachter gekomen dat ik heel veel code kan nesten zonder dat het clustered wordt of dat er code niet meer werkt. Een voorbeeld is het `<h2>` element: <br>
+<img width="514" height="809" alt="image" src="https://github.com/user-attachments/assets/63c05b49-fe64-4b5f-94d1-5e346d53e509" /> <br>
+Dit element zat over door het hele css document en had vaker dezelfde functies in andere stukken code gestopt, dit heb ik opgegeschoont er ervoor gezorgt dat het allemaal bij elkaar staat. Dit heb ik echter ook voor andere elementen gedaan zoals:
+- `<h1>`
+- `<div>`
+- `<span>`
+- `<html>`
+- `<label>`
+- `<body>`
+- En nog vele meer
+<br>
+Al deze elementen hadden opschoning nodig omdat er zoveel genest wordt met verschillende `:nth-of-types`. Na het opschonen van deze code was de code niet alleen overzichtelijker maar kon ik de volgende functies ook veel makkelijker maken: <br><br>
+
+// Titel <br>
+De titel was één van de requirements voor deze opdracht, natuurlijk wil ik een titel wel goede styling geven, het is namelijk het eerste dat je ziet op een website. Na veel onderzoek doen naar verschillende lettertypes heb ik er uiteindelijk zelf voor gekozen om alles zelf uit te werken. Ik heb een letetrtype gedownload genaamd: `Squares Bold`. Dit lettertype kwam eht dicht bij mijn visie in de buurt. Naast het feit dat ik een nieuwe font gebruik heb ik ook de letters zelf een styling gegeven. Inplaats van alles in één `<h1>` of `<h2>` element te plaatsen heb ik in elk `<h1>` en `<h2>` element `<span>` elementen aangemaakt. Op deze manier kan ik elke letter zijn eigen styling en zelf animatie geven. Zo heb ik uiteindelijk deze animatie gemaakt: <br>
+![7609473a71e5bbc6d5f88e95ba92e994-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/8ac64c37-b735-4f78-8c25-28622d0fd841) <br>
+Dit heb ik gedaan met zowel code voor de kleuren aanpassen: <br>
+<img width="429" height="608" alt="image" src="https://github.com/user-attachments/assets/16ae47aa-8388-4929-a0d4-9fdf76e75697" /> <br>
+Als de animatie afspelen tussen elk blokje. Dit heb ik ook nog met een delay mooier kunnen maken zodat het niet allemaal tegelijekrtijd afspeelt. <br>
+<img width="573" height="334" alt="image" src="https://github.com/user-attachments/assets/2f93224f-665a-4702-9659-3ae31bca1123" /> <br>
+<br><br>
+// Buttons <br>
+Om de website meer als een buerau te laten voelen heb ik vandaag veel met de knoppen gespeelt. Ik heb ten eerste de positie van de control panel aangepast van de linker kant van het scherm naar de rechter kant van het scherm. Dit was voor mijn gevoel meer overzichtelijk en clashed minder met de 'Back' button die ik nog wilde toevoegen: <br>
+<img width="1603" height="908" alt="image" src="https://github.com/user-attachments/assets/c7b49ff6-baf3-45d4-957c-664ae9a506fb" /><br>
+DOor het aan deze kant van het scherm te zeggen kreeg ik ineens veel meer ruimte om te spelen met andere knoppen. De volgende twee knoppen die ik namelijk wilde toevoegen zijn:
+- Back
+- Debug
+Deze knoppen vind ik niet alleen belangrijk omdat je tussen levels kan switchen, maar als ik zelf meer draaiingen toe wil voegen heb ik een debug mode nodig om de coordinated te checken van elke blokje. Natuurlijk wilde ik deze knoppen niet toevoegen als twee losse in de UI, dus ben ik bezig geweest met deze knoppen omzetten naar blaadjes papier op het bureau. Dit komt meer natuurlijk over en dient zelfs als een soort 'Easter Egg'. Dit zijn voor mij twee vliegen in één klap: <br>
+<img width="679" height="558" alt="image" src="https://github.com/user-attachments/assets/d3a9ee68-b872-4544-8aa2-73178de9ce73" /> <br>
+Omdat ik deze knoppen heb gestyled als A4 bladen voelt de hele scene ook meteen meer als een bureau.
+<br><br>
+
+// Compleet draaien van de Cube <br>
+Als je de cube wilt oplossen wil je natuurlijk alle kanten van de kubus bekijken, Anders heb je straks alleen de voorkant opgelost of ben je heel lang bezig met de kubus oplossen. Daarom heb ik een snelle functie toegevoegd waarmee je de hele kubus kan draaien: <br>
+![4b6359a4bf8dfee3a0d94d54930c7695-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/24ac22fa-e466-4a90-ad0b-7a22a91f870a) <br>
+Om deze kubus in zijn geheel te laten draaien heb ik hetzelfde principe gebruikt als het draaien van één zijde, mar deze keer pas ik dat toe op de hele kubus:<br>
+<img width="975" height="461" alt="image" src="https://github.com/user-attachments/assets/be010e30-3979-4ac7-9821-7931da49a93d" /> <br>
+In eerste instantie wilde ik `rotate3d` gebruiker, maar elke keer als ik draaide, dan draaide de verschillende zijdes niet mee en zag de kubus er heel raar uit.
+<br><br>
+// Details <br>
+Als laatste ben ik bezig geweest met wat kleinere details op de pagina zelf. Een voorbeeld is het toevoegen van een kleine animatie op de moeilijke moeilijkheidsgraag. Op de achtergrond staat de titel van de pagina, in deze titel gebruiken we het woord 'Break'. Bij dit level het ik het woord ook gebroken omdat het 'Broken' moeilijk is: <br>
+![9d64065c0b2b4b7aa9367d7700575f83-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/9f8a4653-ebb4-46ee-9c26-59616d3419d8) <br>
+Dit was een klein detail dat ik wilde toevoegen aan de website om het wat meer tot leven te brengen. Anders was de achtergrond te statisch en werd het snel een 'dode' website.
+
+## Week 4 - Reflectie
+Deze week heb ik mijn project zo goed als af kunnen maken. Ik heb elk element in mijn website kunnen verwerken tot zover kon en ik ben ook echt heel trots op het product dat ik op dit moment heb staan. Hoewel ik het jammer vind dat ik niet alle 4096 combinaties heb kunnen verwerken in de website, ben ik wel blij met wat ik WEL heb kunnen verwerken. Ik heb een mooie gestylde website kunnen maken met kleine details en zelfs verschillende levels. 5 weken geleden wist ik niet eens dat dit mogelijk was, en nu heb ik een hele rubik's cube kunnen maken in alleen html en css, echt te gek. <br><br>
+
+De volgende keer wil ik eerder beginnen met het mooi maken van de website zelf. Omdat ik zo erg bezig ben geweest met het laten werken van de kubus, ben ik tot de laatste week helemaal vergeten te stylen en details toe te voegen aan de website zelf. Hoewel ik er nog optijd achteraan ben gegaan, was het bijna te laat om er een leuke website van de maken. Hopelijk kan ik deze website ooit nog afmaken, maar ik weet wel dat ik deze skills zeker ga gebruiken om een mooie Introductie website te maken voor de eindopdracht!
+
+## Bronnenlijst
+// Links <br>
+- W3School https://www.w3schools.com/
+- ChatGPT https://chatgpt.com/
+- Gemini https://gemini.google.com/app?hl=nl
+- Backdrop filter van: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/backdrop-filter
+- Squares Bold van https://www.1001fonts.com/squares-bold-font.html
+- Voor de container queries heb ik https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries gebruikt
+- Link naar website voor text-shadow: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-shadow
+- Link naar bron: https://www.w3schools.com/cssref/func_cubic-bezier.php
+
+// Prompts <br>
+- Vraag: Ik wil de debug knop stylen naar een stukje papier die op het bureau ligt. Ik weet dat het mogelijk is, maar ik krijg de positioning niet correct. Elke eker verdwijnt hij. */
+- Dat is zeker mogelijk en een heel tof detail voor je interface! Omdat je kubus al in een 3D-omgeving lijkt te staan met die schaduw eronder, kunnen we de debug-knop transformeren tot een "post-it" of een gescheurd blaadje dat plat op het bureau ligt. Hier is hoe we dat doen met CSS transform en wat subtiele filters: Vervang de styling van je debug-label door deze code. We gebruiken rotateX om hem "plat" neer te leggen.
+<br><br>
+- Aan gemini gevraagd of hij een raam kon maken als achtergrond materiaal */
+- Antwoord: Ah, nu snap ik je! Je wilt dat het raam echt onderdeel is van de muur (bijna als een uitsnede) in plaats van een zwevend object met een eigen perspectief. De oranje lijnen laten zien dat je een plat, grafisch raam wilt dat strak in de linkerbovenhoek tegen de bovenkant aan zit. We gebruiken de ::before of ::after op de body, maar we zetten hem nu fixed en top: 0.
+<br><br>
+- Gevraagd aan gemini waarom:  body:has(input[value="neutral"]:checked) { --scheme: neutral; } niet werkt
+- Antwoord: In jouw code is de body de container, en je probeert binnen de @container regel de body aan te passen. Dat ziet de browser als een soort "oneindige lus" en negeert het. De Oplossing: Gebruik de html tag of een wrapper.
+<br><br>
+- Hoe kan ik de mini-cubes zelf 3D krijgen zonder een moeilijk systeem te bouwen die zichzelf herhaalt? */
+- Antwoord: Leuk idee wat je wilt maken! Helaas kan het niet zonder herhaling, maar ik ga je helpen om de kubussen van jouw Rubiks kubus 3D te krijgen. Elke mini-kubus moet dezelfde obouw krijgen als de grote kubus, elk met verschillende kanten.
+<br><br>
+- Gevraagt aan Gemini of mijn code korter kon: Is er een manier waarop ik niet steeds deze regels moet herhalen? misschien dat ik div[style*="--x:0; --y:2; --z:2;"],[style*="--x:0; --y:1; --z:2;"] kan doen ofzo?
+- Gemini zei Absoluut, dat kan een stuk korter! Je kunt de body:has(...) selector één keer opschrijven en daarachter een lijst met de specifieke div selectors hangen, gescheiden door komma's. Met :has() kun je de herhaling van de body:has volledig voorkomen. Je zet de variabele onderdelen gewoon in een lijstje.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
