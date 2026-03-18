@@ -226,10 +226,21 @@ section label {
         }
         }
     }
+}
+
+@media (max-width: 890px) {
     label {
         &:has(input[value="debug"]) {
             position: fixed;
-            left: 66vw;
+            left: 70vw;
+            top: 88vh;
+            width: 60px;
+            height: 60px;
+        }
+
+        &:has(input[value="back"]) {
+            position: fixed;
+            left: 55vw;
             top: 88vh;
             width: 60px;
             height: 60px;

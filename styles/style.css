@@ -462,6 +462,10 @@ label{
         left: 50%;
     }
 
+    h2:has(span)::after {
+        left: calc(50% - 40px);
+    }
+
     h1 {
         font-size: min(max(55px, 8vw), 70px);
         text-align: center;
